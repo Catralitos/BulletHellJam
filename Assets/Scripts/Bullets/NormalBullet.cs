@@ -6,7 +6,12 @@ namespace Bullets
     {
         private void Start()
         {
-            Body.AddForce(transform.up * BulletSpeed, ForceMode2D.Impulse);
+            OnObjectSpawn();
+        }
+
+        public override void OnObjectSpawn()
+        {
+            Body.AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
         }
     }
 }

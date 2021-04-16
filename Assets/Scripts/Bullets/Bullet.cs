@@ -1,15 +1,13 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Bullets
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour, IPooledObject
     {
-        public LayerMask Damageables;
+        public LayerMask damageables;
         
-        public float BulletSpeed = 20.0f;
-        public int BulletDamage = 1;
+        public float bulletSpeed = 20.0f;
+        public int bulletDamage = 1;
         
         protected Rigidbody2D Body;
 
@@ -20,12 +18,17 @@ namespace Bullets
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (Damageables.value == other.gameObject.layer)
+            if (damageables.value == other.gameObject.layer)
             {
                 //do damage
             }
             
             Destroy(gameObject);
+        }
+
+        public virtual void OnObjectSpawn()
+        {
+            //do nothing, each bullet will know what to do
         }
     }
 }
