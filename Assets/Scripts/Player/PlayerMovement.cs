@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player
@@ -6,6 +7,7 @@ namespace Player
     {
         public int angleOffset = -90;
         public float aimSensitivity = 0.75f;
+        public float rotationSensitivity = 1.15f;
         public float runSpeed = 20.0f;
         public bool mouseControl = false;
 
@@ -13,10 +15,12 @@ namespace Player
         private Rigidbody2D _body;
         private Camera _camera;
         private PlayerShooting _playerShooting;
-        
+
         private Vector2 _move;
         private Vector2 _aim;
-        
+        private float _angle;
+        private float _lastAngle;
+
         private void Awake()
         {
             _playerControls = new PlayerControls();
@@ -38,8 +42,10 @@ namespace Player
                 _playerControls.ControllerGameplay.Move.canceled += _ => _move = Vector2.zero;
                 _playerControls.ControllerGameplay.Aim.performed += ctx =>
                 {
-                    Vector2 value = ctx.ReadValue<Vector2>();
-                    _aim = value.magnitude > aimSensitivity ? value : _aim;
+                    var value = ctx.ReadValue<Vector2>();
+                    var valueRounded = new Vector2((float) Math.Round(value.x, 2), (float) Math.Round(value.y, 2));
+                    if (valueRounded.magnitude < aimSensitivity) return;
+                    _aim = valueRounded;
                     _playerShooting.Shoot();
                 };
             }
@@ -88,9 +94,11 @@ namespace Player
 
         private void RotateTo()
         {
-            //isto começa-te sempre virado para a direita, podemos por um _aim no awake ou assim
-            var angle = Mathf.Atan2(_aim.y, _aim.x) * Mathf.Rad2Deg + angleOffset;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            _lastAngle = _angle;
+            _angle = Mathf.Atan2(_aim.y, _aim.x) * Mathf.Rad2Deg + angleOffset;
+            Debug.Log(Mathf.Abs(_lastAngle - _angle));
+            if (Mathf.Abs(_lastAngle - _angle) > rotationSensitivity)
+                transform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
         }
     }
 }
