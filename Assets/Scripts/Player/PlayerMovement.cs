@@ -20,20 +20,31 @@ namespace Player
         private Vector2 _aim;
         private float _angle;
         private float _lastAngle;
-
+        private bool _firing = false;
+        private int _mousePresses = 0;
+        
         private void Awake()
         {
             _playerControls = new PlayerControls();
 
             if (mouseControl)
             {
-                _playerControls.KeyboardGameplay.Fire.performed += _ => _playerShooting.Shoot();
+                _playerControls.KeyboardGameplay.Fire.performed += _ =>
+                {
+                    _mousePresses++;
+                    _firing = true;
+                };
+                _playerControls.KeyboardGameplay.Fire.canceled += _ =>
+                {
+                    _firing = false;
+                };
                 _playerControls.KeyboardGameplay.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
                 _playerControls.KeyboardGameplay.Move.canceled += _ => _move = Vector2.zero;
                 _playerControls.KeyboardGameplay.Aim.performed += ctx =>
                 {
                     var dir = _camera.WorldToScreenPoint(transform.position);
                     _aim = ctx.ReadValue<Vector2>() - new Vector2(dir.x, dir.y);
+                    _firing = true;
                 };
             }
             else
@@ -46,8 +57,9 @@ namespace Player
                     var valueRounded = new Vector2((float) Math.Round(value.x, 2), (float) Math.Round(value.y, 2));
                     if (valueRounded.magnitude < aimSensitivity) return;
                     _aim = valueRounded;
-                    _playerShooting.Shoot();
-                };
+                    _firing = true;
+                };                
+                _playerControls.ControllerGameplay.Aim.canceled += _ => _firing = false;
             }
         }
 
@@ -80,11 +92,13 @@ namespace Player
             _body = GetComponent<Rigidbody2D>();
             _camera = Camera.main;
             _playerShooting = GetComponent<PlayerShooting>();
+            _firing = false;
         }
 
         private void Update()
         {
             RotateTo();
+            if (_firing && (_mousePresses > 0 || !mouseControl)) _playerShooting.Shoot();
         }
 
         private void FixedUpdate()
@@ -96,7 +110,7 @@ namespace Player
         {
             _lastAngle = _angle;
             _angle = Mathf.Atan2(_aim.y, _aim.x) * Mathf.Rad2Deg + angleOffset;
-            Debug.Log(Mathf.Abs(_lastAngle - _angle));
+            //Debug.Log(Mathf.Abs(_lastAngle - _angle));
             if (Mathf.Abs(_lastAngle - _angle) > rotationSensitivity)
                 transform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
         }

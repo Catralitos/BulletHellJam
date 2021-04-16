@@ -24,7 +24,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""3e67139e-0b9a-4350-bec8-bc25401d685b"",
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.01,pressPoint=0.5)""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Aim"",
@@ -32,7 +32,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""ecdd5417-3fc6-4664-a7d7-4ffe3f9f62a4"",
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.01,pressPoint=0.5)""
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -70,7 +70,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""fa5337e4-a3c9-44f2-8da2-4f9b6c1744a2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.01,pressPoint=0.5)""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Move"",
