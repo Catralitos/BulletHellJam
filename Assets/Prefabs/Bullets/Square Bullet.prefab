@@ -96,6 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd4d3d14537abd4188fcc4f1c810699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageables:
+    serializedVersion: 2
+    m_Bits: 256
+  bulletSpeed: 20
+  bulletDamage: 1
   horizontalForce: 1
   verticalForce: 1
 --- !u!50 &8642649013410904719

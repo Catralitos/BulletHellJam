@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Bullets
 {
-    public class CubeBullet : MonoBehaviour, IPooledObject
+    public class CubeBullet : Bullet
     {
         public float horizontalForce = 0.0f;
         public float verticalForce = 5.0f;
-        public void OnObjectSpawn()
+        public override void OnObjectSpawn()
         {
             //float xForce = Random.Range(-horizontalForce, horizontalForce);
             //float yForce = Random.Range(-verticalForce, verticalForce);
