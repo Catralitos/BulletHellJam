@@ -28,12 +28,16 @@ public class TimeManager : MonoBehaviour
 
     private void Update()
     {
-        if (_freezeTimeLeft > 0)
+        if (_freezeTimeLeft > 0f)
         {
             _timeRunning = false;
             _freezeTimeLeft -= Time.deltaTime;
         }
-        else _freezeTimeLeft = 0f;
+        else
+        {
+            _freezeTimeLeft = 0f;
+            _timeRunning = true;
+        }
 
         if (!_timeRunning) return;
 
@@ -43,7 +47,8 @@ public class TimeManager : MonoBehaviour
             //TODO spawn proxima wave
             timeLeft = Cooldown;
         }
-        countdownText.text = string.Format("{0:0.000}", timeLeft);
+
+        countdownText.text = $"{timeLeft:0.000}";
     }
 
     public void FreezeTime(float time)

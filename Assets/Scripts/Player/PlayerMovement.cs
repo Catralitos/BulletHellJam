@@ -28,8 +28,8 @@ namespace Player
 
             if (mouseControl)
             {
-                _playerControls.KeyboardGameplay.Fire.performed += _ => { _firing = true; };
-                _playerControls.KeyboardGameplay.Fire.canceled += _ => { _firing = false; };
+                _playerControls.KeyboardGameplay.Fire.performed += _ => _firing = true;
+                _playerControls.KeyboardGameplay.Fire.canceled += _ => _firing = false;
                 _playerControls.KeyboardGameplay.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
                 _playerControls.KeyboardGameplay.Move.canceled += _ => _move = Vector2.zero;
                 _playerControls.KeyboardGameplay.Aim.performed += ctx =>
