@@ -1,20 +1,77 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public int angleOffset;
+    private PlayerControls _playerControls;
 
+    public int angleOffset = 90;
+    public float aimSensitivity = 0.1f;
+    
     private Rigidbody2D _body;
     private Camera _camera;
-
-    private float _horizontal;
-    private float _vertical;
-
+    
+    private Vector2 _move;
+    private Vector2 _aim;
+    
     public float runSpeed = 20.0f;
     public bool mouseControl = false;
+
+    private void Awake()
+    {
+        _playerControls = new PlayerControls();
+
+        if (mouseControl)
+        {
+            _playerControls.KeyboardGameplay.Fire.performed += _ => Shoot();
+            _playerControls.KeyboardGameplay.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
+            _playerControls.KeyboardGameplay.Move.canceled += _ => _move = Vector2.zero;
+            _playerControls.KeyboardGameplay.Aim.performed += ctx =>
+            {
+                var dir = _camera.WorldToScreenPoint(transform.position);
+                _aim =  ctx.ReadValue<Vector2>() - new Vector2(dir.x, dir.y);
+            };
+        }
+        else
+        {
+            _playerControls.ControllerGameplay.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
+            _playerControls.ControllerGameplay.Move.canceled += _ => _move = Vector2.zero;
+            _playerControls.ControllerGameplay.Aim.performed += ctx =>
+            {
+                Vector2 value = ctx.ReadValue<Vector2>();
+                _aim = value.magnitude > aimSensitivity ? value : _aim; 
+                Shoot();
+            };
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (mouseControl)
+        {
+            _playerControls.KeyboardGameplay.Enable();
+        }
+        else
+        {
+            _playerControls.ControllerGameplay.Enable();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (mouseControl)
+        {
+            _playerControls.KeyboardGameplay.Disable();
+        }
+        else
+        {
+            _playerControls.ControllerGameplay.Disable();
+        }
+    }
 
     private void Start()
     {
@@ -24,38 +81,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _horizontal = Input.GetAxisRaw("Horizontal");
-        _vertical = Input.GetAxisRaw("Vertical");
-        if (mouseControl)
-        {
-            var dir = Input.mousePosition - _camera.WorldToScreenPoint(transform.position);
-            RotateTo(dir);
-            if (Input.GetButtonDown("Fire"))
-            {
-                Shoot();
-            }
-        }
-        else
-        {
-            var horizontalAim = Input.GetAxisRaw("HorizontalAim");
-            var verticalAim = Input.GetAxisRaw("VerticalAim");
-            var dir = new Vector2(horizontalAim, verticalAim);
-            RotateTo(dir);
-            if (!(dir.magnitude <= 0.01))
-            {
-                Shoot();
-            }
-        }
+        RotateTo();
     }
 
     private void FixedUpdate()
     {
-        _body.velocity = new Vector2(_horizontal * runSpeed, _vertical * runSpeed);
+        _body.velocity = new Vector2(_move.x * runSpeed, _move.y * runSpeed);
     }
 
-    private void RotateTo(Vector2 dir)
+    private void RotateTo()
     {
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + angleOffset;
+        //isto começa-te sempre virado para a direita, podemos por um _aim no awake ou assim
+        var angle = Mathf.Atan2(_aim.y, _aim.x) * Mathf.Rad2Deg + angleOffset;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
