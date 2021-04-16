@@ -11,8 +11,8 @@ namespace Player
         public List<GameObject> bulletPrefabs;
         public Transform firePoint;
 
-        private int _currentBullet = 0;
         private bool _canShoot = true;
+        private int _currentBullet = 0;
 
         private void Update()
         {
@@ -23,8 +23,6 @@ namespace Player
 
         public void Shoot()
         {
-            //Debug.Log("Shoot chamado");
-            //a força mais vale meter on awake em cada bala, para padroes diferentes
             if (!_canShoot) return;
             Instantiate(bulletPrefabs[_currentBullet], firePoint.position, firePoint.rotation);
             _canShoot = false;

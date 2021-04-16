@@ -5,22 +5,22 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        public int angleOffset = -90;
+        public bool mouseControl = false;
         public float aimSensitivity = 0.75f;
         public float rotationSensitivity = 1.15f;
         public float runSpeed = 20.0f;
-        public bool mouseControl = false;
+        public int angleOffset = -90;
 
-        private PlayerControls _playerControls;
-        private Rigidbody2D _body;
         private Camera _camera;
+        private PlayerControls _playerControls;
         private PlayerShooting _playerShooting;
+        private Rigidbody2D _body;
 
-        private Vector2 _move;
-        private Vector2 _aim;
+        private bool _firing = false;
         private float _angle;
         private float _lastAngle;
-        private bool _firing = false;
+        private Vector2 _move;
+        private Vector2 _aim;
 
         private void Awake()
         {
@@ -56,26 +56,14 @@ namespace Player
 
         private void OnEnable()
         {
-            if (mouseControl)
-            {
-                _playerControls.KeyboardGameplay.Enable();
-            }
-            else
-            {
-                _playerControls.ControllerGameplay.Enable();
-            }
+            if (mouseControl) _playerControls.KeyboardGameplay.Enable();
+            else _playerControls.ControllerGameplay.Enable();
         }
 
         private void OnDisable()
         {
-            if (mouseControl)
-            {
-                _playerControls.KeyboardGameplay.Disable();
-            }
-            else
-            {
-                _playerControls.ControllerGameplay.Disable();
-            }
+            if (mouseControl) _playerControls.KeyboardGameplay.Disable();
+            else _playerControls.ControllerGameplay.Disable();
         }
 
         private void Start()
