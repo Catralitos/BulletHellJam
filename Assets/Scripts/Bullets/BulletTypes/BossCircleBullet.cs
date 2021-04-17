@@ -13,9 +13,12 @@ namespace Bullets.BulletTypes
         public override void OnObjectSpawn()
         { 
 
-            float xForce = Mathf.Cos(horizontalForce + Time.deltaTime);
-            float yForce = Mathf.Sin(-verticalForce, verticalForce);
+            float xForce = horizontalForce*Mathf.Cos(angle);
+            float yForce = verticalForce*Mathf.Sin(angle);
             Vector2 force = new Vector2(xForce, yForce);
+
+            //Update angle for next spawn
+            angle = (angle + angleStep) % 360.0f;
 
             GetComponent<Rigidbody2D>().velocity = force;
         }
