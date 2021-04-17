@@ -2,14 +2,12 @@ using UnityEngine;
 
 namespace Bullets.BulletTypes
 {
-    public class CubeBullet : Bullet
+    public class ClusterBullet : Bullet
     {
-        public float horizontalForce = 0.0f;
-        public float verticalForce = 5.0f;
+        private float horizontalForce = 3.0f;
+        private float verticalForce = 0.5f;
         public override void OnObjectSpawn()
         {
-            //float xForce = Random.Range(-horizontalForce, horizontalForce);
-            //float yForce = Random.Range(-verticalForce, verticalForce);
 
             float xForce = Mathf.Sin(horizontalForce + Time.deltaTime);
             float yForce = Random.Range(-verticalForce, verticalForce);

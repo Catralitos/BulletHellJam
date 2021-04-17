@@ -3,10 +3,12 @@ using UnityEngine;
 
 namespace Bullets.Spawners
 {
-    public class CircleBulletSpawner : MonoBehaviour
+    public class RingPatternSpawner : MonoBehaviour
     {
         private BulletPooler _bulletPooler;
+        [SerializeField]
         private float angle = 0.0f;
+        [SerializeField]
         private float angleStep = 0.1f;
 
         private void Start()
@@ -17,10 +19,13 @@ namespace Bullets.Spawners
 
         private void Spawner()
         {
-            _bulletPooler.SpawnFromPool("Circles", transform.position, Quaternion.identity, angle);
+            _bulletPooler.SpawnFromPool("RingPattern", transform.position, Quaternion.identity, angle);
+            /*
             if (2 * Math.PI - angleStep < angle + angleStep && angle + angleStep < 2 * Math.PI + angleStep)
                 angle = 0.0f;        
             else angle += angleStep;
+            */
+            angle += angleStep;
         }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Bullets.Spawners
 {
-    public class CubeBulletSpawner : MonoBehaviour
+    public class ClusterSpawner : MonoBehaviour
     {
         private BulletPooler _bulletPooler;
 
@@ -14,7 +14,7 @@ namespace Bullets.Spawners
 
         private void Spawner()
         {
-            _bulletPooler.SpawnFromPool("Cube", transform.position, Quaternion.identity);
+            _bulletPooler.SpawnFromPool("ClusterPattern", transform.position, Quaternion.identity);
         }
     
     }
