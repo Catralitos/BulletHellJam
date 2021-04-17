@@ -10,12 +10,12 @@ namespace Player
         public float bulletAngle = 30.0f;
         [HideInInspector] public float currentFireRate;
         public float fireRate = 1.0f;
-        public float timeLeft = 0.0f;
 
         public GameObject bulletPrefab;
         public Transform firePoint;
 
         private bool _canShoot = true;
+        private float _timeLeft = 0.0f;
 
         private void Start()
         {
@@ -25,8 +25,8 @@ namespace Player
 
         private void Update()
         {
-            if (timeLeft < 0) _canShoot = true;
-            timeLeft -= Time.deltaTime;
+            if (_timeLeft < 0) _canShoot = true;
+            _timeLeft -= Time.deltaTime;
         }
 
         public void Shoot()
@@ -44,7 +44,7 @@ namespace Player
             }
 
             _canShoot = false;
-            timeLeft = 1 / currentFireRate;
+            _timeLeft = 1 / currentFireRate;
         }
     }
 }

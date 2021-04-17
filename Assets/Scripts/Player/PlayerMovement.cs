@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Player
@@ -7,6 +8,8 @@ namespace Player
     {
         public bool mouseControl = false;
         public float aimSensitivity = 0.75f;
+        public float dodgeSpeed = 10;
+        public float dodgeTime = 0.5f;
         public float rotationSensitivity = 1.15f;
         public float runSpeed = 20.0f;
         public int angleOffset = -90;
@@ -15,12 +18,17 @@ namespace Player
         private PlayerControls _playerControls;
         private PlayerShooting _playerShooting;
         private Rigidbody2D _body;
+        private SpriteRenderer _spriteRenderer;
 
+        private bool _dodging = false;
         private bool _firing = false;
         private float _angle;
+        private float _dodgeCooldown;
         private float _lastAngle;
-        private Vector2 _move;
+
+        private Vector2 _dodgeDirection;
         private Vector2 _aim;
+        private Vector2 _move;
 
         private void Awake()
         {
@@ -30,18 +38,24 @@ namespace Player
             {
                 _playerControls.KeyboardGameplay.Fire.performed += _ => _firing = true;
                 _playerControls.KeyboardGameplay.Fire.canceled += _ => _firing = false;
-                _playerControls.KeyboardGameplay.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
+                _playerControls.KeyboardGameplay.Move.performed += ctx => { _move = ctx.ReadValue<Vector2>(); };
                 _playerControls.KeyboardGameplay.Move.canceled += _ => _move = Vector2.zero;
                 _playerControls.KeyboardGameplay.Aim.performed += ctx =>
                 {
                     var dir = _camera.WorldToScreenPoint(transform.position);
                     _aim = ctx.ReadValue<Vector2>() - new Vector2(dir.x, dir.y);
                 };
+                _playerControls.KeyboardGameplay.Dash.performed += _ =>
+                {
+                    if (_dodging) return;
+                    _dodging = true;
+                    _dodgeDirection = _move;
+                };
             }
             else
             {
-                _playerControls.ControllerGameplay.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
-                _playerControls.ControllerGameplay.Move.canceled += _ => _move = Vector2.zero;
+                _playerControls.ControllerGameplay.Move.performed += ctx => { _move = ctx.ReadValue<Vector2>(); };
+                _playerControls.ControllerGameplay.Move.canceled += _ => { _move = Vector2.zero; };
                 _playerControls.ControllerGameplay.Aim.performed += ctx =>
                 {
                     var value = ctx.ReadValue<Vector2>();
@@ -51,6 +65,12 @@ namespace Player
                     _firing = true;
                 };
                 _playerControls.ControllerGameplay.Aim.canceled += _ => _firing = false;
+                _playerControls.ControllerGameplay.Dash.started += _ =>
+                {
+                    if (_dodging) return;
+                    _dodging = true;
+                    _dodgeDirection = _move;
+                };
             }
         }
 
@@ -71,24 +91,32 @@ namespace Player
             _body = GetComponent<Rigidbody2D>();
             _camera = Camera.main;
             _playerShooting = GetComponent<PlayerShooting>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
         {
             RotateTo();
             if (_firing) _playerShooting.Shoot();
+            if (_dodging) _dodgeCooldown -= Time.deltaTime;
+            if (_dodgeCooldown >= 0f) return;
+            _dodgeDirection = Vector2.zero;
+            _body.velocity = Vector2.zero;
+            _dodging = false;
+            _dodgeCooldown = dodgeTime;
         }
 
         private void FixedUpdate()
         {
-            _body.velocity = new Vector2(_move.x * runSpeed, _move.y * runSpeed);
+            _body.velocity = !_dodging
+                ? _move * runSpeed
+                : (_dodgeDirection * 10).normalized * dodgeSpeed;
         }
 
         private void RotateTo()
         {
             _lastAngle = _angle;
             _angle = Mathf.Atan2(_aim.y, _aim.x) * Mathf.Rad2Deg + angleOffset;
-            //Debug.Log(Mathf.Abs(_lastAngle - _angle));
             if (Mathf.Abs(_lastAngle - _angle) > rotationSensitivity)
                 transform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
         }

@@ -33,6 +33,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""4dd21cac-710e-485c-bc14-76fa09a3b72a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -55,6 +63,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76274525-5376-4b26-bb10-2b8e7c4b6757"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -85,6 +104,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""43652344-751f-4829-bf62-a38a612a9dfd"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""a62b8299-5e5d-4dbf-ac6f-b704cff1a9a3"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -166,6 +193,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7dc0cbb6-1cad-452b-aefd-1bab391c8ba6"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -176,11 +214,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_ControllerGameplay = asset.FindActionMap("ControllerGameplay", throwIfNotFound: true);
         m_ControllerGameplay_Move = m_ControllerGameplay.FindAction("Move", throwIfNotFound: true);
         m_ControllerGameplay_Aim = m_ControllerGameplay.FindAction("Aim", throwIfNotFound: true);
+        m_ControllerGameplay_Dash = m_ControllerGameplay.FindAction("Dash", throwIfNotFound: true);
         // KeyboardGameplay
         m_KeyboardGameplay = asset.FindActionMap("KeyboardGameplay", throwIfNotFound: true);
         m_KeyboardGameplay_Fire = m_KeyboardGameplay.FindAction("Fire", throwIfNotFound: true);
         m_KeyboardGameplay_Move = m_KeyboardGameplay.FindAction("Move", throwIfNotFound: true);
         m_KeyboardGameplay_Aim = m_KeyboardGameplay.FindAction("Aim", throwIfNotFound: true);
+        m_KeyboardGameplay_Dash = m_KeyboardGameplay.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -232,12 +272,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IControllerGameplayActions m_ControllerGameplayActionsCallbackInterface;
     private readonly InputAction m_ControllerGameplay_Move;
     private readonly InputAction m_ControllerGameplay_Aim;
+    private readonly InputAction m_ControllerGameplay_Dash;
     public struct ControllerGameplayActions
     {
         private @PlayerControls m_Wrapper;
         public ControllerGameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_ControllerGameplay_Move;
         public InputAction @Aim => m_Wrapper.m_ControllerGameplay_Aim;
+        public InputAction @Dash => m_Wrapper.m_ControllerGameplay_Dash;
         public InputActionMap Get() { return m_Wrapper.m_ControllerGameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -253,6 +295,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Aim.started -= m_Wrapper.m_ControllerGameplayActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_ControllerGameplayActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_ControllerGameplayActionsCallbackInterface.OnAim;
+                @Dash.started -= m_Wrapper.m_ControllerGameplayActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_ControllerGameplayActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_ControllerGameplayActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_ControllerGameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -263,6 +308,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -274,6 +322,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_KeyboardGameplay_Fire;
     private readonly InputAction m_KeyboardGameplay_Move;
     private readonly InputAction m_KeyboardGameplay_Aim;
+    private readonly InputAction m_KeyboardGameplay_Dash;
     public struct KeyboardGameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -281,6 +330,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Fire => m_Wrapper.m_KeyboardGameplay_Fire;
         public InputAction @Move => m_Wrapper.m_KeyboardGameplay_Move;
         public InputAction @Aim => m_Wrapper.m_KeyboardGameplay_Aim;
+        public InputAction @Dash => m_Wrapper.m_KeyboardGameplay_Dash;
         public InputActionMap Get() { return m_Wrapper.m_KeyboardGameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -299,6 +349,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Aim.started -= m_Wrapper.m_KeyboardGameplayActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_KeyboardGameplayActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_KeyboardGameplayActionsCallbackInterface.OnAim;
+                @Dash.started -= m_Wrapper.m_KeyboardGameplayActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_KeyboardGameplayActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_KeyboardGameplayActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_KeyboardGameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -312,6 +365,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -320,11 +376,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
     public interface IKeyboardGameplayActions
     {
         void OnFire(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }
