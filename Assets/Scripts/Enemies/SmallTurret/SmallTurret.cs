@@ -12,7 +12,7 @@ namespace Enemies.SmallTurret
         protected override void Start()
         {
             base.Start();
-            State = SmallTurretShoot.Create(this);
+            State = SmallTurretIdle.Create(this);
         }
     }
 }

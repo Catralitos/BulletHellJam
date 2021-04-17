@@ -1,20 +1,16 @@
 using UnityEngine;
 
-namespace Player
+namespace Bullets.Spawners.Enemies
 {
-    public class PlayerEntity : MonoBehaviour
+    public class BossEntity : MonoBehaviour
     {
-
-        [HideInInspector] public PlayerHealth health;
-        
         #region SingleTon
 
-        public static PlayerEntity Instance;
+        public static BossEntity Instance;
 
         private void Awake()
         {
             Instance = this;
-            health = GetComponent<PlayerHealth>();
         }
 
         #endregion

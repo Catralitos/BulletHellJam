@@ -18,12 +18,8 @@ namespace Enemies.SmallTurret
             {
                 BulletPooler.Instance.SpawnFromPool(Target.poolName, transform.position, quaternion.identity);
             }
-            SetState(SmallTurretIdle.Create(Target));
-        }
 
-        public override void StateUpdate()
-        {
-            //do nothing
+            SetState(SmallTurretIdle.Create(Target));
         }
     }
 }
