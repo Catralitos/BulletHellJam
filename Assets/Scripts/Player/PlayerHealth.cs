@@ -1,3 +1,4 @@
+using Extensions;
 using UnityEngine;
 
 namespace Player
@@ -8,18 +9,12 @@ namespace Player
 
         public int playerHits = 3;
         public int hitsLeft = 3;
-
-        private void OnCollisionEnter2D(Collision2D other)
+        
+        public void DoDamage()
         {
-            if (damagers.value != other.gameObject.layer) return;
-            if (hitsLeft > 1) DoDamage();
+            if (hitsLeft > 1) hitsLeft--;
             else Die();
-        }
-
-        private void DoDamage()
-        {
-            hitsLeft--;
-            //tocar animaçoes etc
+            //animaçoes etc
         }
 
         private void Die()
