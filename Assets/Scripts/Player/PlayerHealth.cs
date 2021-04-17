@@ -1,3 +1,4 @@
+using System;
 using Extensions;
 using UnityEngine;
 
@@ -7,9 +8,14 @@ namespace Player
     {
         public LayerMask damagers;
 
-        public int playerHits = 3;
-        public int hitsLeft = 3;
-        
+        public int playerHits = 1;
+        public int hitsLeft = 1;
+
+        private void Start()
+        {
+            hitsLeft = playerHits;
+        }
+
         public void DoDamage()
         {
             if (hitsLeft > 1) hitsLeft--;

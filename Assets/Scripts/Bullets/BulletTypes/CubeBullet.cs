@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Bullets
+namespace Bullets.BulletTypes
 {
     public class CubeBullet : Bullet
     {

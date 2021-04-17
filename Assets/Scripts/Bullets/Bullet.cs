@@ -20,12 +20,12 @@ namespace Bullets
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (damageables.HasLayer(col.gameObject.layer))
+            if (damageables.HasLayer(col.gameObject.layer) && !col.isTrigger)
             {
                 PlayerEntity.Instance.health.DoDamage();
             }
 
-            if (gameObject.layer != col.gameObject.layer) Destroy(gameObject);
+            if (gameObject.layer != col.gameObject.layer && !col.isTrigger) Destroy(gameObject);
         }
 
         public virtual void OnObjectSpawn()
