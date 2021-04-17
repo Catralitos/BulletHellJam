@@ -163,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 169675589}
   - component: {fileID: 169675590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CirclesSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 458791008}
   - component: {fileID: 458791007}
   - component: {fileID: 458791006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DummyBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 745203642}
   - component: {fileID: 745203641}
   - component: {fileID: 745203643}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pooler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ MonoBehaviour:
     size: 30
   - tag: Circles
     prefab: {fileID: 7071756471361137827, guid: 12b323be1be67ac48b4c71b65c59c1c1, type: 3}
-    size: 100
+    size: 5
 --- !u!4 &745203642
 Transform:
   m_ObjectHideFlags: 0
@@ -528,7 +528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 790077375}
   - component: {fileID: 790077374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CubesSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

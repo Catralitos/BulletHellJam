@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Bullets.Spawners
@@ -41,7 +42,7 @@ namespace Bullets.Spawners
             }
         }
 
-        public GameObject SpawnFromPool (string poolTag, Vector2 spawnPos, Quaternion rotation)
+        public GameObject SpawnFromPool (string poolTag, Vector2 spawnPos, Quaternion rotation, /*[Optional]*/ float angle = 30f)
         {
             if (!_poolDictionary.ContainsKey(poolTag))
             {
@@ -55,8 +56,10 @@ namespace Bullets.Spawners
             objToSpawn.transform.rotation = rotation;
 
             IPooledObject pooledObj = objToSpawn.GetComponent<IPooledObject>();
-
-            pooledObj?.OnObjectSpawn();
+            if(angle == 30f)
+                pooledObj.OnObjectSpawn();
+            else
+                pooledObj.OnObjectSpawn(angle);
             
             _poolDictionary[poolTag].Enqueue(objToSpawn);
 

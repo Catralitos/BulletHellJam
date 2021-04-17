@@ -98,12 +98,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageables:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+  passThrough:
+    serializedVersion: 2
+    m_Bits: 704
   bulletSpeed: 20
   bulletDamage: 1
-  angleStep: 5
+  angleStep: 1
   horizontalForce: 5
   verticalForce: 5
+  angle: 0
 --- !u!50 &1873270420277322598
 Rigidbody2D:
   serializedVersion: 4

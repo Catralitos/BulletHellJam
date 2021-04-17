@@ -4,13 +4,13 @@ namespace Bullets.BulletTypes
 {
     public class BossCircleBullet : Bullet
     {
-        [SerializeField]
-        public float angleStep = 5.0f;
+        
+        private float angleStep = 0.1f;
 
-        public float horizontalForce = 5.0f;
-        public float verticalForce = 5.0f;
+        private float horizontalForce = 5.0f;
+        private float verticalForce = 5.0f;
         private float angle = 0.0f;
-        public override void OnObjectSpawn()
+        public override void OnObjectSpawn(float angle)
         { 
 
             float xForce = horizontalForce*Mathf.Cos(angle);
@@ -19,6 +19,7 @@ namespace Bullets.BulletTypes
 
             //Update angle for next spawn
             angle = (angle + angleStep) % 360.0f;
+            Debug.Log("Angle: " + angle.ToString());
 
             GetComponent<Rigidbody2D>().velocity = force;
         }
