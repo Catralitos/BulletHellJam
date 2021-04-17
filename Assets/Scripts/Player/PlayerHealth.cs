@@ -1,5 +1,3 @@
-using System;
-using Extensions;
 using UnityEngine;
 
 namespace Player

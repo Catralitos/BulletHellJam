@@ -1,15 +1,11 @@
-using Player;
 using UnityEngine;
 
 namespace Enemies.Base
 {
     public abstract class EnemyBase : MonoBehaviour
     {
-        protected bool isAlive
-        {
-            get => currentHealth > 0;
-        }
-
+        protected bool IsAlive => currentHealth > 0;
+        
         public int currentHealth;
         public int maxHealth;
         [SerializeField] private GameObject explosionPrefab;
@@ -19,12 +15,7 @@ namespace Enemies.Base
         {
             currentHealth = maxHealth;
         }
-
-        protected virtual bool IsAlive
-        {
-            get => currentHealth > 0;
-        }
-
+        
         public void Call(string messageName)
         {
             SendMessage(messageName);
@@ -32,9 +23,9 @@ namespace Enemies.Base
 
         public virtual void Hit(int damage)
         {
-            if (!isAlive) return;
+            if (!IsAlive) return;
             currentHealth = Mathf.Max(currentHealth - damage, 0);
-            if (!isAlive) Die();
+            if (!IsAlive) Die();
         }
 
         protected virtual void Die()
@@ -57,10 +48,10 @@ namespace Enemies.Base
 
         public override void Hit(int damage)
         {
-            if (!isAlive) return;
+            if (!IsAlive) return;
             currentHealth = Mathf.Max(currentHealth - damage, 0);
             State.OnGetHit();
-            if (!isAlive) Die();
+            if (!IsAlive) Die();
         }
 
         protected virtual void Update()

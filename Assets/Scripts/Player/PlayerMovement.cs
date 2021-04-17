@@ -1,12 +1,11 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        public bool mouseControl = false;
+        public bool mouseControl;
         public float aimSensitivity = 0.75f;
         public float dodgeSpeed = 10;
         public float dodgeTime = 0.5f;
@@ -18,10 +17,9 @@ namespace Player
         private PlayerControls _playerControls;
         private PlayerShooting _playerShooting;
         private Rigidbody2D _body;
-        private SpriteRenderer _spriteRenderer;
 
-        private bool _dodging = false;
-        private bool _firing = false;
+        private bool _dodging;
+        private bool _firing;
         private float _angle;
         private float _dodgeCooldown;
         private float _lastAngle;
@@ -91,7 +89,6 @@ namespace Player
             _body = GetComponent<Rigidbody2D>();
             _camera = Camera.main;
             _playerShooting = GetComponent<PlayerShooting>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Update()

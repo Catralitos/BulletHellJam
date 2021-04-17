@@ -1,6 +1,4 @@
 using Bullets.Spawners;
-using Bullets.Spawners.Enemies;
-using Player;
 using UnityEngine;
 
 namespace Enemies.OrbitShooter
@@ -22,7 +20,7 @@ namespace Enemies.OrbitShooter
             base.StateStart();
             _boss = BossEntity.Instance.gameObject.transform;
             _cooldownLeft = Target.fireRate;
-            //TODO animações e tal
+            //TODO animations
         }
 
         public override void StateUpdate()

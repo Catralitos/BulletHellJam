@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerShooting : MonoBehaviour
     {
-        [HideInInspector] public int plus2 = 0;
+        [HideInInspector] public int plus2;
         public float bulletAngle = 30.0f;
         [HideInInspector] public float currentFireRate;
         public float fireRate = 1.0f;
@@ -15,7 +13,7 @@ namespace Player
         public Transform firePoint;
 
         private bool _canShoot = true;
-        private float _timeLeft = 0.0f;
+        private float _timeLeft;
 
         private void Start()
         {

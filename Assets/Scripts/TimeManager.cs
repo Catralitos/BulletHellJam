@@ -7,8 +7,8 @@ public class TimeManager : MonoBehaviour
 
     private bool _timeRunning = true;
     private const float Cooldown = 10f;
-    private float _freezeTimeLeft = 0;
-    private float _timeLeft = 0f;
+    private float _freezeTimeLeft;
+    private float _timeLeft;
 
     #region SingleTon
 

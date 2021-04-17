@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Bullets.Spawners.Enemies
+namespace Enemies
 {
     public class BossEntity : MonoBehaviour
     {
