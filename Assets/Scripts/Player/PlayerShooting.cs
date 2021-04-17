@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,14 +6,22 @@ namespace Player
 {
     public class PlayerShooting : MonoBehaviour
     {
+        [HideInInspector] public int plus2 = 0;
+        public float bulletAngle = 30.0f;
+        [HideInInspector] public float currentFireRate;
         public float fireRate = 1.0f;
         public float timeLeft = 0.0f;
 
-        public List<GameObject> bulletPrefabs;
+        public GameObject bulletPrefab;
         public Transform firePoint;
 
         private bool _canShoot = true;
-        private int _currentBullet = 0;
+
+        private void Start()
+        {
+            currentFireRate = 1 / fireRate;
+            plus2 = 0;
+        }
 
         private void Update()
         {
@@ -20,13 +29,22 @@ namespace Player
             timeLeft -= Time.deltaTime;
         }
 
-
         public void Shoot()
         {
             if (!_canShoot) return;
-            Instantiate(bulletPrefabs[_currentBullet], firePoint.position, firePoint.rotation);
+            var gunPosition = firePoint.position;
+            Instantiate(bulletPrefab, gunPosition, firePoint.rotation);
+            for (var i = 0; i < plus2; i++)
+            {
+                var angles = firePoint.rotation.eulerAngles;
+                var plus = angles + (i + 1) * this.bulletAngle * Vector3.forward;
+                var minus = angles - (i + 1) * this.bulletAngle * Vector3.forward;
+                Instantiate(bulletPrefab, gunPosition, Quaternion.Euler(plus));
+                Instantiate(bulletPrefab, gunPosition, Quaternion.Euler(minus));
+            }
+
             _canShoot = false;
-            timeLeft = fireRate;
+            timeLeft = 1 / currentFireRate;
         }
     }
 }

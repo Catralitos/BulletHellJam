@@ -6,7 +6,8 @@ namespace Player
     {
 
         [HideInInspector] public PlayerHealth health;
-        
+        [HideInInspector] public PlayerShooting shooting;
+
         #region SingleTon
 
         public static PlayerEntity Instance;
@@ -15,6 +16,7 @@ namespace Player
         {
             Instance = this;
             health = GetComponent<PlayerHealth>();
+            shooting = GetComponent<PlayerShooting>();
         }
 
         #endregion
