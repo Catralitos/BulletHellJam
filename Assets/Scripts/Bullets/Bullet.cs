@@ -7,7 +7,8 @@ namespace Bullets
     public class Bullet : MonoBehaviour, IPooledObject
     {
         public LayerMask damageables;
-
+        public LayerMask walls;
+        
         public float bulletSpeed = 20.0f;
         public int bulletDamage = 1;
 
@@ -20,12 +21,12 @@ namespace Bullets
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (damageables.HasLayer(col.gameObject.layer) && !col.isTrigger)
+            /*if (damageables.HasLayer(col.gameObject.layer) && !col.isTrigger)
             {
                 PlayerEntity.Instance.health.DoDamage();
-            }
+            }*/
 
-            if (gameObject.layer != col.gameObject.layer && !col.isTrigger) Destroy(gameObject);
+            if (walls.HasLayer(col.gameObject.layer) && !col.isTrigger) Destroy(gameObject);
         }
 
         public virtual void OnObjectSpawn()

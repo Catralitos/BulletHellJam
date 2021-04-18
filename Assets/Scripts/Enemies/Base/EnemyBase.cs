@@ -1,3 +1,5 @@
+using System;
+using Extensions;
 using UnityEngine;
 
 namespace Enemies.Base
@@ -5,6 +7,8 @@ namespace Enemies.Base
     public abstract class EnemyBase : MonoBehaviour
     {
         protected bool IsAlive => currentHealth > 0;
+
+        public LayerMask playerBullets;
         
         public int currentHealth;
         public int maxHealth;
@@ -21,7 +25,7 @@ namespace Enemies.Base
             SendMessage(messageName);
         }
 
-        public virtual void Hit(int damage)
+        protected virtual void Hit(int damage)
         {
             if (!IsAlive) return;
             currentHealth = Mathf.Max(currentHealth - damage, 0);
@@ -35,6 +39,14 @@ namespace Enemies.Base
             else Debug.LogWarning("ExplosionPrefab not set!");
             Destroy(gameObject);
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (playerBullets.HasLayer(other.gameObject.layer))
+            {
+                Hit(1);
+            }
+        }
     }
 
     public abstract class EnemyBase<TEnemyType> : EnemyBase where TEnemyType : EnemyBase<TEnemyType>
@@ -46,7 +58,7 @@ namespace Enemies.Base
             this.State = state;
         }
 
-        public override void Hit(int damage)
+        protected override void Hit(int damage)
         {
             if (!IsAlive) return;
             currentHealth = Mathf.Max(currentHealth - damage, 0);

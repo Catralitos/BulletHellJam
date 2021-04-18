@@ -19,7 +19,7 @@ namespace Enemies.Boss
         {
             base.StateStart();
             _cooldownLeft = Target.phaseCooldown;
-            _currentPool = Target.bulletPools[Random.Range(0, Target.bulletPools.Count)];
+            //_currentPool = Target.bulletPools[Random.Range(0, Target.bulletPools.Count)];
         }
 
         public override void StateUpdate()
