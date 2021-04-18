@@ -7,8 +7,8 @@ namespace Player
     {
         public bool mouseControl;
         public float aimSensitivity = 0.75f;
-        public float dashSpeed = 10;
         public float dashCooldown = 1f;
+        public float dashSpeed = 10;
         public float dashTime = 0.5f;
         public float rotationSensitivity = 1.15f;
         public float runSpeed = 20.0f;
