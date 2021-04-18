@@ -7,8 +7,9 @@ namespace Player
     {
         public bool mouseControl;
         public float aimSensitivity = 0.75f;
-        public float dodgeSpeed = 10;
-        public float dodgeTime = 0.5f;
+        public float dashSpeed = 10;
+        public float dashCooldown = 1f;
+        public float dashTime = 0.5f;
         public float rotationSensitivity = 1.15f;
         public float runSpeed = 20.0f;
         public int angleOffset = -90;
@@ -18,13 +19,15 @@ namespace Player
         private PlayerShooting _playerShooting;
         private Rigidbody2D _body;
 
-        private bool _dodging;
+        private bool _canDash;
+        private bool _dashing;
         private bool _firing;
         private float _angle;
-        private float _dodgeCooldown;
+        private float _dashCooldownLeft;
+        private float _dashLeft;
         private float _lastAngle;
 
-        private Vector2 _dodgeDirection;
+        private Vector2 _dashDirection;
         private Vector2 _aim;
         private Vector2 _move;
 
@@ -45,9 +48,9 @@ namespace Player
                 };
                 _playerControls.KeyboardGameplay.Dash.performed += _ =>
                 {
-                    if (_dodging) return;
-                    _dodging = true;
-                    _dodgeDirection = _move;
+                    if (_dashing || !_canDash) return;
+                    _dashing = true;
+                    _dashDirection = _move;
                 };
             }
             else
@@ -65,9 +68,9 @@ namespace Player
                 _playerControls.ControllerGameplay.Aim.canceled += _ => _firing = false;
                 _playerControls.ControllerGameplay.Dash.started += _ =>
                 {
-                    if (_dodging) return;
-                    _dodging = true;
-                    _dodgeDirection = _move;
+                    if (_dashing || !_canDash) return;
+                    _dashing = true;
+                    _dashDirection = _move;
                 };
             }
         }
@@ -95,19 +98,23 @@ namespace Player
         {
             RotateTo();
             if (_firing) _playerShooting.Shoot();
-            if (_dodging) _dodgeCooldown -= Time.deltaTime;
-            if (_dodgeCooldown >= 0f) return;
-            _dodgeDirection = Vector2.zero;
+            if (_dashing) _dashLeft -= Time.deltaTime;
+            else _dashCooldownLeft -= Time.deltaTime;
+            if (_dashCooldownLeft < 0f) _canDash = true;
+            if (_dashLeft >= 0f) return;
+            _dashDirection = Vector2.zero;
             _body.velocity = Vector2.zero;
-            _dodging = false;
-            _dodgeCooldown = dodgeTime;
+            _dashing = false;
+            _dashLeft = dashTime;
+            _canDash = false;
+            _dashCooldownLeft = dashCooldown;
         }
 
         private void FixedUpdate()
         {
-            _body.velocity = !_dodging
+            _body.velocity = !_dashing
                 ? _move * runSpeed
-                : (_dodgeDirection * 10).normalized * dodgeSpeed;
+                : (_dashDirection * 10).normalized * dashSpeed;
         }
 
         private void RotateTo()

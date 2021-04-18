@@ -42,7 +42,7 @@ namespace Player
             }
 
             _canShoot = false;
-            _timeLeft = 1 / currentFireRate;
+            _timeLeft = currentFireRate;
         }
     }
 }
