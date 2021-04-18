@@ -100,8 +100,8 @@ MonoBehaviour:
   playerBullets:
     serializedVersion: 2
     m_Bits: 64
-  currentHealth: 5
-  maxHealth: 5
+  currentHealth: 1000
+  maxHealth: 1000
   explosionPrefab: {fileID: 0}
   explosionSpawn: {fileID: 0}
   clockwise: 1

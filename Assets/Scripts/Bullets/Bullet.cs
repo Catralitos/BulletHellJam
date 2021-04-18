@@ -6,7 +6,11 @@ namespace Bullets
 {
     public class Bullet : MonoBehaviour, IPooledObject
     {
-        public LayerMask damageables;
+        //o script inimigo deteta balas do player para receber dano
+        //logo este OnTrigger enter só é para magoar o player e desturi balas nas paredes
+        //se calhar podia ser tudo aqui, mas usaria muitos get components/ifs
+        //se calhar era mais simples mas agora nao sei como
+        public LayerMask playerLayer;
         public LayerMask walls;
         
         public float bulletSpeed = 20.0f;
@@ -19,14 +23,15 @@ namespace Bullets
             Body = GetComponent<Rigidbody2D>();
         }
 
+        //so para balas inimigas
         private void OnTriggerEnter2D(Collider2D col)
         {
-            /*if (damageables.HasLayer(col.gameObject.layer) && !col.isTrigger)
+            if (playerLayer.HasLayer(col.gameObject.layer) && !col.isTrigger)
             {
                 PlayerEntity.Instance.health.DoDamage();
-            }*/
+            }
 
-            if (walls.HasLayer(col.gameObject.layer) && !col.isTrigger) Destroy(gameObject);
+            if (walls.HasLayer(col.gameObject.layer) && !col.isTrigger) gameObject.SetActive(false);
         }
 
         public virtual void OnObjectSpawn()

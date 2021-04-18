@@ -9,7 +9,7 @@ namespace Enemies.Base
         protected bool IsAlive => currentHealth > 0;
 
         public LayerMask playerBullets;
-        
+
         public int currentHealth;
         public int maxHealth;
         [SerializeField] private GameObject explosionPrefab;
@@ -19,7 +19,7 @@ namespace Enemies.Base
         {
             currentHealth = maxHealth;
         }
-        
+
         public void Call(string messageName)
         {
             SendMessage(messageName);
@@ -42,10 +42,10 @@ namespace Enemies.Base
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (playerBullets.HasLayer(other.gameObject.layer))
-            {
-                Hit(1);
-            }
+            if (!playerBullets.HasLayer(other.gameObject.layer)) return;
+
+            Hit(1);
+            Destroy(other.gameObject);
         }
     }
 
