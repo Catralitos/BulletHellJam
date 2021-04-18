@@ -162,6 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 169675589}
+  - component: {fileID: 169675590}
   m_Layer: 9
   m_Name: RingPatternSpawner
   m_TagString: Untagged
@@ -179,59 +180,28 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1788844311}
-  - {fileID: 251107324}
-  - {fileID: 2053694767}
-  - {fileID: 1939781498}
+  m_Children: []
   m_Father: {fileID: 458791008}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &251107323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 251107324}
-  - component: {fileID: 251107325}
-  m_Layer: 0
-  m_Name: CircularSpawner2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &251107324
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251107323}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 169675589}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &251107325
+--- !u!114 &169675590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251107323}
+  m_GameObject: {fileID: 169675588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c95718c3e757341a831322a5a74cd3, type: 3}
+  m_Script: {fileID: 11500000, guid: f648768645c464745a7a2558864a3cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0.4
-  angleStep: 0.3
+  shootInterval: 0.2
+  angle: 0
+  angleStep: 0.1
+  angleDistance: 0.4
+  numberShots: 4
+  active: 1
 --- !u!1 &262572475
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +607,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61d242ab013dcb458078a412ff54839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootInterval: 0.1
+  angle: 2
+  maxAngleStep: 0.1
+  active: 1
 --- !u!4 &790077375
 Transform:
   m_ObjectHideFlags: 0
@@ -861,6 +835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseControl: 1
   aimSensitivity: 0.75
+  dodgeSpeed: 10
+  dodgeTime: 0.5
   rotationSensitivity: 3
   runSpeed: 5
   angleOffset: -90
@@ -876,10 +852,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3de5197faa4dfd9ce76d7e1c330a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plus2: 0
+  bulletAngle: 30
+  currentFireRate: 0
   fireRate: 0.5
-  timeLeft: 0
-  bulletPrefabs:
-  - {fileID: 8750919168978133669, guid: db847d1a263e2cf44be7052eb3dbb742, type: 3}
+  bulletPrefab: {fileID: 8750919168978133669, guid: db847d1a263e2cf44be7052eb3dbb742, type: 3}
   firePoint: {fileID: 83168057}
 --- !u!114 &867868353
 MonoBehaviour:
@@ -927,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  shooting: {fileID: 0}
 --- !u!1 &1151346162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,51 +1115,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1788844310
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1788844311}
-  - component: {fileID: 1788844312}
-  m_Layer: 0
-  m_Name: CircularSpawner1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1788844311
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788844310}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 169675589}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1788844312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788844310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c95718c3e757341a831322a5a74cd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angle: 0
-  angleStep: 0.3
 --- !u!1 &1796741991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,51 +1268,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   freezeMultiplier: 1
---- !u!1 &1939781497
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1939781498}
-  - component: {fileID: 1939781499}
-  m_Layer: 0
-  m_Name: CircularSpawner4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1939781498
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939781497}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 169675589}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1939781499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939781497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c95718c3e757341a831322a5a74cd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angle: 1.2
-  angleStep: 0.3
 --- !u!1 &1957765702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,48 +1368,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &2053694766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2053694767}
-  - component: {fileID: 2053694768}
-  m_Layer: 0
-  m_Name: CircularSpawner3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2053694767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053694766}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 169675589}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2053694768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053694766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c95718c3e757341a831322a5a74cd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angle: 0.8
-  angleStep: 0.3

@@ -4,13 +4,11 @@ namespace Bullets.BulletTypes
 {
     public class ClusterBullet : Bullet
     {
-        private float horizontalForce = 3.0f;
-        private float verticalForce = 0.5f;
-        public override void OnObjectSpawn()
+        public override void OnObjectSpawn(float angle, float maxAngleStep)
         {
 
-            float xForce = Mathf.Sin(horizontalForce + Time.deltaTime);
-            float yForce = Random.Range(-verticalForce, verticalForce);
+            float xForce = bulletSpeed * Mathf.Cos(Random.Range(angle - maxAngleStep, angle + maxAngleStep));
+            float yForce = bulletSpeed * Mathf.Sin(Random.Range(angle - maxAngleStep, angle + maxAngleStep));
             Vector2 force = new Vector2(xForce, yForce);
 
             GetComponent<Rigidbody2D>().velocity = force;

@@ -40,5 +40,10 @@ namespace Bullets
         {
             //do nothing, each bullet will know what to do
         }
+
+        public virtual void OnObjectSpawn(float angle, float maxAngleStep)
+        {
+            //do nothing, each bullet will know what to do
+        }
     }
 }
