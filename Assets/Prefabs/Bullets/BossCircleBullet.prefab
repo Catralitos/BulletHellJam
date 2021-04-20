@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6270812002620633597}
   - component: {fileID: -8412407585615841370}
   - component: {fileID: 1873270420277322598}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BossCircleBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1295938741
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 0.9753064, b: 0, a: 1}
@@ -96,14 +96,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c27a19f6ed1a90448e6eaac1d8687af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageables:
+  playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  passThrough:
+  walls:
     serializedVersion: 2
-    m_Bits: 704
-  bulletSpeed: 1
+    m_Bits: 1024
+  destroy: 0
   bulletDamage: 1
+  bulletSpeed: 1
 --- !u!50 &1873270420277322598
 Rigidbody2D:
   serializedVersion: 4

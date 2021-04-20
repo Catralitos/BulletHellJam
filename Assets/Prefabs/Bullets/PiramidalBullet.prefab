@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1296025252186760085}
   - component: {fileID: 6846949000416997646}
   - component: {fileID: -3304554798259169045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PiramidalBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1295938741
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0, g: 1, b: 0.0450387, a: 1}
@@ -117,11 +117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a33e9d65864304c93f7a22a8048b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageables:
+  playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  passThrough:
+    m_Bits: 256
+  walls:
     serializedVersion: 2
-    m_Bits: 0
-  bulletSpeed: 4
+    m_Bits: 512
+  destroy: 0
   bulletDamage: 1
+  bulletSpeed: 4

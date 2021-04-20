@@ -3,30 +3,18 @@ using UnityEngine;
 
 namespace Bullets.Spawners
 {
-    public class ShockwaveRingSpawner : MonoBehaviour
+    public class ShockwaveRingSpawner : Spawner
     {
-        private BulletPooler _bulletPooler;
-        [SerializeField]
-        private float shootInterval = 0.5f;
-        [SerializeField]
-        private int directions = 10;
+        [SerializeField] private int directions = 10;
 
-        private void Start()
+        public override void Spawn()
         {
-            _bulletPooler = BulletPooler.Instance;
-            InvokeRepeating(nameof(Spawner), 0.0f, shootInterval);
-        }
-
-        private void Spawner()
-        {
-            
+            if (!active) return;
             for (int i = 0; i < directions; i++)
             {
-
-                _bulletPooler.SpawnFromPool("Shockwave Pattern", transform.position, Quaternion.identity,
-                    (i * 1.0f) / directions * 2*Mathf.PI);
+                _bulletPooler.SpawnFromPool("Wave", transform.position, Quaternion.identity,
+                    (i * 1.0f) / directions * 2 * Mathf.PI);
             }
-            
         }
     }
 }

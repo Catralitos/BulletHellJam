@@ -2,27 +2,16 @@ using UnityEngine;
 
 namespace Bullets.Spawners
 {
-    public class ClusterSpawner : MonoBehaviour
+    public class ClusterSpawner : Spawner
     {
-        private BulletPooler _bulletPooler;
-        [SerializeField]
-        private float shootInterval = 0.5f;
-        [SerializeField]
-        private float angle = 0f;
-        [SerializeField]
-        private float maxAngleStep = 0.3f;
-        public bool active = true;
-        private void Start()
-        {
-            _bulletPooler = BulletPooler.Instance;
-            InvokeRepeating(nameof(Spawner), 0.0f, shootInterval);
-        }
+        [SerializeField] private float angle = 0f;
+        [SerializeField] private float maxAngleStep = 0.3f;
 
-        private void Spawner()
+        public override void Spawn()
         {
             if (active)
-            _bulletPooler.SpawnFromPool("ClusterPattern", transform.position, Quaternion.identity, angle, maxAngleStep);
+                _bulletPooler.SpawnFromPool("Cluster", transform.position, Quaternion.identity, angle,
+                    maxAngleStep);
         }
-    
     }
 }
