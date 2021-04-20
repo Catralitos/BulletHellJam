@@ -1,9 +1,12 @@
+using Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
     public Text countdownText;
+
+    private AudioManager _audioManager;
 
     private bool _timeRunning = true;
     private const float Cooldown = 10f;
@@ -24,6 +27,8 @@ public class TimeManager : MonoBehaviour
     private void Start()
     {
         _timeLeft = Cooldown;
+        _audioManager = AudioManager.Instance;
+        _audioManager.Play("LevelMusic");
     }
 
     private void Update()
