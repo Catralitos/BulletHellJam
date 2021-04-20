@@ -51,9 +51,10 @@ MonoBehaviour:
     m_Bits: 256
   walls:
     serializedVersion: 2
-    m_Bits: 0
-  bulletSpeed: 20
+    m_Bits: 1024
+  destroy: 1
   bulletDamage: 1
+  bulletSpeed: 20
 --- !u!50 &8750919168978133668
 Rigidbody2D:
   serializedVersion: 4
