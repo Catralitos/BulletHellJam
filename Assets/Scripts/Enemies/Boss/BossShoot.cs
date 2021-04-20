@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Enemies.Base;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,7 +9,8 @@ namespace Enemies.Boss
     public class BossShoot : EnemyState<Boss>
     {
         private float _cooldownLeft;
-        private String _currentPool;
+        private List<String> _currentPooList;
+
         public static BossShoot Create(Boss target)
         {
             var state = BossState.Create<BossShoot>(target);
@@ -28,7 +30,7 @@ namespace Enemies.Boss
             {
                 _cooldownLeft = Target.phaseCooldown;
                 Target.clockwise = !Target.clockwise;
-                _currentPool = Target.bulletPools[Random.Range(0, Target.bulletPools.Count)];
+                //_currentPool = Target.bulletPools[Random.Range(0, Target.bulletPools.Count)];
             }
 
             var sign = Target.clockwise ? -1 : 1;
@@ -40,10 +42,13 @@ namespace Enemies.Boss
         private void Kill()
         {
             //todo acabar isto
-            switch (_currentPool)
+            foreach (var pool in _currentPooList)
             {
-                case "Pyramid":
-                    break;
+                switch (pool)
+                {
+                    case "Pyramid":
+                        break;
+                }
             }
         }
     }
