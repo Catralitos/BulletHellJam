@@ -1,6 +1,5 @@
 using System;
 using Enemies.Base;
-using UnityEngine;
 
 namespace Enemies.OrbitShooter
 {

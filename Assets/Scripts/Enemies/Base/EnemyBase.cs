@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using Extensions;
 using UnityEngine;
 
@@ -12,8 +12,10 @@ namespace Enemies.Base
 
         public int currentHealth;
         public int maxHealth;
+        public float randomDropChance = 0.1f;
+        public List<GameObject> powerUps;
+        
         [SerializeField] private GameObject explosionPrefab;
-        [SerializeField] private Transform explosionSpawn;
 
         protected virtual void Start()
         {
@@ -34,10 +36,13 @@ namespace Enemies.Base
 
         protected virtual void Die()
         {
-            var spawnPos = explosionSpawn != null ? explosionSpawn.position : transform.position;
+            var spawnPos = transform.position;
             if (explosionPrefab != null) Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-            else Debug.LogWarning("ExplosionPrefab not set!");
             Destroy(gameObject);
+            if (Random.Range(0.0f, 1.0f) <= randomDropChance)
+            {
+                Instantiate(powerUps[Random.Range(0, powerUps.Count)], spawnPos, Quaternion.identity);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
