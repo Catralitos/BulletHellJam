@@ -51,7 +51,7 @@ namespace Enemies.Boss
                 poolNumbers[i] = i;
             }
 
-            reshuffle(poolNumbers);
+            Reshuffle(poolNumbers);
             for (var i = 0; i < Target.numActivePools; i++)
             {
                 _currentPooList.Add(Target.bulletPools[poolNumbers[i]]);
@@ -103,7 +103,7 @@ namespace Enemies.Boss
         }
 
 
-        void reshuffle(int[] texts)
+        private void Reshuffle(int[] texts)
         {
             // Knuth shuffle algorithm :: courtesy of Wikipedia :)
             for (int t = 0; t < texts.Length; t++)
