@@ -19,5 +19,11 @@ namespace Enemies.Boss
             base.Start();
             State = BossShoot.Create(this);
         }
+
+        public void IncreaseActivePools()
+        {
+            if (numActivePools >= 5) return;
+            numActivePools++;
+        }
     }
 }
