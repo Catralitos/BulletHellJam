@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 799624072}
   - component: {fileID: 799624071}
   - component: {fileID: 799624070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Orbiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
