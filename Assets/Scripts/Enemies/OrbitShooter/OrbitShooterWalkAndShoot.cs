@@ -20,13 +20,17 @@ namespace Enemies.OrbitShooter
         {
             base.StateStart();
             _boss = BossEntity.Instance.gameObject.transform;
-            _cooldownLeft = Target.fireRate;
+            _cooldownLeft = 1 / Target.fireRate;
             //TODO animations
         }
 
         public override void StateUpdate()
         {
-            transform.RotateAround(_boss.position, Vector3.forward, Target.runSpeed * Time.deltaTime);
+            var bPosition = _boss.position;
+            var oTransform = transform;
+            oTransform.RotateAround(bPosition, Vector3.forward, Target.runSpeed * Time.deltaTime);
+            var offset = bPosition - oTransform.position;
+            oTransform.rotation = Quaternion.LookRotation(Vector3.forward, offset);
             if (_cooldownLeft > 0) _cooldownLeft -= Time.deltaTime;
             else
             {
@@ -35,7 +39,7 @@ namespace Enemies.OrbitShooter
                     BulletPooler.Instance.SpawnFromPool(Target.poolName, transform.position, Quaternion.identity);
                 }
 
-                _cooldownLeft = Target.fireRate;
+                _cooldownLeft = 1 / Target.fireRate;
             }
         }
     }

@@ -29,7 +29,6 @@ namespace Audio
 
         public void Play()
         {
-            Debug.Log(source.clip);
             source.Play();
         }
 
