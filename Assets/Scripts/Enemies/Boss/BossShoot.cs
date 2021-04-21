@@ -22,8 +22,8 @@ namespace Enemies.Boss
         {
             base.StateStart();
             _cooldownLeft = Target.phaseCooldown;
-            SetActivePools();
-            Kill();
+            //SetActivePools();
+            //Kill();
         }
 
         public override void StateUpdate()
