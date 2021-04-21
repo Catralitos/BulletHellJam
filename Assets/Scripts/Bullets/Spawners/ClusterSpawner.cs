@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 
 namespace Bullets.Spawners
@@ -9,9 +10,10 @@ namespace Bullets.Spawners
 
         public override void Spawn()
         {
-            if (active)
-                _bulletPooler.SpawnFromPool("Cluster", transform.position, Quaternion.identity, angle,
-                    maxAngleStep);
+            if (!active) return;
+            AudioManager.Instance.Play("EnemyFire");
+            _bulletPooler.SpawnFromPool("Cluster", transform.position, Quaternion.identity, angle,
+                maxAngleStep);
         }
     }
 }

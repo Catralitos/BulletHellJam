@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using UnityEngine;
 
 namespace Bullets.Spawners
@@ -12,6 +13,7 @@ namespace Bullets.Spawners
         public override void Spawn()
         {
             if (!active) return;
+            AudioManager.Instance.Play("EnemyFire");
             for (int i = 0; i < directions; i++)
             {
                 _bulletPooler.SpawnFromPool("Clock", transform.position, Quaternion.identity,

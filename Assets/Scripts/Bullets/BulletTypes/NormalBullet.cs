@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 
 namespace Bullets.BulletTypes
@@ -12,6 +13,7 @@ namespace Bullets.BulletTypes
         public override void OnObjectSpawn()
         {
             Body.AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
+            AudioManager.Instance.Play("PlayerFire");
         }
     }
 }
