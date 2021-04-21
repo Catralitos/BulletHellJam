@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using Bullets.Spawners;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -59,6 +60,7 @@ namespace Enemies.Boss
 
         private void Kill()
         {
+            AudioManager.Instance.Play("EvilLaugh");
             List<String> pools = Target.bulletPools;
             List<Spawner> spawners = Target.spawners;
             for (var i = 0; i < Target.bulletPools.Count; i++)
