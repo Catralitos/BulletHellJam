@@ -1,4 +1,5 @@
 using Bullets.Spawners;
+using Enemies.Boss;
 using UnityEngine;
 
 namespace Enemies.OrbitShooter
