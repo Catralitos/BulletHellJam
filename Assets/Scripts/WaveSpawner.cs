@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public LayerMask obstructables;
+    public LayerMask obstructions;
     public int maxNumberEnemies;
     public int minOrbiterRadius = 7;
     public int maxOrbiterRadius = 15;
@@ -38,12 +38,12 @@ public class WaveSpawner : MonoBehaviour
         {
             var toSpawn = turretPrefabs[Random.Range(0, _numTurrets)];
             var randomPoint = turretPositions[Random.Range(0, _numTurretPositions)];
-            bool overlap = Physics2D.OverlapCircle(randomPoint.position, circleWidth, obstructables);
+            bool overlap = Physics2D.OverlapCircle(randomPoint.position, circleWidth, obstructions);
             var c = 0;
             while (overlap && c < _numTurretPositions)
             {
                 randomPoint = turretPositions[Random.Range(0, _numTurretPositions)];
-                overlap = Physics2D.OverlapCircle(randomPoint.position, circleWidth, obstructables);
+                overlap = Physics2D.OverlapCircle(randomPoint.position, circleWidth, obstructions);
                 c++;
             }
 
@@ -56,14 +56,14 @@ public class WaveSpawner : MonoBehaviour
             var randomXRange = Random.Range(minOrbiterRadius, maxOrbiterRadius + 1);
             randomXRange = Random.Range(0, 2) == 1 ? randomXRange : -randomXRange;
             var spawn = Random.Range(0, 2) == 1 ? new Vector3(0, randomXRange, 0) : new Vector3(randomXRange, 0, 0);
-            bool overlap = Physics2D.OverlapCircle(spawn, circleWidth, obstructables);
+            bool overlap = Physics2D.OverlapCircle(spawn, circleWidth, obstructions);
             var c = 0;
             while (overlap && c < _numOrbiterPositions)
             {
                 randomXRange = Random.Range(minOrbiterRadius, maxOrbiterRadius + 1);
                 randomXRange = Random.Range(0, 2) == 1 ? randomXRange : -randomXRange;
                 spawn = Random.Range(0, 2) == 1 ? new Vector3(0, randomXRange, 0) : new Vector3(randomXRange, 0, 0);
-                overlap = Physics2D.OverlapCircle(spawn, circleWidth, obstructables);
+                overlap = Physics2D.OverlapCircle(spawn, circleWidth, obstructions);
                 c++;
             }
 

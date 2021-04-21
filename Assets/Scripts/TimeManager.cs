@@ -12,6 +12,7 @@ public class TimeManager : MonoBehaviour
     public Text scoreText;
 
     private AudioManager _audioManager;
+    private WaveSpawner _waveSpawner;
     private Boss _boss;
 
     private bool _timeRunning = true;
@@ -36,6 +37,7 @@ public class TimeManager : MonoBehaviour
         _timeLeft = Cooldown;
         _boss = BossEntity.Instance.boss;
         _audioManager = AudioManager.Instance;
+        _waveSpawner = GetComponent<WaveSpawner>();
         _audioManager.Play("LevelMusic");
         scoreText.text = $"{_currentScore:000000}";
     }
@@ -58,7 +60,7 @@ public class TimeManager : MonoBehaviour
         _timeLeft -= Time.deltaTime;
         if (_timeLeft < 0)
         {
-            //TODO spawn proxima wave
+            _waveSpawner.SpawnNextWave();
             _timeLeft = Cooldown;
         }
 

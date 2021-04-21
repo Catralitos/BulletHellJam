@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2196999363345057080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2196999363345057081}
+  - component: {fileID: 2196999363345057086}
+  - component: {fileID: 2196999363345057087}
+  - component: {fileID: 2196999363345057084}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2196999363345057081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196999363345057080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2196999363345057086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196999363345057080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a1694af8ea420495749d16e6d692ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthText: {fileID: 0}
+  countdownText: {fileID: 0}
+  freezeTimeText: {fileID: 0}
+  scoreText: {fileID: 0}
+--- !u!114 &2196999363345057087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196999363345057080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c8403e7a8cd9e4bb40d947031b626c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Cluster
+    prefab: {fileID: 7547469033759015976, guid: 79d141971c6a34243811d9cb9698bca4, type: 3}
+    size: 30
+  - tag: Ring
+    prefab: {fileID: 7071756471361137827, guid: 12b323be1be67ac48b4c71b65c59c1c1, type: 3}
+    size: 200
+  - tag: Wave
+    prefab: {fileID: 6046320337958322527, guid: dbf542f1a04029e4ca49a34a612b7567, type: 3}
+    size: 200
+  - tag: Clock
+    prefab: {fileID: 3883452406501611683, guid: bbfee3965a0943e4c8a788395f1596f2, type: 3}
+    size: 200
+  - tag: Pyramid
+    prefab: {fileID: 2655403429261655755, guid: 800f19d444073e04e8de96a5d3d340e6, type: 3}
+    size: 200
+--- !u!114 &2196999363345057084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196999363345057080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8db1d7d85ac421bbb333ef374fe7d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstructions:
+    serializedVersion: 2
+    m_Bits: 1792
+  maxNumberEnemies: 10
+  minOrbiterRadius: 7
+  maxOrbiterRadius: 15
+  circleWidth: 0.01
+  turretToOrbiterRatio: 0.75
+  orbiterPrefabs:
+  - {fileID: 275367690692114929, guid: c806aeea1705d4f4091e508d6af552ac, type: 3}
+  turretPrefabs:
+  - {fileID: 275367690692114929, guid: c806aeea1705d4f4091e508d6af552ac, type: 3}
+  turretPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
