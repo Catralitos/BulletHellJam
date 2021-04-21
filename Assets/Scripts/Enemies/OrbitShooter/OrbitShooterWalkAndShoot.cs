@@ -20,7 +20,7 @@ namespace Enemies.OrbitShooter
         {
             base.StateStart();
             _boss = BossEntity.Instance.gameObject.transform;
-            Target.spawner.GetComponent<Spawner>().active = true;
+            Target.spawner.active = true;
             //_cooldownLeft = 1 / Target.fireRate;
             //TODO animations
         }
