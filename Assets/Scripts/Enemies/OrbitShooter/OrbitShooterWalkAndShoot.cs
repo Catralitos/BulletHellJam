@@ -37,6 +37,7 @@ namespace Enemies.OrbitShooter
             {
                 for (var i = 0; i < Target.numBullets; i++)
                 {
+
                     BulletPooler.Instance.SpawnFromPool(Target.poolName, transform.position, Quaternion.identity);
                 }
                 Target.spawner.GetComponent<ClockPatternSpawner>().active = true;

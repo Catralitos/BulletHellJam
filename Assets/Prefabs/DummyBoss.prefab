@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.5
+  active: 0
   directions: 30
 --- !u!1 &7955770663358410168
 GameObject:
@@ -98,7 +99,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -190,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.5
+  active: 0
   directions: 2
   angleStep: 0.5
 --- !u!1 &7955770663606042273
@@ -236,11 +238,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.2
+  active: 1
   angle: 0
   angleStep: 0.1
   angleDistance: 0.4
   numberShots: 4
-  active: 1
 --- !u!1 &7955770663744370626
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.5
+  active: 0
   numberShots: 5
   angle: 4.5
   angleRange: 0.4
@@ -395,7 +398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a1694af8ea420495749d16e6d692ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossHealthText: {fileID: 0}
   countdownText: {fileID: 0}
+  freezeTimeText: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!1 &7955770664093002328
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.1
+  active: 1
   angle: 2
   maxAngleStep: 0.1
-  active: 1
