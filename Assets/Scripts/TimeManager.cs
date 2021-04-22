@@ -57,7 +57,7 @@ public class TimeManager : MonoBehaviour
             freezeTimeText.text = "";
         }
 
-        _timeLeft -= Time.deltaTime;
+        if (_timeRunning) _timeLeft -= Time.deltaTime;
         if (_timeLeft < 0)
         {
             _waveSpawner.SpawnNextWave();

@@ -1,3 +1,5 @@
+using System;
+using Extensions;
 using UnityEngine;
 
 namespace Player
@@ -12,6 +14,13 @@ namespace Player
         private void Start()
         {
             hitsLeft = playerHits;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            Debug.Log("Collision");
+            if (!damagers.HasLayer(other.gameObject.layer)) return;
+            DoDamage();
         }
 
         public void DoDamage()

@@ -3,10 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="9b2cf12a-fb79-441e-8369-6ccde0345242" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/BossCircleBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/BossCircleBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClockPatternBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClockPatternBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClusterBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClusterBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/PiramidalBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/PiramidalBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Shockwave Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Shockwave Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Boss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Boss.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BossSandbox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BossSandbox.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/Sound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Sound.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Enemies/TORRE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Enemies/TORRE.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,21 +38,17 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/LayerMaskExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerEntity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/DodgeBullets.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletDodge.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletTypes/BossCircleBullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/MainMenuMusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Spawners/Spawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossEntity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletTypes/NormalBullet.cs" />
@@ -53,12 +57,19 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Spawners/PiramidalPatternSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Spawners/RingPatternSpawner2.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Spawners/ShockwaveRingSpawner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossShoot.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Sound.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/WaveSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossShoot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SmallTurret/SmallTurretIdle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SmallTurret/SmallTurret.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SmallTurret/SmallTurretShoot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooter.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rEHt3AVZSNSZDRznuBY9rN7m4A" />
@@ -107,6 +118,11 @@
       </option>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor &amp; Play" />
+      <item itemvalue="Standalone Player.Standalone Player" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -123,6 +139,7 @@
       <workItem from="1618832911699" duration="1205000" />
       <workItem from="1618943497667" duration="13859000" />
       <workItem from="1618999165941" duration="13156000" />
+      <workItem from="1619103182993" duration="2618000" />
     </task>
     <servers />
   </component>
