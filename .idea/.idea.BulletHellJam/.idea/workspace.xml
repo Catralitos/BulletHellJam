@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b2cf12a-fb79-441e-8369-6ccde0345242" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BossSandbox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BossSandbox.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Enemies/enemy_sprite_spawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Enemies/enemy_sprite_spawn.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Enemies/turrent_sprite_spawn_amarelo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Enemies/turrent_sprite_spawn_amarelo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Enemies/INIMIGO.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Enemies/INIMIGO.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

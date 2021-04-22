@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5994990128409831077}
   - component: {fileID: 4367434501995433245}
   - component: {fileID: 8616947752427269706}
+  - component: {fileID: -1979060179950249872}
   m_Layer: 9
   m_Name: PyramidTower
   m_TagString: Untagged
@@ -157,6 +158,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2033956, y: 2.4962292}
   m_EdgeRadius: 0
+--- !u!95 &-1979060179950249872
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817231814682843421}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a2d84e39b698e44f82e3bcc28f52daf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1228557344825797575
 PrefabInstance:
   m_ObjectHideFlags: 0
