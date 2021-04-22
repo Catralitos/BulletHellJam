@@ -3,43 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b2cf12a-fb79-441e-8369-6ccde0345242" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/BossCircleBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/BossCircleBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClockPatternBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClockPatternBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClusterBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClusterBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/NormalBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/NormalBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/PiramidalBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/PiramidalBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Shockwave Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Shockwave Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/StraightBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/StraightBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/ClockTurret.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/ClockTurret.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/ClusterTurret.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/ClusterTurret.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Orbiter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Orbiter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/PyramidTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/PyramidTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/ShockwaveTurret.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/ShockwaveTurret.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/WaveTurret.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/WaveTurret.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_0.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_1_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_1_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_2_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_2_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão grande/Explosão_grande_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_0.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_1_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_1_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_2_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_2_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão média/Explosão_média_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_0.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_1_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_1_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_2_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_2_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Explosões/Explosão pequena/Explosão_pequena_3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,11 +56,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Explosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TitleScreenManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/EndScreenManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rEHt3AVZSNSZDRznuBY9rN7m4A" />
@@ -166,7 +131,7 @@
       <workItem from="1618832911699" duration="1205000" />
       <workItem from="1618943497667" duration="13859000" />
       <workItem from="1618999165941" duration="13156000" />
-      <workItem from="1619103182993" duration="7066000" />
+      <workItem from="1619103182993" duration="8061000" />
     </task>
     <servers />
   </component>
