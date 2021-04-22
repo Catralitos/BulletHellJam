@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f648768645c464745a7a2558864a3cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.6
+  shootInterval: 1
   active: 0
   angle: 0
-  angleStep: 0.3
+  angleStep: 0.6
   angleDistance: 1.2
   numberShots: 4
