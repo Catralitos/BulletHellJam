@@ -1,13 +1,15 @@
 using System;
 using Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
     public class PlayerHealth : MonoBehaviour
     {
         public LayerMask damagers;
-
+        public GameObject explosionPrefab;
+        
         public int playerHits = 1;
         public int hitsLeft = 1;
 
@@ -27,13 +29,19 @@ namespace Player
         {
             if (hitsLeft > 1) hitsLeft--;
             else Die();
-            //animaçoes etc
         }
 
         private void Die()
         {
+            var spawnPos = gameObject.transform.position;
             Destroy(gameObject);
-            //tocar animaçoes etc
+            Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
+            Invoke(nameof(BackToTitleScreen), 3f);
+        }
+
+        private void BackToTitleScreen()
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

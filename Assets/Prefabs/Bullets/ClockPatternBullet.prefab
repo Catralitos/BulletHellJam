@@ -124,6 +124,7 @@ MonoBehaviour:
   walls:
     serializedVersion: 2
     m_Bits: 1024
+  explosionPrefab: {fileID: 7955132180518712523, guid: b0a91b9396495a24c8ff303fbe3c75e9, type: 3}
   destroy: 0
   bulletDamage: 1
   bulletSpeed: 10

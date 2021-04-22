@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Extensions;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies.Base
 {
@@ -15,7 +17,7 @@ namespace Enemies.Base
         public float randomDropChance = 0.1f;
         public List<GameObject> powerUps;
         
-        [SerializeField] private GameObject explosionPrefab;
+        public GameObject explosionPrefab;
 
         protected virtual void Start()
         {
@@ -43,6 +45,8 @@ namespace Enemies.Base
             {
                 Instantiate(powerUps[Random.Range(0, powerUps.Count)], spawnPos, Quaternion.identity);
             }
+
+            Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

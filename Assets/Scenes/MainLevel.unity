@@ -1217,12 +1217,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1646094829721424038, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: hitsLeft
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646094829721424038, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: playerHits
-      value: 1
+      propertyPath: explosionPrefab
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1646094829721424089, guid: 4140aacfb0643804a94c30703720c569, type: 3}
       propertyPath: m_RootOrder
@@ -1285,6 +1281,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1851785514291374360, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 1781692488496526884, guid: 251cb43a19a4a354f90f5fd52248eeeb, type: 3}
     - target: {fileID: 1851785514291374361, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -1335,6 +1335,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1851785514291374365, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851785514629684712, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1851785514629684712, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}

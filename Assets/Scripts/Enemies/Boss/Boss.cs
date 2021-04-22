@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Bullets.Spawners;
 using Enemies.Base;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Enemies.Boss
 {
@@ -24,6 +25,20 @@ namespace Enemies.Boss
         {
             if (numActivePools >= 5) return;
             numActivePools++;
+        }
+
+        protected override void Die()
+        {
+            var spawnPos = transform.position;
+            if (explosionPrefab != null) Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
+            Destroy(gameObject);
+            Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
+            Invoke(nameof(LoadCredits), 3f);
+        }
+
+        private void LoadCredits()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

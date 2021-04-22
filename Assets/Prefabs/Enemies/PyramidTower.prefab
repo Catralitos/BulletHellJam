@@ -108,7 +108,7 @@ MonoBehaviour:
   powerUps:
   - {fileID: 5632787075577960370, guid: 7ae8152d09d935540b96797abf7a3806, type: 3}
   - {fileID: 1969198815784778621, guid: 0aaa19f9f58b13d46a8ac44bb9b7cc2d, type: 3}
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 5230982212974725168, guid: 5541365ac0a5b854f87a18c87b5bb5db, type: 3}
   cooldown: 5
   fireTime: 5
   poolName: Pyramid

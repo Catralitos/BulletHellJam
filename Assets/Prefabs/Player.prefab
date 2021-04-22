@@ -279,8 +279,9 @@ MonoBehaviour:
   damagers:
     serializedVersion: 2
     m_Bits: 640
-  playerHits: 3
-  hitsLeft: 3
+  explosionPrefab: {fileID: 0}
+  playerHits: 1
+  hitsLeft: 1
 --- !u!114 &1646094829721424036
 MonoBehaviour:
   m_ObjectHideFlags: 0
