@@ -18,8 +18,7 @@ public class TitleScreenManager : MonoBehaviour
         mouseButton.onClick.AddListener(StartMouseGame);
         controllerButton.onClick.AddListener(StartControllerGame);
         fullscreenButton.onClick.AddListener(ToggleFullscreen);
-
-        //audioManager.Play("TitleScreen");
+        _audioManager.Play("TitleScreen");
     }
 
     private void ToggleFullscreen()
