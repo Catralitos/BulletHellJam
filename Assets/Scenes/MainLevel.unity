@@ -1433,7 +1433,7 @@ PrefabInstance:
     - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
       propertyPath: orbiterPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 359070738090328484, guid: 30fc971f440013242af9adcf80a73988, type: 3}
+      objectReference: {fileID: 3313820382658989385, guid: 5319921733025434ca0bdf3ea344c01f, type: 3}
     - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
       propertyPath: turretPositions.Array.data[0]
       value: 
