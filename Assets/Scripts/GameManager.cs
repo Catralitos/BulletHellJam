@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool fullscreen;
+    public bool fullscreen = false;
     public bool mouseControls = true;
 
     private AudioManager _audioManager;
