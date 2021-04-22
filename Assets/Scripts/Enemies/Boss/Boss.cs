@@ -33,11 +33,14 @@ namespace Enemies.Boss
             if (explosionPrefab != null) Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
             Destroy(gameObject);
             Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-            Invoke(nameof(LoadCredits), 3f);
+            //Invoke(nameof(LoadCredits), 3f);
+            LoadCredits();
+            //Debug.Log("Deu invoke");
         }
 
         private void LoadCredits()
         {
+            //Debug.Log("Abriu funçao");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
