@@ -127,7 +127,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 7955132180518712523, guid: b0a91b9396495a24c8ff303fbe3c75e9, type: 3}
   destroy: 0
   bulletDamage: 1
-  bulletSpeed: 1.5
+  bulletSpeed: 4
 --- !u!58 &4680888605758646812
 CircleCollider2D:
   m_ObjectHideFlags: 0

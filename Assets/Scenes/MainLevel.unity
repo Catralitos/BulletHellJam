@@ -1277,6 +1277,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 135973249, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
+      propertyPath: directions
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 135973249, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
+      propertyPath: shootInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1851785514291374361, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -1486,6 +1494,10 @@ PrefabInstance:
       propertyPath: freezeTimeText
       value: 
       objectReference: {fileID: 197454783}
+    - target: {fileID: 2196999363345057087, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
 --- !u!1001 &7085040436871034538

@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6054d8e90bea18046b34af7778b8d71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.5
+  shootInterval: 1
   active: 0
-  directions: 30
+  directions: 10
