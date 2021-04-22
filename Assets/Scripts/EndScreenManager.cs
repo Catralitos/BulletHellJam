@@ -16,6 +16,7 @@ public class EndScreenManager : MonoBehaviour
         _gameManager = GameManager.Instance;
         titleButton.onClick.AddListener(ToTitle);
         exitButton.onClick.AddListener(ExitGame);
+        _audioManager.Stop("LevelMusic");
         _audioManager.Play("TitleScreen");
     }
 

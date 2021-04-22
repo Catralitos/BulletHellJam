@@ -38,7 +38,9 @@ public class TimeManager : MonoBehaviour
         _boss = BossEntity.Instance.boss;
         _audioManager = AudioManager.Instance;
         _waveSpawner = GetComponent<WaveSpawner>();
+        _audioManager.Stop("TitleScreen");
         _audioManager.Play("LevelMusic");
+
         scoreText.text = $"{_currentScore:000000}";
     }
 
