@@ -14,6 +14,7 @@ namespace Player
         public float runSpeed = 20.0f;
         public int angleOffset = -90;
 
+        private Animator _animator;
         private Camera _camera;
         private PlayerControls _playerControls;
         private PlayerShooting _playerShooting;
@@ -50,6 +51,7 @@ namespace Player
                 {
                     if (_dashing || !_canDash) return;
                     _dashing = true;
+                    _animator.SetBool("Dashing", true);
                     _dashDirection = _move;
                 };
             }
@@ -70,6 +72,7 @@ namespace Player
                 {
                     if (_dashing || !_canDash) return;
                     _dashing = true;
+                    _animator.SetBool("Dashing", true);
                     _dashDirection = _move;
                 };
             }
@@ -89,9 +92,11 @@ namespace Player
 
         private void Start()
         {
+            _animator = GetComponent<Animator>();
             _body = GetComponent<Rigidbody2D>();
             _camera = Camera.main;
             _playerShooting = GetComponent<PlayerShooting>();
+            _dashCooldownLeft = 0f;
         }
 
         private void Update()
@@ -105,6 +110,7 @@ namespace Player
             _dashDirection = Vector2.zero;
             _body.velocity = Vector2.zero;
             _dashing = false;
+            _animator.SetBool("Dashing", false);
             _dashLeft = dashTime;
             _canDash = false;
             _dashCooldownLeft = dashCooldown;
