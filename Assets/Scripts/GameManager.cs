@@ -1,7 +1,5 @@
-using System;
 using Audio;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,12 +29,10 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
-        
     }
 
     #endregion
-    
+
     public void ToggleFullscreen()
     {
         if (fullscreen)
