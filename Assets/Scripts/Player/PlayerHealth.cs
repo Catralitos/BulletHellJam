@@ -9,7 +9,7 @@ namespace Player
     {
         public LayerMask damagers;
         public GameObject explosionPrefab;
-        
+
         public int playerHits = 1;
         public int hitsLeft = 1;
 
@@ -34,14 +34,14 @@ namespace Player
         private void Die()
         {
             var spawnPos = gameObject.transform.position;
-            Destroy(gameObject);
             Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-            Invoke(nameof(BackToTitleScreen), 3f);
+           BackToTitleScreen();
         }
 
         private void BackToTitleScreen()
         {
             SceneManager.LoadScene(0);
+            Destroy(gameObject);
         }
     }
 }

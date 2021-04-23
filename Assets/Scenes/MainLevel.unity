@@ -1299,11 +1299,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1851785514291374360, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
       propertyPath: maxHealth
-      value: 5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1851785514291374360, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
       propertyPath: currentHealth
-      value: 5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1851785514291374361, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
       propertyPath: m_Name
