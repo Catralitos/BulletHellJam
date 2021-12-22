@@ -16,6 +16,7 @@ public class DeathScreenManager : MonoBehaviour
         titleButton.onClick.AddListener(BackToTitle);
         creditsButton.onClick.AddListener(GoToCredits);
         _audioManager.Stop("LevelMusic");
+        _audioManager.Play("TitleScreen");
     }
 
     private void RetryGame()

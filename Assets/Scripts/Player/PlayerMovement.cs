@@ -13,7 +13,10 @@ namespace Player
         public float dashSpeed = 10;
         public float dashTime = 0.5f;
         public float mouseRotationSensitivity = 1.15f;
-        [FormerlySerializedAs("rotationSensitivity")] public float controllerRotationSensitivity = 1.15f;
+
+        [FormerlySerializedAs("rotationSensitivity")]
+        public float controllerRotationSensitivity = 1.15f;
+
         public float runSpeed = 20.0f;
         public int angleOffset = -90;
 
@@ -41,6 +44,8 @@ namespace Player
             _gameManager = GameManager.Instance;
             _playerControls = new PlayerControls();
             mouseControl = _gameManager.mouseControls;
+            canDash = true;
+            _dashCooldownLeft = 0f;
             if (mouseControl)
             {
                 _playerControls.KeyboardGameplay.Fire.performed += _ => _firing = true;
@@ -49,7 +54,7 @@ namespace Player
                 _playerControls.KeyboardGameplay.Move.canceled += _ => _move = Vector2.zero;
                 _playerControls.KeyboardGameplay.Dash.performed += _ =>
                 {
-                    if (_dashing || !canDash) return;
+                    if (_dashing || !canDash || _move.magnitude <= 0.01f) return;
                     _dashing = true;
                     _animator.SetBool("Dashing", true);
                     _dashDirection = _move;
@@ -70,7 +75,7 @@ namespace Player
                 _playerControls.ControllerGameplay.Aim.canceled += _ => _firing = false;
                 _playerControls.ControllerGameplay.Dash.started += _ =>
                 {
-                    if (_dashing || !canDash) return;
+                    if (_dashing || !canDash || _move.magnitude <= 0.01f) return;
                     _dashing = true;
                     _animator.SetBool("Dashing", true);
                     _dashDirection = _move;
@@ -96,6 +101,7 @@ namespace Player
             _body = GetComponent<Rigidbody2D>();
             _camera = Camera.main;
             _playerShooting = GetComponent<PlayerShooting>();
+            canDash = true;
             _dashCooldownLeft = 0f;
         }
 
@@ -105,8 +111,9 @@ namespace Player
             if (_firing) _playerShooting.Shoot();
             if (_dashing) _dashLeft -= Time.deltaTime;
             else _dashCooldownLeft -= Time.deltaTime;
-            if (_dashCooldownLeft < 0f) canDash = true;
-            if (_dashLeft >= 0f) return;
+            if (_dashCooldownLeft <= 0f) canDash = true;
+            //isto e tudo so para o dash
+            if (_dashLeft > 0f) return;
             _dashDirection = Vector2.zero;
             _body.velocity = Vector2.zero;
             _dashing = false;

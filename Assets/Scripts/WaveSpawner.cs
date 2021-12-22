@@ -6,7 +6,7 @@ public class WaveSpawner : MonoBehaviour
 {
     public LayerMask obstructions;
     public int wavesBeforeAddedBossPool = 10;
-    public int enemyGrowthFactor = 2;
+    public float enemyGrowthFactor = 2;
     public int maxNumberEnemies;
     public int minOrbiterRadius = 7;
     public int maxOrbiterRadius = 15;

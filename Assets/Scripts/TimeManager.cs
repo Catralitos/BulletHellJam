@@ -14,7 +14,8 @@ public class TimeManager : MonoBehaviour
     public Text scoreText;
     public Text healthText;
     public Text dashText;
-    
+
+    public float timeMultiplier = 4;
     public int scorePerFrozenMilliSecond;
 
     private AudioManager _audioManager;
@@ -50,16 +51,16 @@ public class TimeManager : MonoBehaviour
         _waveSpawner = GetComponent<WaveSpawner>();
         _audioManager.Stop("TitleScreen");
         _audioManager.Play("LevelMusic");
-
+        dashText.gameObject.SetActive(true);
         scoreText.text = $"{_currentScore:000000}";
     }
 
     private void Update()
     {
+        _freezeTimeLeft -= Time.deltaTime;
         if (_freezeTimeLeft > 0f)
         {
             _timeRunning = false;
-            _freezeTimeLeft -= Time.deltaTime;
             freezeTimeText.text = $"+ {_freezeTimeLeft:0.000}";
         }
         else
@@ -84,7 +85,9 @@ public class TimeManager : MonoBehaviour
 
     public void FreezeTime(float time)
     {
+        time *= timeMultiplier;
         time = Mathf.Round(time * 1000f) / 1000f;
+        Mathf.Clamp(time, 0, 5000f);
         _freezeTimeLeft += time;
         IncreaseScore(Mathf.RoundToInt(time * scorePerFrozenMilliSecond));
     }
