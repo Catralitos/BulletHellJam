@@ -1219,7 +1219,7 @@ PrefabInstance:
     - target: {fileID: 1646094829721424038, guid: 4140aacfb0643804a94c30703720c569, type: 3}
       propertyPath: explosionPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5230982212974725168, guid: 5541365ac0a5b854f87a18c87b5bb5db, type: 3}
     - target: {fileID: 1646094829721424089, guid: 4140aacfb0643804a94c30703720c569, type: 3}
       propertyPath: m_RootOrder
       value: 8

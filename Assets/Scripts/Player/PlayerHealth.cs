@@ -35,7 +35,7 @@ namespace Player
         {
             var spawnPos = gameObject.transform.position;
             Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-           BackToTitleScreen();
+            BackToTitleScreen();
         }
 
         private void BackToTitleScreen()
