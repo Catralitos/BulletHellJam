@@ -25,7 +25,7 @@ namespace Player
             _defaultMaterial = _renderer.material;
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionStay2D(Collision2D other)
         {
             if (!damagers.HasLayer(other.gameObject.layer)) return;
             if (!_invincible) DoDamage();

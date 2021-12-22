@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b2cf12a-fb79-441e-8369-6ccde0345242" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/HitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HitShader.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HitShader.shadergraph.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Boss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Boss.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/ClockTurret.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/ClockTurret.prefab" afterDir="false" />
@@ -164,7 +168,7 @@
       <workItem from="1622317252712" duration="759000" />
       <workItem from="1624804388476" duration="202000" />
       <workItem from="1632670216998" duration="655000" />
-      <workItem from="1640185653912" duration="4869000" />
+      <workItem from="1640185653912" duration="5223000" />
     </task>
     <servers />
   </component>
