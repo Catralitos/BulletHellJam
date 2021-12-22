@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -10,7 +12,8 @@ namespace Player
         public float dashCooldown = 1f;
         public float dashSpeed = 10;
         public float dashTime = 0.5f;
-        public float rotationSensitivity = 1.15f;
+        public float mouseRotationSensitivity = 1.15f;
+        [FormerlySerializedAs("rotationSensitivity")] public float controllerRotationSensitivity = 1.15f;
         public float runSpeed = 20.0f;
         public int angleOffset = -90;
 
@@ -44,11 +47,6 @@ namespace Player
                 _playerControls.KeyboardGameplay.Fire.canceled += _ => _firing = false;
                 _playerControls.KeyboardGameplay.Move.performed += ctx => { _move = ctx.ReadValue<Vector2>(); };
                 _playerControls.KeyboardGameplay.Move.canceled += _ => _move = Vector2.zero;
-                _playerControls.KeyboardGameplay.Aim.performed += ctx =>
-                {
-                    var dir = _camera.WorldToScreenPoint(transform.position);
-                    _aim = ctx.ReadValue<Vector2>() - new Vector2(dir.x, dir.y);
-                };
                 _playerControls.KeyboardGameplay.Dash.performed += _ =>
                 {
                     if (_dashing || !_canDash) return;
@@ -127,9 +125,20 @@ namespace Player
 
         private void RotateTo()
         {
+            if (mouseControl)
+            {
+                Vector3 mousePosition = Mouse.current.position.ReadValue();
+
+                Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.localPosition);
+
+                _aim = ((Vector2) mousePosition - (Vector2) screenPosition).normalized;
+            }
+
             _lastAngle = _angle;
             _angle = Mathf.Atan2(_aim.y, _aim.x) * Mathf.Rad2Deg + angleOffset;
-            if (Mathf.Abs(_lastAngle - _angle) > rotationSensitivity)
+            if (!mouseControl && Mathf.Abs(_lastAngle - _angle) > controllerRotationSensitivity)
+                transform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
+            if (mouseControl && Mathf.Abs(_lastAngle - _angle) > mouseRotationSensitivity)
                 transform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
         }
     }
