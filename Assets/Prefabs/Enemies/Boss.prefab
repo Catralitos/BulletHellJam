@@ -138,9 +138,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   pointsPerKill: 5000
-  currentHealth: 10000
-  maxHealth: 10000
-  randomDropChance: 0.1
+  currentHealth: 5000
+  maxHealth: 5000
+  randomDropChance: 0
   powerUps: []
   hasInvincibility: 0
   hitMaterial: {fileID: 0}
