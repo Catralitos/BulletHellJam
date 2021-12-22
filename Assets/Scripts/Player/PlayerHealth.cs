@@ -54,8 +54,14 @@ namespace Player
             var spawnPos = gameObject.transform.position;
             Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
             Invoke(nameof(BackToTitleScreen), 3f);
+            GoToDeathScreen();
         }
 
+        private void GoToDeathScreen()
+        {
+            SceneManager.LoadScene(3);
+            Destroy(gameObject);
+        }
         private void BackToTitleScreen()
         {
             SceneManager.LoadScene(0);
