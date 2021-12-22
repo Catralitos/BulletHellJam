@@ -5,6 +5,7 @@ namespace Player
     public class PlayerEntity : MonoBehaviour
     {
 
+        [HideInInspector] public PlayerMovement movement;
         [HideInInspector] public PlayerHealth health;
         [HideInInspector] public PlayerShooting shooting;
 
@@ -22,6 +23,7 @@ namespace Player
             Instance = this;
             health = GetComponent<PlayerHealth>();
             shooting = GetComponent<PlayerShooting>();
+            movement = GetComponent<PlayerMovement>();
         }
 
         #endregion

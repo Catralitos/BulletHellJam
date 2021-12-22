@@ -24,7 +24,7 @@ namespace Player
         private PlayerShooting _playerShooting;
         private Rigidbody2D _body;
 
-        private bool _canDash;
+        [HideInInspector] public bool canDash;
         private bool _dashing;
         private bool _firing;
         private float _angle;
@@ -49,7 +49,7 @@ namespace Player
                 _playerControls.KeyboardGameplay.Move.canceled += _ => _move = Vector2.zero;
                 _playerControls.KeyboardGameplay.Dash.performed += _ =>
                 {
-                    if (_dashing || !_canDash) return;
+                    if (_dashing || !canDash) return;
                     _dashing = true;
                     _animator.SetBool("Dashing", true);
                     _dashDirection = _move;
@@ -70,7 +70,7 @@ namespace Player
                 _playerControls.ControllerGameplay.Aim.canceled += _ => _firing = false;
                 _playerControls.ControllerGameplay.Dash.started += _ =>
                 {
-                    if (_dashing || !_canDash) return;
+                    if (_dashing || !canDash) return;
                     _dashing = true;
                     _animator.SetBool("Dashing", true);
                     _dashDirection = _move;
@@ -105,14 +105,14 @@ namespace Player
             if (_firing) _playerShooting.Shoot();
             if (_dashing) _dashLeft -= Time.deltaTime;
             else _dashCooldownLeft -= Time.deltaTime;
-            if (_dashCooldownLeft < 0f) _canDash = true;
+            if (_dashCooldownLeft < 0f) canDash = true;
             if (_dashLeft >= 0f) return;
             _dashDirection = Vector2.zero;
             _body.velocity = Vector2.zero;
             _dashing = false;
             _animator.SetBool("Dashing", false);
             _dashLeft = dashTime;
-            _canDash = false;
+            canDash = false;
             _dashCooldownLeft = dashCooldown;
         }
 

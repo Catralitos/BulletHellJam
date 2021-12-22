@@ -1,6 +1,7 @@
 using Audio;
 using Enemies;
 using Enemies.Boss;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,9 @@ public class TimeManager : MonoBehaviour
     public Text countdownText;
     public Text freezeTimeText;
     public Text scoreText;
-
+    public Text healthText;
+    public Text dashText;
+    
     public int scorePerFrozenMilliSecond;
 
     private AudioManager _audioManager;
@@ -75,6 +78,8 @@ public class TimeManager : MonoBehaviour
 
         countdownText.text = $"{_timeLeft:0.0}";
         bossHealthText.text = $"{_boss.currentHealth:000}";
+        if (PlayerEntity.Instance == null) return;
+        dashText.gameObject.SetActive(PlayerEntity.Instance.movement.canDash);
     }
 
     public void FreezeTime(float time)

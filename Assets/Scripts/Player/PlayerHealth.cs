@@ -37,6 +37,7 @@ namespace Player
             if (hitsLeft > 1)
             {
                 hitsLeft--;
+                TimeManager.Instance.healthText.text = TimeManager.Instance.healthText.text.Substring(0, hitsLeft * 2);
                 _renderer.material = hitMaterial;
                 _invincible = true;
                 Invoke(nameof(RestoreVulnerability), invincibilityTime);
@@ -52,6 +53,7 @@ namespace Player
 
         private void Die()
         {
+            TimeManager.Instance.healthText.text = "";
             var spawnPos = gameObject.transform.position;
             Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
             TimeManager.Instance.GoToDeathScreen();
