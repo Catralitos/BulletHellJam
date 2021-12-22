@@ -142,6 +142,9 @@ MonoBehaviour:
   maxHealth: 10000
   randomDropChance: 0.1
   powerUps: []
+  hasInvincibility: 0
+  hitMaterial: {fileID: 0}
+  invincibilityTime: 0
   explosionPrefab: {fileID: 1781692488496526884, guid: 251cb43a19a4a354f90f5fd52248eeeb, type: 3}
   clockwise: 1
   numActivePools: 1
