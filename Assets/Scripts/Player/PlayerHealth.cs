@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography;
 using Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,7 +18,7 @@ namespace Player
         public int hitsLeft = 5;
         public float invincibilityTime;
         private bool _invincible;
-        
+
         private void Start()
         {
             hitsLeft = playerHits;
@@ -48,23 +49,12 @@ namespace Player
             _renderer.material = _defaultMaterial;
             _invincible = false;
         }
-        
+
         private void Die()
         {
             var spawnPos = gameObject.transform.position;
             Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-            Invoke(nameof(BackToTitleScreen), 3f);
-            GoToDeathScreen();
-        }
-
-        private void GoToDeathScreen()
-        {
-            SceneManager.LoadScene(3);
-            Destroy(gameObject);
-        }
-        private void BackToTitleScreen()
-        {
-            SceneManager.LoadScene(0);
+            TimeManager.Instance.GoToDeathScreen();
             Destroy(gameObject);
         }
     }

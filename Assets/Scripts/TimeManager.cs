@@ -2,6 +2,7 @@ using Audio;
 using Enemies;
 using Enemies.Boss;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
@@ -12,11 +13,11 @@ public class TimeManager : MonoBehaviour
     public Text scoreText;
 
     public int scorePerFrozenMilliSecond;
-    
+
     private AudioManager _audioManager;
     private WaveSpawner _waveSpawner;
     private Boss _boss;
-    
+
     private bool _timeRunning = true;
     private int _currentScore = 0;
     private const float Cooldown = 10f;
@@ -87,5 +88,15 @@ public class TimeManager : MonoBehaviour
     {
         _currentScore += score;
         scoreText.text = $"{_currentScore:000000}";
+    }
+
+    public void GoToDeathScreen()
+    {
+        Invoke(nameof(ActuallyGoToDeathScreen), 3f);
+    }
+
+    private void ActuallyGoToDeathScreen()
+    {
+        SceneManager.LoadScene(3);
     }
 }
