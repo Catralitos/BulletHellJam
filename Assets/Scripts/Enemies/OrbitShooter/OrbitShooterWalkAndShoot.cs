@@ -27,6 +27,7 @@ namespace Enemies.OrbitShooter
 
         public override void StateUpdate()
         {
+            if (_boss == null) return;
             var bPosition = _boss.position;
             var oTransform = transform;
             oTransform.RotateAround(bPosition, Vector3.forward, Target.runSpeed * Time.deltaTime);

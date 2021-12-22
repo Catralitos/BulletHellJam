@@ -1216,6 +1216,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1646094829721424036, guid: 4140aacfb0643804a94c30703720c569, type: 3}
+      propertyPath: maxPowerUps
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646094829721424036, guid: 4140aacfb0643804a94c30703720c569, type: 3}
+      propertyPath: scorePerPowerUp
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 1646094829721424038, guid: 4140aacfb0643804a94c30703720c569, type: 3}
       propertyPath: explosionPrefab
       value: 

@@ -9,9 +9,14 @@ namespace Player
         [HideInInspector] public PlayerShooting shooting;
 
         #region SingleTon
-
+        
         public static PlayerEntity Instance;
 
+        public int scorePerPowerUp;
+        public int maxPowerUps;
+        private int _fireRatesCollected;
+        private int _moreBulletsCollected;
+        
         private void Awake()
         {
             Instance = this;
@@ -26,6 +31,30 @@ namespace Player
             if (Instance == this)
             {
                 Instance = null;
+            }
+        }
+
+        public void AddBullets()
+        {
+            if (_moreBulletsCollected < maxPowerUps)
+            {
+                shooting.plus2++;
+            }
+            else
+            {
+                TimeManager.Instance.IncreaseScore(scorePerPowerUp);
+            }
+        }
+        
+        public void AddFireRate()
+        {
+            if (_fireRatesCollected < maxPowerUps)
+            {
+                shooting.currentFireRate /= 2;
+            }
+            else
+            {
+                TimeManager.Instance.IncreaseScore(scorePerPowerUp);
             }
         }
     }

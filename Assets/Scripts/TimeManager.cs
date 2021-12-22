@@ -14,14 +14,12 @@ public class TimeManager : MonoBehaviour
     private AudioManager _audioManager;
     private WaveSpawner _waveSpawner;
     private Boss _boss;
-
+    
     private bool _timeRunning = true;
     private int _currentScore = 0;
     private const float Cooldown = 10f;
     private float _freezeTimeLeft;
     private float _timeLeft;
-
-    #region SingleTon
 
     public static TimeManager Instance;
 
@@ -30,7 +28,13 @@ public class TimeManager : MonoBehaviour
         Instance = this;
     }
 
-    #endregion
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
 
     private void Start()
     {

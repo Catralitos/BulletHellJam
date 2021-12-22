@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b2cf12a-fb79-441e-8369-6ccde0345242" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MoreFireRate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MoreFireRate.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUps/MoreFireRate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUps/MoreFireRate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +29,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/NormalBullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/CubeBullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/LayerMaskExtensions.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerEntity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/DodgeBullets.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletDodge.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletTypes/BossCircleBullet.cs" />
@@ -50,7 +54,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SmallTurret/SmallTurret.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SmallTurret/SmallTurretShoot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooter.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Explosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" />
@@ -63,6 +66,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUps/MoreFireRate.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerEntity.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rEHt3AVZSNSZDRznuBY9rN7m4A" />
@@ -138,7 +144,7 @@
       <workItem from="1622317252712" duration="759000" />
       <workItem from="1624804388476" duration="202000" />
       <workItem from="1632670216998" duration="655000" />
-      <workItem from="1640185653912" duration="1185000" />
+      <workItem from="1640185653912" duration="2406000" />
     </task>
     <servers />
   </component>
