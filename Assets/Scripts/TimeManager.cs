@@ -66,7 +66,7 @@ public class TimeManager : MonoBehaviour
             _timeLeft = Cooldown;
         }
 
-        countdownText.text = $"{_timeLeft:0.000}";
+        countdownText.text = $"{_timeLeft:0.0}";
         bossHealthText.text = $"{_boss.currentHealth:000}";
     }
 

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b2cf12a-fb79-441e-8369-6ccde0345242" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +57,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/EndScreenManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TitleScreenManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EndScreenManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rEHt3AVZSNSZDRznuBY9rN7m4A" />
@@ -140,7 +138,7 @@
       <workItem from="1622317252712" duration="759000" />
       <workItem from="1624804388476" duration="202000" />
       <workItem from="1632670216998" duration="655000" />
-      <workItem from="1640185653912" duration="578000" />
+      <workItem from="1640185653912" duration="1185000" />
     </task>
     <servers />
   </component>
