@@ -238,12 +238,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0127bdb7f46e64e9185f8187a97b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseControl: 0
+  mouseControl: 1
   aimSensitivity: 0.75
   dashCooldown: 1
   dashSpeed: 20
   dashTime: 0.5
-  rotationSensitivity: 3
+  mouseRotationSensitivity: 1.15
+  controllerRotationSensitivity: 3
   runSpeed: 10
   angleOffset: -90
 --- !u!114 &1646094829721424039
@@ -279,9 +280,11 @@ MonoBehaviour:
   damagers:
     serializedVersion: 2
     m_Bits: 640
-  explosionPrefab: {fileID: 0}
-  playerHits: 1
-  hitsLeft: 1
+  explosionPrefab: {fileID: 5230982212974725168, guid: 5541365ac0a5b854f87a18c87b5bb5db, type: 3}
+  hitMaterial: {fileID: 2100000, guid: 09dbcd79d6bbad54cab7b1e57ccd2df2, type: 2}
+  playerHits: 5
+  hitsLeft: 5
+  invincibilityTime: 0.5
 --- !u!114 &1646094829721424036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   shooting: {fileID: 0}
+  scorePerPowerUp: 1000
+  maxPowerUps: 5
 --- !u!95 &1646094829721424035
 Animator:
   serializedVersion: 3
@@ -403,7 +408,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: 95b2a72d8fd3cc4428be71dc9a0a2bbd, type: 3}
-  m_Color: {r: 0.7110701, g: 0.9811321, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.023192883, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

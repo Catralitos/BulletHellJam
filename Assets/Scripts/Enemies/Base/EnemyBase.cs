@@ -12,6 +12,7 @@ namespace Enemies.Base
 
         public LayerMask playerBullets;
 
+        public int pointsPerKill;
         public int currentHealth;
         public int maxHealth;
         public float randomDropChance = 0.1f;
@@ -38,6 +39,7 @@ namespace Enemies.Base
 
         protected virtual void Die()
         {
+            TimeManager.Instance.IncreaseScore(pointsPerKill);
             var spawnPos = transform.position;
             if (explosionPrefab != null) Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
             Destroy(gameObject);

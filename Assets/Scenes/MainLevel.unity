@@ -1216,22 +1216,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1646094829721424036, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: maxPowerUps
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646094829721424036, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: scorePerPowerUp
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646094829721424038, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: explosionPrefab
-      value: 
-      objectReference: {fileID: 5230982212974725168, guid: 5541365ac0a5b854f87a18c87b5bb5db, type: 3}
-    - target: {fileID: 1646094829721424088, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: mouseControl
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1646094829721424089, guid: 4140aacfb0643804a94c30703720c569, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1280,18 +1264,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1646094829779011056, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: m_Color.b
-      value: 0.023192883
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646094829779011056, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646094829779011056, guid: 4140aacfb0643804a94c30703720c569, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4140aacfb0643804a94c30703720c569, type: 3}
 --- !u!1001 &1851785513758029811
@@ -1301,22 +1273,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 135973249, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
-      propertyPath: directions
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 135973249, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
-      propertyPath: shootInterval
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851785514291374360, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
-      propertyPath: maxHealth
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851785514291374360, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
-      propertyPath: currentHealth
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 1851785514291374361, guid: a03420b13bf72754a8f7f818cc6ea355, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -1423,37 +1379,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: circleWidth
-      value: 0.2
+      propertyPath: enemyGrowthFactor
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: turretPrefabs.Array.size
+      propertyPath: wavesBeforeAddedBossPool
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: turretPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 6971356871908676556, guid: a5a20afc23752bc42b5435783ccc1c38, type: 3}
-    - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: turretPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 8041223401913031589, guid: 65140a2fcd557ca4cbccd55bc66e421e, type: 3}
-    - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: turretPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 4817231814682843421, guid: 3f22313b6731333419babf39c4e59076, type: 3}
-    - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: turretPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 3946699300553461810, guid: 6a53185954154ad45a20224a5522ae3e, type: 3}
-    - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: turretPrefabs.Array.data[4]
-      value: 
-      objectReference: {fileID: 3505129393615912544, guid: 9fee44a6281577444884ebd392bcbc1a, type: 3}
-    - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: orbiterPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 3313820382658989385, guid: 5319921733025434ca0bdf3ea344c01f, type: 3}
     - target: {fileID: 2196999363345057084, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
       propertyPath: turretPositions.Array.data[0]
       value: 
@@ -1526,10 +1458,6 @@ PrefabInstance:
       propertyPath: freezeTimeText
       value: 
       objectReference: {fileID: 197454783}
-    - target: {fileID: 2196999363345057087, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
-      propertyPath: pools.Array.data[0].size
-      value: 200
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3232cb8dee5af1647acd34b55f342687, type: 3}
 --- !u!1001 &7085040436871034538

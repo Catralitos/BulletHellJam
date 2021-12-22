@@ -137,8 +137,9 @@ MonoBehaviour:
   playerBullets:
     serializedVersion: 2
     m_Bits: 64
-  currentHealth: 500
-  maxHealth: 500
+  pointsPerKill: 5000
+  currentHealth: 10000
+  maxHealth: 10000
   randomDropChance: 0.1
   powerUps: []
   explosionPrefab: {fileID: 1781692488496526884, guid: 251cb43a19a4a354f90f5fd52248eeeb, type: 3}

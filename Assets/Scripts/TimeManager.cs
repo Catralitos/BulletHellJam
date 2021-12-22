@@ -11,6 +11,8 @@ public class TimeManager : MonoBehaviour
     public Text freezeTimeText;
     public Text scoreText;
 
+    public int scorePerFrozenMilliSecond;
+    
     private AudioManager _audioManager;
     private WaveSpawner _waveSpawner;
     private Boss _boss;
@@ -76,7 +78,9 @@ public class TimeManager : MonoBehaviour
 
     public void FreezeTime(float time)
     {
+        time = Mathf.Round(time * 1000f) / 1000f;
         _freezeTimeLeft += time;
+        IncreaseScore(Mathf.RoundToInt(time * scorePerFrozenMilliSecond));
     }
 
     public void IncreaseScore(int score)

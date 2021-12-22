@@ -102,6 +102,7 @@ MonoBehaviour:
   playerBullets:
     serializedVersion: 2
     m_Bits: 64
+  pointsPerKill: 750
   currentHealth: 5
   maxHealth: 5
   randomDropChance: 0.4

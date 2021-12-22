@@ -10,32 +10,50 @@ namespace Player
         public LayerMask damagers;
         public GameObject explosionPrefab;
 
-        public int playerHits = 1;
-        public int hitsLeft = 1;
-
+        private SpriteRenderer _renderer;
+        private Material _defaultMaterial;
+        public Material hitMaterial;
+        public int playerHits = 5;
+        public int hitsLeft = 5;
+        public float invincibilityTime;
+        private bool _invincible;
+        
         private void Start()
         {
             hitsLeft = playerHits;
+            _renderer = GetComponent<SpriteRenderer>();
+            _defaultMaterial = _renderer.material;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            Debug.Log("Collision");
             if (!damagers.HasLayer(other.gameObject.layer)) return;
-            DoDamage();
+            if (!_invincible) DoDamage();
         }
 
         public void DoDamage()
         {
-            if (hitsLeft > 1) hitsLeft--;
+            if (hitsLeft > 1)
+            {
+                hitsLeft--;
+                _renderer.material = hitMaterial;
+                _invincible = true;
+                Invoke(nameof(RestoreVulnerability), invincibilityTime);
+            }
             else Die();
         }
 
+        private void RestoreVulnerability()
+        {
+            _renderer.material = _defaultMaterial;
+            _invincible = false;
+        }
+        
         private void Die()
         {
             var spawnPos = gameObject.transform.position;
             Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-            BackToTitleScreen();
+            Invoke(nameof(BackToTitleScreen), 3f);
         }
 
         private void BackToTitleScreen()

@@ -7,7 +7,6 @@ namespace Enemies.SmallTurret
 {
     public class SmallTurret : EnemyBase<SmallTurret>
     {
-        
         public float cooldown = 5f;
         public float fireTime = 5f;
         public String poolName;
