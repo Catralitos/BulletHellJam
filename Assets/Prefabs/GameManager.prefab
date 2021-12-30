@@ -47,25 +47,61 @@ MonoBehaviour:
   sounds:
   - name: LevelMusic
     clip: {fileID: 8300000, guid: f71746d11ac3a0f43a4ccd88505838ad, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: PlayerFire
     clip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
-    volume: 0.3
+    volume: 0.15
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyFire
     clip: {fileID: 8300000, guid: 06ada5590eba8d6489b36c6f3c54ff78, type: 3}
-    volume: 0.2
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EvilLaugh
     clip: {fileID: 8300000, guid: 66045c5ff59570c4ca09dd6323469cf9, type: 3}
-    volume: 0.5
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TitleScreen
+    clip: {fileID: 8300000, guid: 29858c470378b7a4e9290ba98d44fd26, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: EnemyExplode
+    clip: {fileID: 8300000, guid: d6cb5424469adf844b78ea8327cb6f0c, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossExplode
+    clip: {fileID: 8300000, guid: 34846af1645fd544093c5625c26c637a, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHit
+    clip: {fileID: 8300000, guid: 7b8a642bc71d7ac44bb33efd72dabd59, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossHit
+    clip: {fileID: 8300000, guid: f192aff9df2e30846a3009cdf0914da1, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: ed2cb086dd92f0147878983741462ee5, type: 3}
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -82,3 +118,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: 0
+  mouseControls: 1

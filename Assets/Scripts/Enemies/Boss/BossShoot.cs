@@ -28,19 +28,26 @@ namespace Enemies.Boss
 
         public override void StateUpdate()
         {
-            if (_cooldownLeft <= 0f)
+            /*if (TimeManager.Instance.timeLeft <= 0f)
             {
-                _cooldownLeft = Target.phaseCooldown;
+                //_cooldownLeft = Target.phaseCooldown;
                 Target.clockwise = !Target.clockwise;
                 SetActivePools();
                 Kill();
-            }
+            }*/
 
             var sign = Target.clockwise ? -1 : 1;
             transform.Rotate(sign * Target.rotateSpeed * Time.deltaTime * Vector3.forward);
             _cooldownLeft -= Time.deltaTime;
         }
 
+        public void BossSwitch()
+        {
+            Target.clockwise = !Target.clockwise;
+            SetActivePools();
+            Kill();
+        }
+        
         private void SetActivePools()
         {
             _currentPooList.Clear();

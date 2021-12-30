@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Audio;
 using Extensions;
 using Unity.Mathematics;
 using UnityEngine;
@@ -46,10 +47,18 @@ namespace Enemies.Base
         protected virtual void Hit(int damage)
         {
             if (_invincible) return;
-            Debug.Log("Passou o _invincible");
             if (!IsAlive) return;
             currentHealth = Mathf.Max(currentHealth - damage, 0);
-            Debug.Log("Subtraiu vida");
+            var x = this as Boss.Boss;
+            if (x != null)
+            {
+                AudioManager.Instance.Play("BossHit");
+            }
+            else
+            {
+                AudioManager.Instance.Play("EnemyHit");
+
+            }
             if (!IsAlive)
             {
                 Die();
@@ -58,7 +67,6 @@ namespace Enemies.Base
             {
                 if (hasInvincibility)
                 {
-                    Debug.Log("Entrou no hasInvincibility");
                     _renderer.material = hitMaterial;
                     _invincible = true;
                     Invoke(nameof(RestoreVulnerability), invincibilityTime);
@@ -77,13 +85,15 @@ namespace Enemies.Base
             TimeManager.Instance.IncreaseScore(pointsPerKill);
             var spawnPos = transform.position;
             if (explosionPrefab != null) Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-            Destroy(gameObject);
+            //Destroy(gameObject);
             if (Random.Range(0.0f, 1.0f) <= randomDropChance)
             {
                 Instantiate(powerUps[Random.Range(0, powerUps.Count)], spawnPos, Quaternion.identity);
             }
 
             Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
+            AudioManager.Instance.Play("EnemyExplode");
+            Destroy(gameObject);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

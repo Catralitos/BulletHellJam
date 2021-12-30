@@ -26,7 +26,7 @@ public class TimeManager : MonoBehaviour
     private int _currentScore = 0;
     private const float Cooldown = 10f;
     private float _freezeTimeLeft;
-    private float _timeLeft;
+    [HideInInspector] public float timeLeft;
 
     public static TimeManager Instance;
 
@@ -45,7 +45,7 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
-        _timeLeft = Cooldown;
+        timeLeft = Cooldown;
         _boss = BossEntity.Instance.boss;
         _audioManager = AudioManager.Instance;
         _waveSpawner = GetComponent<WaveSpawner>();
@@ -70,14 +70,15 @@ public class TimeManager : MonoBehaviour
             freezeTimeText.text = "";
         }
 
-        if (_timeRunning) _timeLeft -= Time.deltaTime;
-        if (_timeLeft < 0)
+        if (_timeRunning) timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
         {
             _waveSpawner.SpawnNextWave();
-            _timeLeft = Cooldown;
+            BossEntity.Instance.gameObject.GetComponent<BossShoot>().BossSwitch();
+            timeLeft = Cooldown;
         }
 
-        countdownText.text = $"{_timeLeft:0.0}";
+        countdownText.text = $"{timeLeft:0.0}";
         bossHealthText.text = $"{_boss.currentHealth:000}";
         if (PlayerEntity.Instance == null) return;
         dashText.gameObject.SetActive(PlayerEntity.Instance.movement.canDash);

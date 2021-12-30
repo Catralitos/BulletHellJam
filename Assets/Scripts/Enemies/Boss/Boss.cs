@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using Bullets.Spawners;
 using Enemies.Base;
 using UnityEngine;
@@ -29,12 +30,18 @@ namespace Enemies.Boss
 
         protected override void Die()
         {
+            TimeManager.Instance.IncreaseScore(pointsPerKill);
             var spawnPos = transform.position;
-            if (explosionPrefab != null) Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
+            if (explosionPrefab != null)
+            {
+                Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
+                AudioManager.Instance.Play("BossExplode");
+            }
+            //Destroy(gameObject);
+            //Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
+            Invoke(nameof(LoadCredits), 3f);
             Destroy(gameObject);
-            Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-            //Invoke(nameof(LoadCredits), 3f);
-            LoadCredits();
+            //LoadCredits();
             //Debug.Log("Deu invoke");
         }
 

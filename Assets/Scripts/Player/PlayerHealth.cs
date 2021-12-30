@@ -1,5 +1,6 @@
 using System;
 using System.Security.Cryptography;
+using Audio;
 using Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -36,13 +37,18 @@ namespace Player
         {
             if (hitsLeft > 1)
             {
+                AudioManager.Instance.Play("PlayerHit");
                 hitsLeft--;
                 TimeManager.Instance.healthText.text = TimeManager.Instance.healthText.text.Substring(0, hitsLeft * 2);
                 _renderer.material = hitMaterial;
                 _invincible = true;
                 Invoke(nameof(RestoreVulnerability), invincibilityTime);
             }
-            else Die();
+            else
+            {
+                AudioManager.Instance.Play("PlayerDeath");
+                Die();
+            }
         }
 
         private void RestoreVulnerability()

@@ -3,19 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9b2cf12a-fb79-441e-8369-6ccde0345242" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/BossCircleBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/BossCircleBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClockPatternBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClockPatternBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClusterBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/ClusterBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/PiramidalBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/PiramidalBullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Shockwave Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Shockwave Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TitleScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TitleScreen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DeathScreenManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DeathScreenManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WaveSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +59,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Spawners/RingPatternSpawner2.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Spawners/ShockwaveRingSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Sound.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossShoot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SmallTurret/SmallTurretIdle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SmallTurret/SmallTurretShoot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooter.cs" />
@@ -73,20 +68,21 @@
       <option value="$PROJECT_DIR$/Assets/EndScreenManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TitleScreenManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EndScreenManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/OrbitShooter/OrbitShooterWalkAndShoot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PowerUps/MoreBullets.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PowerUps/MoreFireRate.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SmallTurret/SmallTurret.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerEntity.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DeathScreenManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossShoot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rEHt3AVZSNSZDRznuBY9rN7m4A" />
@@ -162,7 +158,8 @@
       <workItem from="1622317252712" duration="759000" />
       <workItem from="1624804388476" duration="202000" />
       <workItem from="1632670216998" duration="655000" />
-      <workItem from="1640185653912" duration="10722000" />
+      <workItem from="1640185653912" duration="11316000" />
+      <workItem from="1640877203951" duration="1899000" />
     </task>
     <servers />
   </component>
