@@ -105,6 +105,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 3d9c8cf10ce1dab4da3e3effbafacc98, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &7085040436984183596
 MonoBehaviour:
   m_ObjectHideFlags: 0

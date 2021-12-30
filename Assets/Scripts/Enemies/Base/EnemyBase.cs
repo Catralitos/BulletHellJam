@@ -24,7 +24,7 @@ namespace Enemies.Base
         private SpriteRenderer _renderer;
         private Material _defaultMaterial;
         public Material hitMaterial;
-        public float invincibilityTime;
+        public int invincibilityFrames;
         private bool _invincible;
 
         public GameObject explosionPrefab;
@@ -69,7 +69,7 @@ namespace Enemies.Base
                 {
                     _renderer.material = hitMaterial;
                     _invincible = true;
-                    Invoke(nameof(RestoreVulnerability), invincibilityTime);
+                    Invoke(nameof(RestoreVulnerability), invincibilityFrames * Time.deltaTime);
                 }
             }
         }

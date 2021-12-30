@@ -12,16 +12,19 @@ namespace Player
         public LayerMask damagers;
         public GameObject explosionPrefab;
 
+
+        private PlayerMovement _playerMovement;
         private SpriteRenderer _renderer;
         private Material _defaultMaterial;
         public Material hitMaterial;
         public int playerHits = 5;
         public int hitsLeft = 5;
-        public float invincibilityTime;
+        public int invincibilityFrames;
         private bool _invincible;
 
         private void Start()
         {
+            _playerMovement = GetComponent<PlayerMovement>();
             hitsLeft = playerHits;
             _renderer = GetComponent<SpriteRenderer>();
             _defaultMaterial = _renderer.material;
@@ -30,11 +33,12 @@ namespace Player
         private void OnCollisionStay2D(Collision2D other)
         {
             if (!damagers.HasLayer(other.gameObject.layer)) return;
-            if (!_invincible) DoDamage();
+            DoDamage();
         }
 
         public void DoDamage()
         {
+            if (_invincible || _playerMovement.dashing) return;
             if (hitsLeft > 1)
             {
                 AudioManager.Instance.Play("PlayerHit");
@@ -42,7 +46,7 @@ namespace Player
                 TimeManager.Instance.healthText.text = TimeManager.Instance.healthText.text.Substring(0, hitsLeft * 2);
                 _renderer.material = hitMaterial;
                 _invincible = true;
-                Invoke(nameof(RestoreVulnerability), invincibilityTime);
+                Invoke(nameof(RestoreVulnerability), invincibilityFrames * Time.deltaTime);
             }
             else
             {
@@ -53,8 +57,8 @@ namespace Player
 
         private void RestoreVulnerability()
         {
-            _renderer.material = _defaultMaterial;
             _invincible = false;
+            _renderer.material = _defaultMaterial;
         }
 
         private void Die()
