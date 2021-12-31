@@ -30,7 +30,7 @@ namespace Bullets
         //so para balas inimigas
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (playerLayer.HasLayer(col.gameObject.layer) && !col.isTrigger)
+            if (playerLayer.HasLayer(col.gameObject.layer) && !col.isTrigger && gameObject.layer != 6)
             {
                 PlayerEntity.Instance.health.DoDamage();
             }

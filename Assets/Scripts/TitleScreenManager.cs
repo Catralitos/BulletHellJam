@@ -51,7 +51,7 @@ public class TitleScreenManager : MonoBehaviour
 
     private void ShowHowToPlay()
     {
-        _audioManager.Stop("TitleScreen");
+        //_audioManager.Stop("TitleScreen");
         SceneManager.LoadScene(4);
     }
 
