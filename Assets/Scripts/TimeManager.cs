@@ -97,6 +97,7 @@ public class TimeManager : MonoBehaviour
     {
         _currentScore += score;
         scoreText.text = $"{_currentScore:000000}";
+        GameManager.Instance.score = _currentScore;
     }
 
     public void GoToDeathScreen()

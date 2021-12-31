@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public bool fullscreen = false;
     public bool mouseControls = true;
 
+    [HideInInspector] public int score;
+    
     private AudioManager _audioManager;
 
     #region SingleTon

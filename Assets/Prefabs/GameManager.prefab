@@ -101,7 +101,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerHit
     clip: {fileID: 8300000, guid: ed2cb086dd92f0147878983741462ee5, type: 3}
-    volume: 0.1
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 2c5ff79326b07884694028728d38f5b6, type: 3}
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}

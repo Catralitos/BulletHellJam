@@ -7,6 +7,8 @@ public class EndScreenManager : MonoBehaviour
 {
     public Button titleButton, exitButton;
 
+    public Text scoreText;
+    
     private GameManager _gameManager;
     private AudioManager _audioManager;
     
@@ -14,6 +16,7 @@ public class EndScreenManager : MonoBehaviour
     {
         _audioManager = AudioManager.Instance;
         _gameManager = GameManager.Instance;
+        scoreText.text = "Final Score: " + GameManager.Instance.score;
         titleButton.onClick.AddListener(ToTitle);
         exitButton.onClick.AddListener(ExitGame);
         _audioManager.Stop("LevelMusic");

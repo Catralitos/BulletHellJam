@@ -111,7 +111,7 @@ MonoBehaviour:
   - {fileID: 1969198815784778621, guid: 0aaa19f9f58b13d46a8ac44bb9b7cc2d, type: 3}
   hasInvincibility: 1
   hitMaterial: {fileID: 2100000, guid: 09dbcd79d6bbad54cab7b1e57ccd2df2, type: 2}
-  invincibilityFrames: 120
+  invincibilityFrames: 30
   explosionPrefab: {fileID: 5230982212974725168, guid: 5541365ac0a5b854f87a18c87b5bb5db, type: 3}
   cooldown: 5
   fireTime: 5

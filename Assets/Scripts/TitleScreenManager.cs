@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TitleScreenManager : MonoBehaviour
 {
 
-    public Button mouseButton, controllerButton, fullscreenButton, tutorialButton;
+    public Button mouseButton, controllerButton, fullscreenButton, tutorialButton, exitButton;
 
     private GameManager _gameManager;
     private AudioManager _audioManager;
@@ -19,6 +19,7 @@ public class TitleScreenManager : MonoBehaviour
         controllerButton.onClick.AddListener(StartControllerGame);
         fullscreenButton.onClick.AddListener(ToggleFullscreen);
         tutorialButton.onClick.AddListener(ShowHowToPlay);
+        exitButton.onClick.AddListener(ExitGame);
         _audioManager.Play("TitleScreen");
     }
 
@@ -52,6 +53,11 @@ public class TitleScreenManager : MonoBehaviour
     {
         _audioManager.Stop("TitleScreen");
         SceneManager.LoadScene(4);
+    }
+
+    private void ExitGame()
+    {
+        Application.Quit();
     }
  
 }
