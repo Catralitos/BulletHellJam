@@ -37,17 +37,16 @@ namespace Enemies.Boss
                 Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
                 AudioManager.Instance.Play("BossExplode");
             }
-            //Destroy(gameObject);
-            //Instantiate(explosionPrefab, spawnPos, Quaternion.identity);
-            Invoke(nameof(LoadCredits), 3f);
-            Destroy(gameObject);
-            //LoadCredits();
-            //Debug.Log("Deu invoke");
+            TimeManager.Instance.gameEnded = true;
+            AudioManager.Instance.Stop("LevelMusic");
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            Invoke(nameof(LoadCredits), 2.75f);
         }
 
         private void LoadCredits()
         {
-            //Debug.Log("Abriu funçao");
+            Debug.Log("Chamou Load Credits");
+            //Destroy(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9b2cf12a-fb79-441e-8369-6ccde0345242" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BulletHellJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TitleScreenManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TitleScreenManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Boss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Boss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,17 +68,17 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/DeathScreenManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/WaveSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/BossShoot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Base/EnemyBase.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/ChangeSprite.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EndScreenManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TitleScreenManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Boss/Boss.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rEHt3AVZSNSZDRznuBY9rN7m4A" />
@@ -155,6 +157,7 @@
       <workItem from="1640185653912" duration="11316000" />
       <workItem from="1640877203951" duration="7562000" />
       <workItem from="1640957550425" duration="3090000" />
+      <workItem from="1640967965068" duration="608000" />
     </task>
     <servers />
   </component>

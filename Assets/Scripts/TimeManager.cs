@@ -28,6 +28,8 @@ public class TimeManager : MonoBehaviour
     private float _freezeTimeLeft;
     [HideInInspector] public float timeLeft;
 
+    [HideInInspector] public bool gameEnded;
+
     public static TimeManager Instance;
 
     private void Awake()

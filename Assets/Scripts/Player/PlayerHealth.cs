@@ -38,7 +38,7 @@ namespace Player
 
         public void DoDamage()
         {
-            if (_invincible || _playerMovement.dashing) return;
+            if (_invincible || _playerMovement.dashing || TimeManager.Instance.gameEnded) return;
             if (hitsLeft > 1)
             {
                 AudioManager.Instance.Play("PlayerHit");
