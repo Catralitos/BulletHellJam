@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BossSandbox.unity
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 9fea69932a25c844aa98982ade07446f
+  - enabled: 1
+    path: Assets/Scenes/MainLevel.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 04c06d61c99cc004e8df6388117cf052
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: 8e5659ee6ea1d604b83668e6eb3704ca
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 54108820c59e00e418b1ee5fa9024864
   m_configObjects: {}

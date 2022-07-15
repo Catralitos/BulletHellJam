@@ -1,5 +1,6 @@
 using Extensions;
 using Player;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Bullets
@@ -13,6 +14,8 @@ namespace Bullets
         public LayerMask playerLayer;
         public LayerMask walls;
 
+        public GameObject explosionPrefab;
+        
         public bool destroy;
         public int bulletDamage = 1;
         public float bulletSpeed = 20.0f;
@@ -27,7 +30,7 @@ namespace Bullets
         //so para balas inimigas
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (playerLayer.HasLayer(col.gameObject.layer) && !col.isTrigger)
+            if (playerLayer.HasLayer(col.gameObject.layer) && !col.isTrigger && gameObject.layer != 6)
             {
                 PlayerEntity.Instance.health.DoDamage();
             }
@@ -35,6 +38,7 @@ namespace Bullets
             if (!(walls.HasLayer(col.gameObject.layer) && !col.isTrigger)) return;
             if (!destroy) gameObject.SetActive(false);
             else Destroy(gameObject);
+            Instantiate(explosionPrefab, transform.position, quaternion.identity);
         }
 
         public virtual void OnObjectSpawn()

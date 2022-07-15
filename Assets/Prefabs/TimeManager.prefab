@@ -49,6 +49,7 @@ MonoBehaviour:
   countdownText: {fileID: 0}
   freezeTimeText: {fileID: 0}
   scoreText: {fileID: 0}
+  scorePerFrozenMilliSecond: 100
 --- !u!114 &2196999363345057087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +65,7 @@ MonoBehaviour:
   pools:
   - tag: Cluster
     prefab: {fileID: 7547469033759015976, guid: 79d141971c6a34243811d9cb9698bca4, type: 3}
-    size: 30
+    size: 200
   - tag: Ring
     prefab: {fileID: 7071756471361137827, guid: 12b323be1be67ac48b4c71b65c59c1c1, type: 3}
     size: 200
@@ -92,15 +93,21 @@ MonoBehaviour:
   obstructions:
     serializedVersion: 2
     m_Bits: 1792
+  wavesBeforeAddedBossPool: 10
+  enemyGrowthFactor: 2
   maxNumberEnemies: 10
   minOrbiterRadius: 7
   maxOrbiterRadius: 15
-  circleWidth: 0.01
+  circleWidth: 0.2
   turretToOrbiterRatio: 0.75
   orbiterPrefabs:
-  - {fileID: 275367690692114929, guid: c806aeea1705d4f4091e508d6af552ac, type: 3}
+  - {fileID: 3313820382658989385, guid: 5319921733025434ca0bdf3ea344c01f, type: 3}
   turretPrefabs:
-  - {fileID: 275367690692114929, guid: c806aeea1705d4f4091e508d6af552ac, type: 3}
+  - {fileID: 6971356871908676556, guid: a5a20afc23752bc42b5435783ccc1c38, type: 3}
+  - {fileID: 8041223401913031589, guid: 65140a2fcd557ca4cbccd55bc66e421e, type: 3}
+  - {fileID: 4817231814682843421, guid: 3f22313b6731333419babf39c4e59076, type: 3}
+  - {fileID: 3946699300553461810, guid: 6a53185954154ad45a20224a5522ae3e, type: 3}
+  - {fileID: 3505129393615912544, guid: 9fee44a6281577444884ebd392bcbc1a, type: 3}
   turretPositions:
   - {fileID: 0}
   - {fileID: 0}

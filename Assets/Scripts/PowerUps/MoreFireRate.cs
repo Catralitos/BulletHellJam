@@ -4,7 +4,7 @@ namespace PowerUps
     {
         protected override void ApplyBonus()
         {
-            Player.shooting.currentFireRate *= 2;
+            Player.AddFireRate();
         }
     }
 }

@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using Enemies.Boss;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
     public LayerMask obstructions;
+    public int wavesBeforeAddedBossPool = 10;
+    public float enemyGrowthFactor = 2;
     public int maxNumberEnemies;
     public int minOrbiterRadius = 7;
     public int maxOrbiterRadius = 15;
@@ -52,7 +54,7 @@ public class WaveSpawner : MonoBehaviour
 
         for (var i = 0; i < orbitersToSpawn; i++)
         {
-            var toSpawn = orbiterPrefabs[Random.Range(0, _numTurrets)];
+            var toSpawn = orbiterPrefabs[Random.Range(0, _numOrbiters)];
             var randomXRange = Random.Range(minOrbiterRadius, maxOrbiterRadius + 1);
             randomXRange = Random.Range(0, 2) == 1 ? randomXRange : -randomXRange;
             var spawn = Random.Range(0, 2) == 1 ? new Vector3(0, randomXRange, 0) : new Vector3(randomXRange, 0, 0);
@@ -71,7 +73,11 @@ public class WaveSpawner : MonoBehaviour
         }
 
         _currentWave++;
-        var f = Mathf.Pow(_currentWave, 0.5f);
+        var f = Mathf.Pow(_currentWave, 1.0f / enemyGrowthFactor);
         _currentNumEnemies = Mathf.RoundToInt(Mathf.Clamp(f, 1, maxNumberEnemies));
+        if (_currentWave % wavesBeforeAddedBossPool == 0)
+        {
+            BossEntity.Instance.boss.IncreaseActivePools();
+        }
     }
 }

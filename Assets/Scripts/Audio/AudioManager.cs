@@ -47,6 +47,7 @@ namespace Audio
                 return;
             }
 
+            if (s.IsPlaying()) return;
             s.Play();
         }
 
@@ -58,7 +59,7 @@ namespace Audio
                 Debug.LogWarning("Sound " + soundName + " not found!");
                 return;
             }
-
+            if (!s.IsPlaying()) return;
             s.Stop();
         }
 

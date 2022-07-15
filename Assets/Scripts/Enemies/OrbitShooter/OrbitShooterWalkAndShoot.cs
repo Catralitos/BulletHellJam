@@ -6,7 +6,7 @@ namespace Enemies.OrbitShooter
 {
     public class OrbitShooterWalkAndShoot : OrbitShooterState
     {
-        private float _cooldownLeft;
+        //private float _cooldownLeft;
 
         private Transform _boss;
 
@@ -20,23 +20,31 @@ namespace Enemies.OrbitShooter
         {
             base.StateStart();
             _boss = BossEntity.Instance.gameObject.transform;
-            _cooldownLeft = Target.fireRate;
+            Target.spawner.active = true;
+            //_cooldownLeft = 1 / Target.fireRate;
             //TODO animations
         }
 
         public override void StateUpdate()
         {
-            transform.RotateAround(_boss.position, Vector3.forward, Target.runSpeed * Time.deltaTime);
-            if (_cooldownLeft > 0) _cooldownLeft -= Time.deltaTime;
+            if (_boss == null) return;
+            var bPosition = _boss.position;
+            var oTransform = transform;
+            oTransform.RotateAround(bPosition, Vector3.forward, Target.runSpeed * Time.deltaTime);
+            var offset = bPosition - oTransform.position;
+            oTransform.rotation = Quaternion.LookRotation(Vector3.forward, offset);
+            /*if (_cooldownLeft > 0) _cooldownLeft -= Time.deltaTime;
             else
             {
                 for (var i = 0; i < Target.numBullets; i++)
                 {
+
                     BulletPooler.Instance.SpawnFromPool(Target.poolName, transform.position, Quaternion.identity);
                 }
+                Target.spawner.GetComponent<ClockPatternSpawner>().active = true;
 
-                _cooldownLeft = Target.fireRate;
-            }
+                _cooldownLeft = 1 / Target.fireRate;
+            }*/
         }
     }
 }
