@@ -5,40 +5,125 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class PlayerMovement : MonoBehaviour
     {
+        /// <summary>
+        /// The mouse control
+        /// </summary>
         public bool mouseControl;
+        /// <summary>
+        /// The dash cooldown
+        /// </summary>
         public float dashCooldown = 1f;
+        /// <summary>
+        /// The dash speed
+        /// </summary>
         public float dashSpeed = 10;
+        /// <summary>
+        /// The dash time
+        /// </summary>
         public float dashTime = 0.5f;
 
+        /// <summary>
+        /// The mouse rotation sensitivity
+        /// </summary>
         public float mouseRotationSensitivity = -1.15f;
+        /// <summary>
+        /// The controller pushing sensitivity
+        /// </summary>
         public float controllerPushingSensitivity = 0.75f;
+        /// <summary>
+        /// The controller rotation sensitivity
+        /// </summary>
         public float controllerRotationSensitivity = 1.15f;
 
+        /// <summary>
+        /// The run speed
+        /// </summary>
         public float runSpeed = 20.0f;
+        /// <summary>
+        /// The angle offset
+        /// </summary>
         public int angleOffset = -90;
 
+        /// <summary>
+        /// The animator
+        /// </summary>
         private Animator _animator;
+        /// <summary>
+        /// The camera
+        /// </summary>
         private Camera _camera;
+        /// <summary>
+        /// The game manager
+        /// </summary>
         private GameManager _gameManager;
+        /// <summary>
+        /// The trail renderer
+        /// </summary>
         private TrailRenderer _trailRenderer;
+        /// <summary>
+        /// The player controls
+        /// </summary>
         private PlayerControls _playerControls;
+        /// <summary>
+        /// The player shooting
+        /// </summary>
         private PlayerShooting _playerShooting;
+        /// <summary>
+        /// The body
+        /// </summary>
         private Rigidbody2D _body;
 
+        /// <summary>
+        /// The can dash
+        /// </summary>
         [HideInInspector] public bool canDash;
+        /// <summary>
+        /// The dashing
+        /// </summary>
         public bool dashing;
+        /// <summary>
+        /// The firing
+        /// </summary>
         private bool _firing;
+        /// <summary>
+        /// The angle
+        /// </summary>
         private float _angle;
+        /// <summary>
+        /// The dash cooldown left
+        /// </summary>
         private float _dashCooldownLeft;
+        /// <summary>
+        /// The dash left
+        /// </summary>
         private float _dashLeft;
+        /// <summary>
+        /// The last angle
+        /// </summary>
         private float _lastAngle;
 
+        /// <summary>
+        /// The dash direction
+        /// </summary>
         private Vector2 _dashDirection;
+        /// <summary>
+        /// The aim
+        /// </summary>
         private Vector2 _aim;
+        /// <summary>
+        /// The move
+        /// </summary>
         private Vector2 _move;
 
+        /// <summary>
+        /// Awakes this instance.
+        /// </summary>
         private void Awake()
         {
             _gameManager = GameManager.Instance;
@@ -85,18 +170,27 @@ namespace Player
             }
         }
 
+        /// <summary>
+        /// Called when [enable].
+        /// </summary>
         private void OnEnable()
         {
             if (mouseControl) _playerControls.KeyboardGameplay.Enable();
             else _playerControls.ControllerGameplay.Enable();
         }
 
+        /// <summary>
+        /// Called when [disable].
+        /// </summary>
         private void OnDisable()
         {
             if (mouseControl) _playerControls.KeyboardGameplay.Disable();
             else _playerControls.ControllerGameplay.Disable();
         }
 
+        /// <summary>
+        /// Starts this instance.
+        /// </summary>
         private void Start()
         {
             _trailRenderer = GetComponent<TrailRenderer>();
@@ -108,6 +202,9 @@ namespace Player
             _dashCooldownLeft = 0f;
         }
 
+        /// <summary>
+        /// Updates this instance.
+        /// </summary>
         private void Update()
         {
             _trailRenderer.emitting = dashing;
@@ -127,6 +224,9 @@ namespace Player
             _dashCooldownLeft = dashCooldown;
         }
 
+        /// <summary>
+        /// Fixeds the update.
+        /// </summary>
         private void FixedUpdate()
         {
             _body.velocity = !dashing
@@ -134,6 +234,9 @@ namespace Player
                 : (_dashDirection * 10).normalized * dashSpeed;
         }
 
+        /// <summary>
+        /// Rotates to.
+        /// </summary>
         private void RotateTo()
         {
             if (mouseControl)

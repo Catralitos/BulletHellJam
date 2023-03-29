@@ -3,10 +3,20 @@ using UnityEngine;
 
 namespace Bullets.Spawners
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Bullets.Spawners.Spawner" />
     public class ShockwaveRingSpawner : Spawner
     {
+        /// <summary>
+        /// The directions
+        /// </summary>
         [SerializeField] private int directions = 10;
 
+        /// <summary>
+        /// Spawns this instance.
+        /// </summary>
         public override void Spawn()
         {
             if (!active) return;

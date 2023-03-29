@@ -4,27 +4,58 @@ using UnityEngine;
 
 namespace Bullets.Spawners
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class BulletPooler : MonoBehaviour
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [System.Serializable]
         public class Pool
         {
+            /// <summary>
+            /// The tag
+            /// </summary>
             public string tag;
+            /// <summary>
+            /// The prefab
+            /// </summary>
             public GameObject prefab;
+            /// <summary>
+            /// The size
+            /// </summary>
             public int size;
         }
 
         #region SingleTon
+        /// <summary>
+        /// The instance
+        /// </summary>
         public static BulletPooler Instance;
+        /// <summary>
+        /// Awakes this instance.
+        /// </summary>
         private void Awake()
         {
             Instance = this;
         }
         #endregion
-        
+
+        /// <summary>
+        /// The pools
+        /// </summary>
         public List<Pool> pools;
+        /// <summary>
+        /// The pool dictionary
+        /// </summary>
         private Dictionary<string, Queue<GameObject>> _poolDictionary;
-        
+
+        /// <summary>
+        /// Starts this instance.
+        /// </summary>
         private void Start()
         {
             _poolDictionary = new Dictionary<string, Queue<GameObject>>();
@@ -42,6 +73,15 @@ namespace Bullets.Spawners
             }
         }
 
+        /// <summary>
+        /// Spawns from pool.
+        /// </summary>
+        /// <param name="poolTag">The pool tag.</param>
+        /// <param name="spawnPos">The spawn position.</param>
+        /// <param name="rotation">The rotation.</param>
+        /// <param name="angle">The angle.</param>
+        /// <param name="maxAngleStep">The maximum angle step.</param>
+        /// <returns></returns>
         public GameObject SpawnFromPool (string poolTag, Vector2 spawnPos, Quaternion rotation, float angle = -1.0f, float maxAngleStep = -1.0f)
         {
             if (!_poolDictionary.ContainsKey(poolTag))

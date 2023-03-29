@@ -7,17 +7,35 @@ using Random = UnityEngine.Random;
 
 namespace Enemies.Boss
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Enemies.Boss.BossState" />
     public class BossShoot : BossState
     {
+        /// <summary>
+        /// The cooldown left
+        /// </summary>
         private float _cooldownLeft;
+        /// <summary>
+        /// The current poo list
+        /// </summary>
         private List<String> _currentPooList = new List<string>();
 
+        /// <summary>
+        /// Creates the specified target.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        /// <returns></returns>
         public static BossShoot Create(Boss target)
         {
             var state = BossState.Create<BossShoot>(target);
             return state;
         }
 
+        /// <summary>
+        /// States the start.
+        /// </summary>
         public override void StateStart()
         {
             base.StateStart();
@@ -26,6 +44,9 @@ namespace Enemies.Boss
             //Kill();
         }
 
+        /// <summary>
+        /// States the update.
+        /// </summary>
         public override void StateUpdate()
         {
             /*if (TimeManager.Instance.timeLeft <= 0f)
@@ -41,13 +62,19 @@ namespace Enemies.Boss
             _cooldownLeft -= Time.deltaTime;
         }
 
+        /// <summary>
+        /// Bosses the switch.
+        /// </summary>
         public void BossSwitch()
         {
             Target.clockwise = !Target.clockwise;
             SetActivePools();
             Kill();
         }
-        
+
+        /// <summary>
+        /// Sets the active pools.
+        /// </summary>
         private void SetActivePools()
         {
             _currentPooList.Clear();
@@ -65,6 +92,9 @@ namespace Enemies.Boss
             }
         }
 
+        /// <summary>
+        /// Kills this instance.
+        /// </summary>
         private void Kill()
         {
             AudioManager.Instance.Play("EvilLaugh");
@@ -110,6 +140,10 @@ namespace Enemies.Boss
         }
 
 
+        /// <summary>
+        /// Reshuffles the specified texts.
+        /// </summary>
+        /// <param name="texts">The texts.</param>
         private void Reshuffle(int[] texts)
         {
             // Knuth shuffle algorithm :: courtesy of Wikipedia :)

@@ -3,15 +3,33 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// 
+/// </summary>
 public class EndScreenManager : MonoBehaviour
 {
+    /// <summary>
+    /// The title button
+    /// </summary>
     public Button titleButton, exitButton;
 
+    /// <summary>
+    /// The score text
+    /// </summary>
     public Text scoreText;
-    
+
+    /// <summary>
+    /// The game manager
+    /// </summary>
     private GameManager _gameManager;
+    /// <summary>
+    /// The audio manager
+    /// </summary>
     private AudioManager _audioManager;
-    
+
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     private void Start()
     {
         _audioManager = AudioManager.Instance;
@@ -23,11 +41,17 @@ public class EndScreenManager : MonoBehaviour
         _audioManager.Play("TitleScreen");
     }
 
+    /// <summary>
+    /// Converts to title.
+    /// </summary>
     private void ToTitle()
     {
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Exits the game.
+    /// </summary>
     private void ExitGame()
     {
         Application.Quit();

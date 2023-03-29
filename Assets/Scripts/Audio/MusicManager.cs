@@ -2,10 +2,20 @@ using UnityEngine;
 
 namespace Audio
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class MusicManager : MonoBehaviour
     {
+        /// <summary>
+        /// The audio manager
+        /// </summary>
         private AudioManager _audioManager;
 
+        /// <summary>
+        /// Starts this instance.
+        /// </summary>
         private void Start()
         {
             _audioManager = AudioManager.Instance;

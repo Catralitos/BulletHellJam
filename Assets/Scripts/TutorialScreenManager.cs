@@ -3,21 +3,39 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-    public class TutorialScreenManager: MonoBehaviour
+/// <summary>
+/// 
+/// </summary>
+public class TutorialScreenManager: MonoBehaviour
     {
-        public Button titleButton;
+    /// <summary>
+    /// The title button
+    /// </summary>
+    public Button titleButton;
 
-        private GameManager _gameManager;
-        private AudioManager _audioManager;
-    
-        private void Start()
+    /// <summary>
+    /// The game manager
+    /// </summary>
+    private GameManager _gameManager;
+    /// <summary>
+    /// The audio manager
+    /// </summary>
+    private AudioManager _audioManager;
+
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
+    private void Start()
         {
             _audioManager = AudioManager.Instance;
             _gameManager = GameManager.Instance;
             titleButton.onClick.AddListener(ToTitle);
         }
 
-        private void ToTitle()
+    /// <summary>
+    /// Converts to title.
+    /// </summary>
+    private void ToTitle()
         {
             SceneManager.LoadScene(0);
         }

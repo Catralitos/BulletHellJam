@@ -2,27 +2,84 @@ using System.Collections.Generic;
 using Enemies.Boss;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
 public class WaveSpawner : MonoBehaviour
 {
+    /// <summary>
+    /// The obstructions
+    /// </summary>
     public LayerMask obstructions;
+    /// <summary>
+    /// The waves before added boss pool
+    /// </summary>
     public int wavesBeforeAddedBossPool = 10;
+    /// <summary>
+    /// The enemy growth factor
+    /// </summary>
     public float enemyGrowthFactor = 2;
+    /// <summary>
+    /// The maximum number enemies
+    /// </summary>
     public int maxNumberEnemies;
+    /// <summary>
+    /// The minimum orbiter radius
+    /// </summary>
     public int minOrbiterRadius = 7;
+    /// <summary>
+    /// The maximum orbiter radius
+    /// </summary>
     public int maxOrbiterRadius = 15;
+    /// <summary>
+    /// The circle width
+    /// </summary>
     public float circleWidth = 0.01f;
+    /// <summary>
+    /// The turret to orbiter ratio
+    /// </summary>
     public float turretToOrbiterRatio = 0.75f;
+    /// <summary>
+    /// The orbiter prefabs
+    /// </summary>
     public List<GameObject> orbiterPrefabs;
+    /// <summary>
+    /// The turret prefabs
+    /// </summary>
     public List<GameObject> turretPrefabs;
+    /// <summary>
+    /// The turret positions
+    /// </summary>
     public List<Transform> turretPositions;
 
+    /// <summary>
+    /// The current number enemies
+    /// </summary>
     private int _currentNumEnemies = 2;
+    /// <summary>
+    /// The current wave
+    /// </summary>
     private int _currentWave = 1;
+    /// <summary>
+    /// The number orbiters
+    /// </summary>
     private int _numOrbiters;
+    /// <summary>
+    /// The number orbiter positions
+    /// </summary>
     private int _numOrbiterPositions;
+    /// <summary>
+    /// The number turret positions
+    /// </summary>
     private int _numTurretPositions;
+    /// <summary>
+    /// The number turrets
+    /// </summary>
     private int _numTurrets;
 
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     private void Start()
     {
         _numOrbiters = orbiterPrefabs.Count;
@@ -31,6 +88,9 @@ public class WaveSpawner : MonoBehaviour
         _numTurrets = turretPrefabs.Count;
     }
 
+    /// <summary>
+    /// Spawns the next wave.
+    /// </summary>
     public void SpawnNextWave()
     {
         var turretsToSpawn = Mathf.RoundToInt(turretToOrbiterRatio * _currentNumEnemies);

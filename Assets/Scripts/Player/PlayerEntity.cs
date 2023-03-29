@@ -2,22 +2,53 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class PlayerEntity : MonoBehaviour
     {
 
+        /// <summary>
+        /// The movement
+        /// </summary>
         [HideInInspector] public PlayerMovement movement;
+        /// <summary>
+        /// The health
+        /// </summary>
         [HideInInspector] public PlayerHealth health;
+        /// <summary>
+        /// The shooting
+        /// </summary>
         [HideInInspector] public PlayerShooting shooting;
 
         #region SingleTon
-        
+
+        /// <summary>
+        /// The instance
+        /// </summary>
         public static PlayerEntity Instance;
 
+        /// <summary>
+        /// The score per power up
+        /// </summary>
         public int scorePerPowerUp;
+        /// <summary>
+        /// The maximum power ups
+        /// </summary>
         public int maxPowerUps;
+        /// <summary>
+        /// The fire rates collected
+        /// </summary>
         private int _fireRatesCollected;
+        /// <summary>
+        /// The more bullets collected
+        /// </summary>
         private int _moreBulletsCollected;
-        
+
+        /// <summary>
+        /// Awakes this instance.
+        /// </summary>
         private void Awake()
         {
             Instance = this;
@@ -28,6 +59,9 @@ namespace Player
 
         #endregion
 
+        /// <summary>
+        /// Called when [destroy].
+        /// </summary>
         private void OnDestroy()
         {
             if (Instance == this)
@@ -36,6 +70,9 @@ namespace Player
             }
         }
 
+        /// <summary>
+        /// Adds the bullets.
+        /// </summary>
         public void AddBullets()
         {
             if (_moreBulletsCollected < maxPowerUps)
@@ -47,7 +84,10 @@ namespace Player
                 TimeManager.Instance.IncreaseScore(scorePerPowerUp);
             }
         }
-        
+
+        /// <summary>
+        /// Adds the fire rate.
+        /// </summary>
         public void AddFireRate()
         {
             if (_fireRatesCollected < maxPowerUps)

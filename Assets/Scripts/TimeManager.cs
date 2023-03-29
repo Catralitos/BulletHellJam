@@ -6,37 +6,100 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// 
+/// </summary>
 public class TimeManager : MonoBehaviour
 {
+    /// <summary>
+    /// The boss health text
+    /// </summary>
     public Text bossHealthText;
+    /// <summary>
+    /// The countdown text
+    /// </summary>
     public Text countdownText;
+    /// <summary>
+    /// The freeze time text
+    /// </summary>
     public Text freezeTimeText;
+    /// <summary>
+    /// The score text
+    /// </summary>
     public Text scoreText;
+    /// <summary>
+    /// The health text
+    /// </summary>
     public Text healthText;
+    /// <summary>
+    /// The dash text
+    /// </summary>
     public Text dashText;
 
+    /// <summary>
+    /// The time multiplier
+    /// </summary>
     public float timeMultiplier = 4;
+    /// <summary>
+    /// The score per frozen milli second
+    /// </summary>
     public int scorePerFrozenMilliSecond;
 
+    /// <summary>
+    /// The audio manager
+    /// </summary>
     private AudioManager _audioManager;
+    /// <summary>
+    /// The wave spawner
+    /// </summary>
     private WaveSpawner _waveSpawner;
+    /// <summary>
+    /// The boss
+    /// </summary>
     private Boss _boss;
 
+    /// <summary>
+    /// The time running
+    /// </summary>
     private bool _timeRunning = true;
+    /// <summary>
+    /// The current score
+    /// </summary>
     private int _currentScore = 0;
+    /// <summary>
+    /// The cooldown
+    /// </summary>
     private const float Cooldown = 10f;
+    /// <summary>
+    /// The freeze time left
+    /// </summary>
     private float _freezeTimeLeft;
+    /// <summary>
+    /// The time left
+    /// </summary>
     [HideInInspector] public float timeLeft;
 
+    /// <summary>
+    /// The game ended
+    /// </summary>
     [HideInInspector] public bool gameEnded;
 
+    /// <summary>
+    /// The instance
+    /// </summary>
     public static TimeManager Instance;
 
+    /// <summary>
+    /// Awakes this instance.
+    /// </summary>
     private void Awake()
     {
         Instance = this;
     }
 
+    /// <summary>
+    /// Called when [destroy].
+    /// </summary>
     private void OnDestroy()
     {
         if (Instance == this)
@@ -45,6 +108,9 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     private void Start()
     {
         timeLeft = Cooldown;
@@ -57,6 +123,9 @@ public class TimeManager : MonoBehaviour
         scoreText.text = $"{_currentScore:000000}";
     }
 
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     private void Update()
     {
         _freezeTimeLeft -= Time.deltaTime;
@@ -86,6 +155,10 @@ public class TimeManager : MonoBehaviour
         dashText.gameObject.SetActive(PlayerEntity.Instance.movement.canDash);
     }
 
+    /// <summary>
+    /// Freezes the time.
+    /// </summary>
+    /// <param name="time">The time.</param>
     public void FreezeTime(float time)
     {
         time *= timeMultiplier;
@@ -95,6 +168,10 @@ public class TimeManager : MonoBehaviour
         IncreaseScore(Mathf.RoundToInt(time * scorePerFrozenMilliSecond));
     }
 
+    /// <summary>
+    /// Increases the score.
+    /// </summary>
+    /// <param name="score">The score.</param>
     public void IncreaseScore(int score)
     {
         _currentScore += score;
@@ -102,11 +179,17 @@ public class TimeManager : MonoBehaviour
         GameManager.Instance.score = _currentScore;
     }
 
+    /// <summary>
+    /// Goes to death screen.
+    /// </summary>
     public void GoToDeathScreen()
     {
         Invoke(nameof(ActuallyGoToDeathScreen), 3f);
     }
 
+    /// <summary>
+    /// Actuallies the go to death screen.
+    /// </summary>
     private void ActuallyGoToDeathScreen()
     {
         SceneManager.LoadScene(3);

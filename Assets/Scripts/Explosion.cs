@@ -1,16 +1,28 @@
 using System;
 using UnityEngine;
 
-    public class Explosion : MonoBehaviour
+/// <summary>
+/// 
+/// </summary>
+public class Explosion : MonoBehaviour
     {
-        public float timeActive;
+    /// <summary>
+    /// The time active
+    /// </summary>
+    public float timeActive;
 
-        private void Awake()
+    /// <summary>
+    /// Awakes this instance.
+    /// </summary>
+    private void Awake()
         {
             Invoke(nameof(Terminate), timeActive);
         }
 
-        private void Terminate()
+    /// <summary>
+    /// Terminates this instance.
+    /// </summary>
+    private void Terminate()
         {
             Destroy(gameObject);
         }

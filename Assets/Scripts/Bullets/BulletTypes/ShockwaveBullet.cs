@@ -2,8 +2,16 @@ using UnityEngine;
 
 namespace Bullets.BulletTypes
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Bullets.Bullet" />
     public class ShockwaveBullet : Bullet
     {
+        /// <summary>
+        /// Called when [object spawn].
+        /// </summary>
+        /// <param name="angle">The angle.</param>
         public override void OnObjectSpawn(float angle)
         {
 

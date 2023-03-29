@@ -2,8 +2,17 @@ using UnityEngine;
 
 namespace Bullets.BulletTypes
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Bullets.Bullet" />
     public class ClusterBullet : Bullet
     {
+        /// <summary>
+        /// Called when [object spawn].
+        /// </summary>
+        /// <param name="angle">The angle.</param>
+        /// <param name="maxAngleStep">The maximum angle step.</param>
         public override void OnObjectSpawn(float angle, float maxAngleStep)
         {
 
