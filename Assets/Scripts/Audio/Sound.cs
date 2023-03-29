@@ -3,17 +3,17 @@ using UnityEngine;
 namespace Audio
 {
     /// <summary>
-    /// 
+    /// A serializable class that represents a sound in the inspector
     /// </summary>
     [System.Serializable]
     public class Sound
     {
         /// <summary>
-        /// The name
+        /// The name of the sound
         /// </summary>
         public string name;
         /// <summary>
-        /// The clip
+        /// The audio clip
         /// </summary>
         public AudioClip clip;
 
@@ -28,12 +28,12 @@ namespace Audio
         [Range(0.1f, 3f)]
         public float pitch = 1f;
         /// <summary>
-        /// The loop
+        /// If the playback is supposed to loop or not
         /// </summary>
         public bool loop;
 
         /// <summary>
-        /// The source
+        /// The Unity AudioSource (generated via code in the AudioManager)
         /// </summary>
         [HideInInspector]
         public AudioSource source;
@@ -53,7 +53,7 @@ namespace Audio
         }
 
         /// <summary>
-        /// Plays this instance.
+        /// Plays the audio clip.
         /// </summary>
         public void Play()
         {
@@ -61,16 +61,16 @@ namespace Audio
         }
 
         /// <summary>
-        /// Plays the scheduled.
+        /// Plays the audio clip after a time interval.
         /// </summary>
-        /// <param name="time">The time.</param>
+        /// <param name="time">The time interval.</param>
         public void PlayScheduled(double time)
         {
             source.PlayScheduled(time);
         }
 
         /// <summary>
-        /// Stops this instance.
+        /// Stops the audio clip.
         /// </summary>
         public void Stop()
         {
@@ -78,10 +78,10 @@ namespace Audio
         }
 
         /// <summary>
-        /// Determines whether this instance is playing.
+        /// Determines whether this sound clip is playing.
         /// </summary>
         /// <returns>
-        ///   <c>true</c> if this instance is playing; otherwise, <c>false</c>.
+        ///   <c>true</c> if this sound clip is playing; otherwise, <c>false</c>.
         /// </returns>
         public bool IsPlaying()
         {

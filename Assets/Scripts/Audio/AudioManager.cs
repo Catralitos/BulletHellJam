@@ -4,37 +4,23 @@ using UnityEngine;
 namespace Audio
 {
     /// <summary>
-    /// 
+    /// A class to easily allow GameObjects to play audio
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class AudioManager : MonoBehaviour
     {
-        /// <summary>
-        /// The sounds
-        /// </summary>
-        public Sound[] sounds;
-
-        /// <summary>
-        /// The intro
-        /// </summary>
-        private Sound _intro;
-        /// <summary>
-        /// The loop
-        /// </summary>
-        private Sound _loop;
-
         #region SingleTon
-
+     
         /// <summary>
-        /// Gets the instance.
+        /// Gets the sole instance.
         /// </summary>
         /// <value>
         /// The instance.
         /// </value>
         public static AudioManager Instance { get; private set; }
-
+     
         /// <summary>
-        /// Awakes this instance.
+        /// Awakes this instance (if none has been created).
         /// </summary>
         private void Awake()
         {
@@ -48,20 +34,33 @@ namespace Audio
                 Destroy(gameObject);
                 return;
             }
-
+     
             DontDestroyOnLoad(gameObject);
-
+     
             // Add audio source components
             foreach (Sound s in sounds)
             {
                 s.SetSource(gameObject.AddComponent<AudioSource>());
             }
         }
-
+     
         #endregion
+        /// <summary>
+        /// The sounds this object will play
+        /// </summary>
+        public Sound[] sounds;
 
         /// <summary>
-        /// Plays the specified sound name.
+        /// The intro of the music
+        /// </summary>
+        private Sound _intro;
+        /// <summary>
+        /// The loop of the music
+        /// </summary>
+        private Sound _loop;
+        
+        /// <summary>
+        /// Plays the specified sound.
         /// </summary>
         /// <param name="soundName">Name of the sound.</param>
         public void Play(string soundName)
@@ -78,7 +77,7 @@ namespace Audio
         }
 
         /// <summary>
-        /// Stops the specified sound name.
+        /// Stops the specified sound.
         /// </summary>
         /// <param name="soundName">Name of the sound.</param>
         public void Stop(string soundName)
@@ -94,7 +93,7 @@ namespace Audio
         }
 
         /// <summary>
-        /// Sets the music.
+        /// Plays music. Plays the intro first, and the plays the loop (repeatedly)
         /// </summary>
         /// <param name="introName">Name of the intro.</param>
         /// <param name="loopName">Name of the loop.</param>
@@ -106,10 +105,8 @@ namespace Audio
                 return;
             }
 
-            if (_intro != null)
-                _intro.Stop();
-            if (_loop != null)
-                _loop.Stop();
+            _intro?.Stop();
+            _loop?.Stop();
 
             _intro = Array.Find(sounds, sound => sound.name == introName);
             if (_intro == null)
@@ -132,7 +129,7 @@ namespace Audio
         }
 
         /// <summary>
-        /// Determines whether the specified sound name is playing.
+        /// Determines whether the specified sound is playing.
         /// </summary>
         /// <param name="soundName">Name of the sound.</param>
         /// <returns>
