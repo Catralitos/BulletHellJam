@@ -2,6 +2,7 @@ using System;
 using System.Security.Cryptography;
 using Audio;
 using Extensions;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
