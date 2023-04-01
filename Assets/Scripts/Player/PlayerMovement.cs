@@ -56,10 +56,6 @@ namespace Player
         /// </summary>
         private Animator _animator;
         /// <summary>
-        /// The camera
-        /// </summary>
-        private Camera _camera;
-        /// <summary>
         /// The game manager
         /// </summary>
         private GameManager _gameManager;
@@ -197,7 +193,6 @@ namespace Player
             _trailRenderer = GetComponent<TrailRenderer>();
             _animator = GetComponent<Animator>();
             _body = GetComponent<Rigidbody2D>();
-            _camera = Camera.main;
             _playerShooting = GetComponent<PlayerShooting>();
             canDash = true;
             _dashCooldownLeft = 0f;

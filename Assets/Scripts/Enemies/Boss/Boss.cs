@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Audio;
 using Bullets.Spawners;
@@ -10,17 +9,17 @@ using UnityEngine.SceneManagement;
 namespace Enemies.Boss
 {
     /// <summary>
-    /// 
+    /// The Boss class
     /// </summary>
     /// <seealso cref="Enemies.Base.EnemyBase&lt;Enemies.Boss.Boss&gt;" />
     public class Boss : EnemyBase<Boss>
     {
         /// <summary>
-        /// The clockwise
+        /// If the boss is spinning clockwise
         /// </summary>
         public bool clockwise = true;
         /// <summary>
-        /// The number active pools
+        /// The number of active bullet pools
         /// </summary>
         public int numActivePools = 1;
         /// <summary>
@@ -28,28 +27,30 @@ namespace Enemies.Boss
         /// </summary>
         public float phaseCooldown = 10f;
         /// <summary>
-        /// The rotate speed
+        /// The rotation speed
         /// </summary>
         public float rotateSpeed = 10f;
         /// <summary>
-        /// The spawners
+        /// The bullet spawners
         /// </summary>
         public List<Spawner> spawners;
         /// <summary>
         /// The bullet pools
         /// </summary>
-        public List<String> bulletPools;
+        public List<string> bulletPools;
+        
         /// <summary>
         /// Starts this instance.
         /// </summary>
         protected override void Start()
         {
             base.Start();
-            State = BossShoot.Create(this);
+            //Sets the state as BossShoot
+            state = BossShoot.Create(this);
         }
 
         /// <summary>
-        /// Increases the active pools.
+        /// Increases the number of active bullet pools.
         /// </summary>
         public void IncreaseActivePools()
         {
@@ -58,7 +59,7 @@ namespace Enemies.Boss
         }
 
         /// <summary>
-        /// Dies this instance.
+        /// Kills this instance.
         /// </summary>
         protected override void Die()
         {
@@ -80,8 +81,6 @@ namespace Enemies.Boss
         /// </summary>
         private void LoadCredits()
         {
-            Debug.Log("Chamou Load Credits");
-            //Destroy(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

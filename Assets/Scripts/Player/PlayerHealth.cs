@@ -1,33 +1,25 @@
-using System;
-using System.Security.Cryptography;
 using Audio;
 using Extensions;
 using Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Player
 {
     /// <summary>
-    /// 
+    /// This class handles player health and getting hit
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class PlayerHealth : MonoBehaviour
     {
         /// <summary>
-        /// The damagers
+        /// The layers of the damaging objects
         /// </summary>
         public LayerMask damagers;
         /// <summary>
         /// The explosion prefab
         /// </summary>
         public GameObject explosionPrefab;
-
-
-        /// <summary>
-        /// The player movement
-        /// </summary>
-        private PlayerMovement _playerMovement;
+        
         /// <summary>
         /// The renderer
         /// </summary>
@@ -41,7 +33,7 @@ namespace Player
         /// </summary>
         public Material hitMaterial;
         /// <summary>
-        /// The player hits
+        /// How many hits the player can take before dying
         /// </summary>
         public int playerHits = 5;
         /// <summary>
@@ -49,11 +41,11 @@ namespace Player
         /// </summary>
         public int hitsLeft = 5;
         /// <summary>
-        /// The invincibility frames
+        /// The number of invincibility frames
         /// </summary>
         public int invincibilityFrames;
         /// <summary>
-        /// The invincible
+        /// If the player is currently invincible
         /// </summary>
         private bool _invincible;
 

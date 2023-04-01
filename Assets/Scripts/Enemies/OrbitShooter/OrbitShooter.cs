@@ -1,28 +1,20 @@
-using System;
 using Bullets.Spawners;
 using Enemies.Base;
-using UnityEngine;
 
 namespace Enemies.OrbitShooter
 {
     /// <summary>
-    /// 
+    /// The Orbit Shooter class
     /// </summary>
     /// <seealso cref="Enemies.Base.EnemyBase&lt;Enemies.OrbitShooter.OrbitShooter&gt;" />
     public class OrbitShooter : EnemyBase<OrbitShooter>
     {
-        // public int numBullets;
-        //public float fireRate;
         /// <summary>
         /// The run speed
         /// </summary>
         public float runSpeed;
         /// <summary>
-        /// The pool name
-        /// </summary>
-        public String poolName;
-        /// <summary>
-        /// The spawner
+        /// The bullet spawner
         /// </summary>
         public Spawner spawner;
 
@@ -32,7 +24,8 @@ namespace Enemies.OrbitShooter
         protected override void Start()
         {
             base.Start();
-            State = OrbitShooterWalkAndShoot.Create(this);
+            //Set the state to walk and shoot
+            state = OrbitShooterWalkAndShoot.Create(this);
         }
     }
 }

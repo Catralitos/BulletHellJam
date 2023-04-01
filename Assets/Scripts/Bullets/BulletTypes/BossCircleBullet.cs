@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Bullets.BulletTypes
 {
     /// <summary>
-    /// 
+    /// A class to set the Boss's bullets' trajectory
     /// </summary>
     /// <seealso cref="Bullets.Bullet" />
     public class BossCircleBullet : Bullet

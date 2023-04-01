@@ -1,17 +1,18 @@
+using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Bullets.Spawners
 {
     /// <summary>
-    /// 
+    /// A pool of bullets. Our enemy bullet's aren't destroyed.
+    /// They exist in a queue and are activated/deactivated as needed.
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class BulletPooler : MonoBehaviour
     {
         /// <summary>
-        /// 
+        /// A pool of objects
         /// </summary>
         [System.Serializable]
         public class Pool
@@ -21,7 +22,7 @@ namespace Bullets.Spawners
             /// </summary>
             public string tag;
             /// <summary>
-            /// The prefab
+            /// The prefab of the object
             /// </summary>
             public GameObject prefab;
             /// <summary>
@@ -32,15 +33,21 @@ namespace Bullets.Spawners
 
         #region SingleTon
         /// <summary>
-        /// The instance
+        /// Gets the sole instance.
         /// </summary>
-        public static BulletPooler Instance;
+        /// <value>
+        /// The instance.
+        /// </value>
+        public static BulletPooler Instance  { get; private set; }
         /// <summary>
-        /// Awakes this instance.
+        /// Awakes this instance (if none already exist).
         /// </summary>
         private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
         }
         #endregion
 
@@ -49,7 +56,7 @@ namespace Bullets.Spawners
         /// </summary>
         public List<Pool> pools;
         /// <summary>
-        /// The pool dictionary
+        /// The pool dictionary. One for each type of bullet trajectory.
         /// </summary>
         private Dictionary<string, Queue<GameObject>> _poolDictionary;
 
@@ -96,9 +103,9 @@ namespace Bullets.Spawners
             objToSpawn.transform.rotation = rotation;
 
             IPooledObject pooledObj = objToSpawn.GetComponent<IPooledObject>();
-            if(angle == -1.0f && maxAngleStep == -1.0f)
+            if(Math.Abs(angle - -1.0f) <= 0.001f && Math.Abs(maxAngleStep - -1.0f) <= 0.001f)
                 pooledObj.OnObjectSpawn();
-            else if(maxAngleStep == -1.0f)
+            else if(Math.Abs(maxAngleStep - -1.0f) <= 0.001f)
                 pooledObj.OnObjectSpawn(angle);
             else
                 pooledObj.OnObjectSpawn(angle, maxAngleStep);

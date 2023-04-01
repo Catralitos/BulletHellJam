@@ -6,16 +6,16 @@ using UnityEngine.UI;
 namespace Managers
 {
     /// <summary>
-    /// 
+    /// The death screen manager
     /// </summary>
     public class DeathScreenManager : MonoBehaviour
     {
         /// <summary>
-        /// The audio manager
+        /// The AudioManager
         /// </summary>
         private AudioManager _audioManager;
         /// <summary>
-        /// The retry button
+        /// The various UI buttons
         /// </summary>
         public Button retryButton, titleButton, creditsButton;
 
@@ -35,23 +35,23 @@ namespace Managers
         /// <summary>
         /// Retries the game.
         /// </summary>
-        private void RetryGame()
+        private static void RetryGame()
         {
             SceneManager.LoadScene(1);
         }
 
         /// <summary>
-        /// Backs to title.
+        /// Returns to the title screen.
         /// </summary>
-        private void BackToTitle()
+        private static void BackToTitle()
         {
             SceneManager.LoadScene(0);
         }
 
         /// <summary>
-        /// Goes to credits.
+        /// Goes to the credits.
         /// </summary>
-        private void GoToCredits()
+        private static void GoToCredits()
         {
             SceneManager.LoadScene(2);
         } 

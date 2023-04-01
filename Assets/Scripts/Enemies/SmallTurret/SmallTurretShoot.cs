@@ -1,11 +1,9 @@
-using Bullets.Spawners;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Enemies.SmallTurret
 {
     /// <summary>
-    /// 
+    /// The turrets shooting state
     /// </summary>
     /// <seealso cref="Enemies.SmallTurret.SmallTurretState" />
     public class SmallTurretShoot : SmallTurretState
@@ -16,7 +14,7 @@ namespace Enemies.SmallTurret
         private float _cooldownLeft;
 
         /// <summary>
-        /// Creates the specified target.
+        /// Creates this state at the specified target.
         /// </summary>
         /// <param name="target">The target.</param>
         /// <returns></returns>
@@ -27,25 +25,28 @@ namespace Enemies.SmallTurret
         }
 
         /// <summary>
-        /// States the start.
+        /// Starts the state
         /// </summary>
         public override void StateStart()
         {
             base.StateStart();
-            _cooldownLeft = Target.cooldown;
-            Target.spawner.active = true;
+            _cooldownLeft = target.cooldown;
+            //Activates the bullet spawner
+            target.spawner.active = true;
         }
 
         /// <summary>
-        /// States the update.
+        /// Updates the state
         /// </summary>
         public override void StateUpdate()
         {
             _cooldownLeft -= Time.deltaTime;
             if (_cooldownLeft <= 0f)
             {
-                Target.spawner.active = false;
-                SetState(SmallTurretIdle.Create(Target));
+                //When it's been shooting for the cooldown period
+                //It switches to idle mode
+                target.spawner.active = false;
+                SetState(SmallTurretIdle.Create(target));
             }
         }
     }

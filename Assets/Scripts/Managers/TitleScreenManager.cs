@@ -6,22 +6,22 @@ using UnityEngine.UI;
 namespace Managers
 {
     /// <summary>
-    /// 
+    /// The title screen manager
     /// </summary>
     public class TitleScreenManager : MonoBehaviour
     {
 
         /// <summary>
-        /// The mouse button
+        /// The UI buttons
         /// </summary>
         public Button mouseButton, controllerButton, fullscreenButton, tutorialButton, exitButton;
 
         /// <summary>
-        /// The game manager
+        /// The Game Manager
         /// </summary>
         private GameManager _gameManager;
         /// <summary>
-        /// The audio manager
+        /// The AudioManager
         /// </summary>
         private AudioManager _audioManager;
 
@@ -41,7 +41,7 @@ namespace Managers
         }
 
         /// <summary>
-        /// Toggles the fullscreen.
+        /// Toggles fullscreen.
         /// </summary>
         private void ToggleFullscreen()
         {
@@ -58,7 +58,7 @@ namespace Managers
         }
 
         /// <summary>
-        /// Starts the mouse game.
+        /// Starts the game with mouse controls.
         /// </summary>
         private void StartMouseGame()
         {
@@ -67,7 +67,7 @@ namespace Managers
         }
 
         /// <summary>
-        /// Starts the controller game.
+        /// Starts the game with controller controls.
         /// </summary>
         private void StartControllerGame()
         {
@@ -76,18 +76,17 @@ namespace Managers
         }
 
         /// <summary>
-        /// Shows the how to play.
+        /// Shows the tutorial
         /// </summary>
-        private void ShowHowToPlay()
+        private static void ShowHowToPlay()
         {
-            //_audioManager.Stop("TitleScreen");
             SceneManager.LoadScene(4);
         }
 
         /// <summary>
         /// Exits the game.
         /// </summary>
-        private void ExitGame()
+        private static void ExitGame()
         {
             Application.Quit();
         }

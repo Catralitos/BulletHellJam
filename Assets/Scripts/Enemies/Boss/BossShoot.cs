@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 namespace Enemies.Boss
 {
     /// <summary>
-    /// 
+    /// The boss shooting state
     /// </summary>
     /// <seealso cref="Enemies.Boss.BossState" />
     public class BossShoot : BossState
@@ -39,9 +39,7 @@ namespace Enemies.Boss
         public override void StateStart()
         {
             base.StateStart();
-            _cooldownLeft = Target.phaseCooldown;
-            //SetActivePools();
-            //Kill();
+            _cooldownLeft = target.phaseCooldown;
         }
 
         /// <summary>
@@ -49,36 +47,32 @@ namespace Enemies.Boss
         /// </summary>
         public override void StateUpdate()
         {
-            /*if (TimeManager.Instance.timeLeft <= 0f)
-            {
-                //_cooldownLeft = Target.phaseCooldown;
-                Target.clockwise = !Target.clockwise;
-                SetActivePools();
-                Kill();
-            }*/
 
-            var sign = Target.clockwise ? -1 : 1;
-            transform.Rotate(sign * Target.rotateSpeed * Time.deltaTime * Vector3.forward);
+            var sign = target.clockwise ? -1 : 1;
+            transform.Rotate(sign * target.rotateSpeed * Time.deltaTime * Vector3.forward);
             _cooldownLeft -= Time.deltaTime;
         }
 
         /// <summary>
-        /// Bosses the switch.
+        /// Switches the boss's attack
+        /// He starts spinning in the opposite direction
+        /// Selects the active bullet pools
+        /// And Attacks
         /// </summary>
         public void BossSwitch()
         {
-            Target.clockwise = !Target.clockwise;
+            target.clockwise = !target.clockwise;
             SetActivePools();
-            Kill();
+            Attack();
         }
 
         /// <summary>
-        /// Sets the active pools.
+        /// Sets the active bullet pools, by creating a shuffled list with the options
         /// </summary>
         private void SetActivePools()
         {
             _currentPooList.Clear();
-            int[] poolNumbers = new int[Target.bulletPools.Count];
+            int[] poolNumbers = new int[target.bulletPools.Count];
 
             for (var i = 0; i < poolNumbers.Length; i++)
             {
@@ -86,28 +80,32 @@ namespace Enemies.Boss
             }
 
             Reshuffle(poolNumbers);
-            for (var i = 0; i < Target.numActivePools; i++)
+            for (var i = 0; i < target.numActivePools; i++)
             {
-                _currentPooList.Add(Target.bulletPools[poolNumbers[i]]);
+                _currentPooList.Add(target.bulletPools[poolNumbers[i]]);
             }
         }
 
         /// <summary>
-        /// Kills this instance.
+        /// Boss attack
         /// </summary>
-        private void Kill()
+        private void Attack()
         {
             AudioManager.Instance.Play("EvilLaugh");
-            List<String> pools = Target.bulletPools;
-            List<Spawner> spawners = Target.spawners;
-            for (var i = 0; i < Target.bulletPools.Count; i++)
+            List<string> pools = target.bulletPools;
+            List<Spawner> spawners = target.spawners;
+            //For each of the bullet pools
+            for (var i = 0; i < target.bulletPools.Count; i++)
             {
+                //If it is one of the picked current pools
+                //Set the corresponding bullet spawner to active
                 if (_currentPooList.Contains(pools[i]))
                 {
                     switch (i)
                     {
-                        //isto nao e necessario mas se calhar mais a frente queremos modificar outros parametros
-                        //tal como fazemos no clock
+                        //A switch-case isn't really necessary here
+                        //But given that in case 3, we have to set the value of a parameters
+                        //We did all of them in a switch-case in case another required something like that
                         case 0:
                             ClusterSpawner clusterSpawner = (ClusterSpawner) spawners[i];
                             clusterSpawner.active = true;
@@ -131,6 +129,7 @@ namespace Enemies.Boss
                             break;
                     }
                 }
+                //Else, make them inactive
                 else
                 {
                     var spawner = spawners[i];
@@ -141,18 +140,18 @@ namespace Enemies.Boss
 
 
         /// <summary>
-        /// Reshuffles the specified texts.
+        /// Reshuffles the specified numbers.
         /// </summary>
-        /// <param name="texts">The texts.</param>
-        private void Reshuffle(int[] texts)
+        /// <param name="numbers">The numbers.</param>
+        private static void Reshuffle(IList<int> numbers)
         {
             // Knuth shuffle algorithm :: courtesy of Wikipedia :)
-            for (int t = 0; t < texts.Length; t++)
+            for (int t = 0; t < numbers.Count; t++)
             {
-                int tmp = texts[t];
-                int r = Random.Range(t, texts.Length);
-                texts[t] = texts[r];
-                texts[r] = tmp;
+                int tmp = numbers[t];
+                int r = Random.Range(t, numbers.Count);
+                numbers[t] = numbers[r];
+                numbers[r] = tmp;
             }
         }
     }

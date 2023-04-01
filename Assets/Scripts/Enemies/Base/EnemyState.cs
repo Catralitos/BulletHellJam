@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Enemies.Base
 {
     /// <summary>
-    /// 
+    /// A class that defines the state of an enemy
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public abstract class EnemyState : MonoBehaviour
@@ -17,7 +17,7 @@ namespace Enemies.Base
         public bool Initialized { get; protected set; }
 
         /// <summary>
-        /// States the start.
+        /// Starts the state.
         /// </summary>
         public virtual void StateStart()
         {
@@ -25,59 +25,54 @@ namespace Enemies.Base
         }
 
         /// <summary>
-        /// States the update.
+        /// Updates the state.
         /// </summary>
         public virtual void StateUpdate()
         {
         }
 
         /// <summary>
-        /// States the fixed update.
+        /// Updates the state at a fixed interval.
         /// </summary>
         public virtual void StateFixedUpdate()
-        {
-        }
-
-        /// <summary>
-        /// Called when [get hit].
-        /// </summary>
-        public virtual void OnGetHit()
         {
         }
     }
 
     /// <summary>
-    /// 
+    /// Every EnemyState inherits from this class.
+    /// This class allows it to easily create the new state
+    /// And destroy the old one
     /// </summary>
     /// <typeparam name="TEnemyType">The type of the enemy type.</typeparam>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public abstract class EnemyState<TEnemyType> : EnemyState where TEnemyType : EnemyBase<TEnemyType>
     {
         /// <summary>
-        /// The target
+        /// The target enemy, i.e., the one which the state will be appended to
         /// </summary>
-        protected TEnemyType Target;
+        protected TEnemyType target;
 
         /// <summary>
-        /// Creates the specified target.
+        /// Creates the specified state.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="target">The target.</param>
+        /// <typeparam name="T">The state</typeparam>
+        /// <param name="target">The target enemy.</param>
         /// <returns></returns>
         protected static T Create<T>(TEnemyType target) where T : EnemyState<TEnemyType>
         {
             T state = target.gameObject.AddComponent<T>();
-            state.Target = target;
+            state.target = target;
             return state;
         }
 
         /// <summary>
-        /// Sets the state.
+        /// Sets the state and deletes the old one.
         /// </summary>
         /// <param name="state">The state.</param>
         protected void SetState(EnemyState<TEnemyType> state)
         {
-            Target.SetState(state);
+            target.SetState(state);
             Destroy(this);
         }
     }

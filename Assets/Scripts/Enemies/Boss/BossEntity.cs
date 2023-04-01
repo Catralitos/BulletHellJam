@@ -3,30 +3,37 @@ using UnityEngine;
 namespace Enemies.Boss
 {
     /// <summary>
-    /// 
+    /// A singleton so the Boss (and future related classes) can be easily accessible
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class BossEntity : MonoBehaviour
     {
         /// <summary>
-        /// The boss
+        /// The boss class
         /// </summary>
         [HideInInspector] public Boss boss;
 
         #region SingleTon
 
         /// <summary>
-        /// The instance
+        /// Returns the sole instance
         /// </summary>
-        public static BossEntity Instance;
+        public static BossEntity Instance { get; private set; }
 
         /// <summary>
-        /// Awakes this instance.
+        /// Awakes this instance (if none exist already).
         /// </summary>
         private void Awake()
         {
-            Instance = this;
-            boss = GetComponent<Boss>();
+            if (Instance == null)
+            {
+                Instance = this;
+                boss = GetComponent<Boss>();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
         #endregion
 

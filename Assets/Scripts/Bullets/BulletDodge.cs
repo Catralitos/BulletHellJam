@@ -1,22 +1,20 @@
-using System;
 using Extensions;
 using Managers;
-using Player;
 using UnityEngine;
 
 namespace Bullets
 {
     /// <summary>
-    /// 
+    /// Adds a bullet dodge mechanic.
+    /// When a player grazes a bullet but isn't hit by them
+    /// Time freezes temporarily
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class BulletDodge : MonoBehaviour
     {
-        //isto pode implicar comparar a vida inicial com a final e 
-        //nao congelar o tempo se ele recebeu um hit.
-        //vou assumir por agora que só tens um hit
+
         /// <summary>
-        /// The bullets mask
+        /// The enemy bullets layer
         /// </summary>
         public LayerMask bulletsMask;
 
@@ -26,25 +24,17 @@ namespace Bullets
         public float freezeMultiplier = 3.5f;
 
         /// <summary>
-        /// The time freeze
+        /// How much frozen time is left
         /// </summary>
         private float _timeFreeze;
-
-        /// <summary>
-        /// Called when [trigger enter2 d].
-        /// </summary>
-        /// <param name="other">The other.</param>
-        public void OnTriggerEnter2D(Collider2D other)
-        {
-            if (bulletsMask.HasLayer(other.gameObject.layer)) Debug.Log("Trigger enter");        
-        }
-
+        
         /// <summary>
         /// Called when [trigger stay2 d].
         /// </summary>
         /// <param name="other">The other.</param>
         private void OnTriggerStay2D(Collider2D other)
         {
+            //For each frame, add that time interval to the frozen time
             if (bulletsMask.HasLayer(other.gameObject.layer)) _timeFreeze += Time.deltaTime;;
         }
 
@@ -55,6 +45,7 @@ namespace Bullets
         private void OnTriggerExit2D(Collider2D other)
         {
             if (!bulletsMask.HasLayer(other.gameObject.layer)) return;
+            //When the player exits the bullet's trigger, time is frozen
             Debug.Log("Trigger exited " + _timeFreeze * freezeMultiplier);
             TimeManager.Instance.FreezeTime(_timeFreeze * freezeMultiplier);
             _timeFreeze = 0f;

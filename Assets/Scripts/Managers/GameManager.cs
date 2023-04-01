@@ -1,19 +1,19 @@
-using Audio;
 using UnityEngine;
 
 namespace Managers
 {
     /// <summary>
-    /// 
+    /// The Game Manager
+    /// It keeps track of settings and score between scenes
     /// </summary>
     public class GameManager : MonoBehaviour
     {
         /// <summary>
-        /// The fullscreen
+        /// If the game is full screen
         /// </summary>
-        public bool fullscreen = false;
+        public bool fullscreen;
         /// <summary>
-        /// The mouse controls
+        /// If the game will be played using mouse controls or the controller
         /// </summary>
         public bool mouseControls = true;
 
@@ -22,15 +22,11 @@ namespace Managers
         /// </summary>
         [HideInInspector] public int score;
 
-        /// <summary>
-        /// The audio manager
-        /// </summary>
-        private AudioManager _audioManager;
-
+        
         #region SingleTon
 
         /// <summary>
-        /// Gets the instance.
+        /// Gets the sole instance.
         /// </summary>
         /// <value>
         /// The instance.
@@ -38,15 +34,13 @@ namespace Managers
         public static GameManager Instance { get; private set; }
 
         /// <summary>
-        /// Awakes this instance.
+        /// Awakes this instance (if none exist).
         /// </summary>
         private void Awake()
         {
-            // Needed if we want the audio manager to persist through scenes
             if (Instance == null)
             {
                 Instance = this;
-                _audioManager = AudioManager.Instance;
                 if (fullscreen) Screen.SetResolution(1920, 1080, true, 60);
                 else Screen.SetResolution(1280, 720, false, 60);
             }
@@ -60,22 +54,6 @@ namespace Managers
         }
 
         #endregion
-
-        /// <summary>
-        /// Toggles the fullscreen.
-        /// </summary>
-        public void ToggleFullscreen()
-        {
-            if (fullscreen)
-            {
-                Screen.SetResolution(1280, 720, false, 60);
-                fullscreen = false;
-            }
-            else
-            {
-                Screen.SetResolution(1920, 1080, true, 60);
-                fullscreen = true;
-            }
-        }
+        
     }
 }

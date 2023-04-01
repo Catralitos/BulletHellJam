@@ -1,30 +1,21 @@
 using System;
 using Bullets.Spawners;
 using Enemies.Base;
-using UnityEngine;
 
 namespace Enemies.SmallTurret
 {
     /// <summary>
-    /// 
+    /// The small turret class
     /// </summary>
     /// <seealso cref="Enemies.Base.EnemyBase&lt;Enemies.SmallTurret.SmallTurret&gt;" />
     public class SmallTurret : EnemyBase<SmallTurret>
     {
         /// <summary>
-        /// The cooldown
+        /// The cooldown between shooting
         /// </summary>
         public float cooldown = 5f;
         /// <summary>
-        /// The fire time
-        /// </summary>
-        public float fireTime = 5f;
-        /// <summary>
-        /// The pool name
-        /// </summary>
-        public String poolName;
-        /// <summary>
-        /// The spawner
+        /// The bullet spawner
         /// </summary>
         public Spawner spawner;
 
@@ -34,7 +25,8 @@ namespace Enemies.SmallTurret
         protected override void Start()
         {
             base.Start();
-            State = SmallTurretIdle.Create(this);
+            //Sets the initial state to Idle
+            state = SmallTurretIdle.Create(this);
         }
     }
 }

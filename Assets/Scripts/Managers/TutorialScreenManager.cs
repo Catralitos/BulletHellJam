@@ -6,38 +6,27 @@ using UnityEngine.UI;
 namespace Managers
 {
     /// <summary>
-    /// 
+    /// The tutorial screen manager
     /// </summary>
     public class TutorialScreenManager: MonoBehaviour
     {
         /// <summary>
-        /// The title button
+        /// The return to title screen button
         /// </summary>
         public Button titleButton;
-
-        /// <summary>
-        /// The game manager
-        /// </summary>
-        private GameManager _gameManager;
-        /// <summary>
-        /// The audio manager
-        /// </summary>
-        private AudioManager _audioManager;
-
+        
         /// <summary>
         /// Starts this instance.
         /// </summary>
         private void Start()
         {
-            _audioManager = AudioManager.Instance;
-            _gameManager = GameManager.Instance;
             titleButton.onClick.AddListener(ToTitle);
         }
 
         /// <summary>
-        /// Converts to title.
+        /// Returns to the title screen.
         /// </summary>
-        private void ToTitle()
+        private static void ToTitle()
         {
             SceneManager.LoadScene(0);
         }

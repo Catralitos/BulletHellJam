@@ -8,7 +8,10 @@ using UnityEngine.UI;
 namespace Managers
 {
     /// <summary>
-    /// 
+    /// The Time Manager
+    /// Handles the game HUD
+    /// Also since the game spawns enemies and the boss changes every 10 seconds
+    /// Handles all those changes
     /// </summary>
     public class TimeManager : MonoBehaviour
     {
@@ -47,7 +50,7 @@ namespace Managers
         public int scorePerFrozenMilliSecond;
 
         /// <summary>
-        /// The audio manager
+        /// The AudioManager
         /// </summary>
         private AudioManager _audioManager;
         /// <summary>
@@ -60,42 +63,48 @@ namespace Managers
         private Boss _boss;
 
         /// <summary>
-        /// The time running
+        /// If the time is currently running
         /// </summary>
         private bool _timeRunning = true;
         /// <summary>
         /// The current score
         /// </summary>
-        private int _currentScore = 0;
+        private int _currentScore;
         /// <summary>
-        /// The cooldown
+        /// The cooldown between waves
         /// </summary>
         private const float Cooldown = 10f;
         /// <summary>
-        /// The freeze time left
+        /// The frozen time left
         /// </summary>
         private float _freezeTimeLeft;
         /// <summary>
-        /// The time left
+        /// The time left on the wave
         /// </summary>
         [HideInInspector] public float timeLeft;
 
         /// <summary>
-        /// The game ended
+        /// If the game has ended
         /// </summary>
         [HideInInspector] public bool gameEnded;
 
         /// <summary>
-        /// The instance
+        /// Gets the sole instance.
         /// </summary>
-        public static TimeManager Instance;
+        /// <value>
+        /// The instance.
+        /// </value>
+        public static TimeManager Instance { get; private set; }
 
         /// <summary>
-        /// Awakes this instance.
+        /// Awakes this instance (if none exist).
         /// </summary>
         private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }        
         }
 
         /// <summary>
@@ -129,6 +138,9 @@ namespace Managers
         /// </summary>
         private void Update()
         {
+            //Checks if the player has accumulated frozen time
+            //If so, freeze time, and display how much frozen time is left
+            //Otherwise, let time run
             _freezeTimeLeft -= Time.deltaTime;
             if (_freezeTimeLeft > 0f)
             {
@@ -142,7 +154,9 @@ namespace Managers
                 freezeTimeText.text = "";
             }
 
+            //If time is running, decrease the rimer
             if (_timeRunning) timeLeft -= Time.deltaTime;
+            //If the 10s have passed, spawn the next wave of enemies, and switch the boss' attack
             if (timeLeft < 0)
             {
                 _waveSpawner.SpawnNextWave();
@@ -189,7 +203,7 @@ namespace Managers
         }
 
         /// <summary>
-        /// Actuallies the go to death screen.
+        /// Actually the go to death screen.
         /// </summary>
         private void ActuallyGoToDeathScreen()
         {

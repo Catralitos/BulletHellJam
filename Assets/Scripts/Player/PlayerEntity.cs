@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Player
 {
     /// <summary>
-    /// 
+    /// Singleton to easily access all the player's components
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class PlayerEntity : MonoBehaviour
@@ -23,39 +23,49 @@ namespace Player
         /// </summary>
         [HideInInspector] public PlayerShooting shooting;
 
-        #region SingleTon
-
-        /// <summary>
-        /// The instance
-        /// </summary>
-        public static PlayerEntity Instance;
-
         /// <summary>
         /// The score per power up
         /// </summary>
         public int scorePerPowerUp;
         /// <summary>
-        /// The maximum power ups
+        /// The maximum number of power ups
         /// </summary>
         public int maxPowerUps;
         /// <summary>
-        /// The fire rates collected
+        /// The fire rate increase powerups collected
         /// </summary>
         private int _fireRatesCollected;
         /// <summary>
-        /// The more bullets collected
+        /// The more bullets powerups collected
         /// </summary>
         private int _moreBulletsCollected;
+        
+        #region SingleTon
 
         /// <summary>
-        /// Awakes this instance.
+        /// Gets the sole instance.
+        /// </summary>
+        /// <value>
+        /// The instance.
+        /// </value>
+        public static PlayerEntity Instance { get; private set; }
+
+        /// <summary>
+        /// Awakes this instance (if none exist).
         /// </summary>
         private void Awake()
         {
-            Instance = this;
-            health = GetComponent<PlayerHealth>();
-            shooting = GetComponent<PlayerShooting>();
-            movement = GetComponent<PlayerMovement>();
+            if (Instance == null)
+            {
+                Instance = this;
+                health = GetComponent<PlayerHealth>();
+                shooting = GetComponent<PlayerShooting>();
+                movement = GetComponent<PlayerMovement>();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         #endregion

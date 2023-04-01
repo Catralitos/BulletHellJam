@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Enemies.SmallTurret
 {
     /// <summary>
-    /// 
+    /// The turret's idle state
     /// </summary>
     /// <seealso cref="Enemies.SmallTurret.SmallTurretState" />
     public class SmallTurretIdle : SmallTurretState
@@ -14,9 +14,9 @@ namespace Enemies.SmallTurret
         private float _cooldownLeft;
 
         /// <summary>
-        /// Creates the specified target.
+        /// Creates this state at the target turret.
         /// </summary>
-        /// <param name="target">The target.</param>
+        /// <param name="target">The target turret.</param>
         /// <returns></returns>
         public static SmallTurretIdle Create(SmallTurret target)
         {
@@ -25,23 +25,25 @@ namespace Enemies.SmallTurret
         }
 
         /// <summary>
-        /// States the start.
+        /// Starts the state.
         /// </summary>
         public override void StateStart()
         {
             base.StateStart();
-            _cooldownLeft = Target.cooldown;
+            _cooldownLeft = target.cooldown;
         }
 
         /// <summary>
-        /// States the update.
+        /// Updates the state.
         /// </summary>
         public override void StateUpdate()
         {
             _cooldownLeft -= Time.deltaTime;
+            //When it's been idle for the cooldown period
+            //It switches to shoot mode
             if (_cooldownLeft <= 0f)
             {
-                SetState(SmallTurretShoot.Create(Target));
+                SetState(SmallTurretShoot.Create(target));
             }
         }
 

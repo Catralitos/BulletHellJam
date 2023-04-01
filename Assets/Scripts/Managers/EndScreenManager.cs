@@ -6,26 +6,22 @@ using UnityEngine.UI;
 namespace Managers
 {
     /// <summary>
-    /// 
+    /// The end screen manager
     /// </summary>
     public class EndScreenManager : MonoBehaviour
     {
         /// <summary>
-        /// The title button
+        /// The UI buttons
         /// </summary>
         public Button titleButton, exitButton;
 
         /// <summary>
-        /// The score text
+        /// The final score text
         /// </summary>
         public Text scoreText;
-
+        
         /// <summary>
-        /// The game manager
-        /// </summary>
-        private GameManager _gameManager;
-        /// <summary>
-        /// The audio manager
+        /// The AudioManager
         /// </summary>
         private AudioManager _audioManager;
 
@@ -35,7 +31,6 @@ namespace Managers
         private void Start()
         {
             _audioManager = AudioManager.Instance;
-            _gameManager = GameManager.Instance;
             scoreText.text = "Final Score: " + GameManager.Instance.score;
             titleButton.onClick.AddListener(ToTitle);
             exitButton.onClick.AddListener(ExitGame);
@@ -44,9 +39,9 @@ namespace Managers
         }
 
         /// <summary>
-        /// Converts to title.
+        /// Goes to the title screen
         /// </summary>
-        private void ToTitle()
+        private static void ToTitle()
         {
             SceneManager.LoadScene(0);
         }
@@ -54,7 +49,7 @@ namespace Managers
         /// <summary>
         /// Exits the game.
         /// </summary>
-        private void ExitGame()
+        private static void ExitGame()
         {
             Application.Quit();
         }

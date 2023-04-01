@@ -5,13 +5,13 @@ using UnityEngine;
 namespace Bullets.Spawners
 {
     /// <summary>
-    /// 
+    /// Spawns bullets in a clockwise pattern
     /// </summary>
     /// <seealso cref="Bullets.Spawners.Spawner" />
     public class ClockPatternSpawner : Spawner
     {
         /// <summary>
-        /// The directions
+        /// The number of directions
         /// </summary>
         public int directions = 2;
         /// <summary>
@@ -19,12 +19,12 @@ namespace Bullets.Spawners
         /// </summary>
         [SerializeField] private float angleStep = 0.5f;
         /// <summary>
-        /// The add angle
+        /// The current angle
         /// </summary>
-        private float _addAngle = 0f;
+        private float _addAngle;
 
         /// <summary>
-        /// Spawns this instance.
+        /// Spawns bullets.
         /// </summary>
         public override void Spawn()
         {

@@ -1,7 +1,7 @@
 namespace Bullets
 {
     /// <summary>
-    /// 
+    /// An interface for objects in pools (in our case, enemy bullets)
     /// </summary>
     public interface IPooledObject
     {
