@@ -21,7 +21,7 @@ namespace Player
         public GameObject explosionPrefab;
         
         /// <summary>
-        /// The renderer
+        /// The sprite renderer
         /// </summary>
         private SpriteRenderer _renderer;
         /// <summary>
@@ -54,7 +54,6 @@ namespace Player
         /// </summary>
         private void Start()
         {
-            _playerMovement = GetComponent<PlayerMovement>();
             hitsLeft = playerHits;
             _renderer = GetComponent<SpriteRenderer>();
             _defaultMaterial = _renderer.material;
@@ -66,16 +65,19 @@ namespace Player
         /// <param name="other">The other.</param>
         private void OnCollisionStay2D(Collision2D other)
         {
+            //if the collider hits a damaging item, do damage
             if (!damagers.HasLayer(other.gameObject.layer)) return;
             DoDamage();
         }
 
         /// <summary>
-        /// Does the damage.
+        /// Deals the damage.
         /// </summary>
         public void DoDamage()
         {
-            if (_invincible || _playerMovement.dashing || TimeManager.Instance.gameEnded) return;
+            //If the character is invulnerable return
+            if (_invincible || PlayerEntity.Instance.movement.dashing || TimeManager.Instance.gameEnded) return;
+            //Else deal damage
             if (hitsLeft > 1)
             {
                 AudioManager.Instance.Play("PlayerHit");
@@ -102,7 +104,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Dies this instance.
+        /// Kill the player
         /// </summary>
         private void Die()
         {

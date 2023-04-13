@@ -3,25 +3,25 @@ using UnityEngine;
 namespace Player
 {
     /// <summary>
-    /// 
+    /// The class that handles firing projectiles
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class PlayerShooting : MonoBehaviour
     {
         /// <summary>
-        /// The plus2
+        /// The number of extra bullets powerups the player has
         /// </summary>
         [HideInInspector] public int plus2;
         /// <summary>
-        /// The bullet angle
+        /// The angle of the new bullet streams added with powerups
         /// </summary>
         public float bulletAngle = 30.0f;
         /// <summary>
-        /// The current fire rate
+        /// The number of fire rate powerups the player has
         /// </summary>
         [HideInInspector] public float currentFireRate;
         /// <summary>
-        /// The fire rate
+        /// The current fire rate
         /// </summary>
         public float fireRate = 1.0f;
 
@@ -30,16 +30,16 @@ namespace Player
         /// </summary>
         public GameObject bulletPrefab;
         /// <summary>
-        /// The fire point
+        /// The point where the bullets spawn
         /// </summary>
         public Transform firePoint;
 
         /// <summary>
-        /// The can shoot
+        /// If the player can shoot
         /// </summary>
         private bool _canShoot = true;
         /// <summary>
-        /// The time left
+        /// The time left until the player can shoot
         /// </summary>
         private float _timeLeft;
 
@@ -48,6 +48,7 @@ namespace Player
         /// </summary>
         private void Start()
         {
+            //Sets the powerups to their initial values
             currentFireRate = 1 / fireRate;
             plus2 = 0;
         }
@@ -57,18 +58,21 @@ namespace Player
         /// </summary>
         private void Update()
         {
+            //Check if the player can shoot
             if (_timeLeft < 0) _canShoot = true;
             _timeLeft -= Time.deltaTime;
         }
 
         /// <summary>
-        /// Shoots this instance.
+        /// Shoots bullets
         /// </summary>
         public void Shoot()
         {
             if (!_canShoot) return;
-            var gunPosition = firePoint.position;
+            //If the player can shoot, we spawn a bullet
+            Vector3 gunPosition = firePoint.position;
             Instantiate(bulletPrefab, gunPosition, firePoint.rotation);
+            //If the player has powerups, we need to spawn 2 more bullets per powerup, in increments of bulletAngle
             for (var i = 0; i < plus2; i++)
             {
                 var angles = firePoint.rotation.eulerAngles;
@@ -77,7 +81,7 @@ namespace Player
                 Instantiate(bulletPrefab, gunPosition, Quaternion.Euler(plus));
                 Instantiate(bulletPrefab, gunPosition, Quaternion.Euler(minus));
             }
-
+            //Reset the cooldown
             _canShoot = false;
             _timeLeft = currentFireRate;
         }

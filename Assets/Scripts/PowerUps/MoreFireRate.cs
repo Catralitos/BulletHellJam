@@ -1,7 +1,9 @@
+using Player;
+
 namespace PowerUps
 {
     /// <summary>
-    /// 
+    /// The powerup that increases the player's fire rate
     /// </summary>
     /// <seealso cref="PowerUps.PowerUp" />
     public class MoreFireRate : PowerUp
@@ -11,7 +13,7 @@ namespace PowerUps
         /// </summary>
         protected override void ApplyBonus()
         {
-            Player.AddFireRate();
+            PlayerEntity.Instance.AddFireRate();
         }
     }
 }

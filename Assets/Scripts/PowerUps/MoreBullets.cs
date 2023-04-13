@@ -1,7 +1,9 @@
+using Player;
+
 namespace PowerUps
 {
     /// <summary>
-    /// 
+    /// The powerup that adds 2 more bullet streams to the player
     /// </summary>
     /// <seealso cref="PowerUps.PowerUp" />
     public class MoreBullets : PowerUp
@@ -11,7 +13,7 @@ namespace PowerUps
         /// </summary>
         protected override void ApplyBonus()
         {
-            Player.AddBullets();
+            PlayerEntity.Instance.AddBullets();
         }
     }
 }

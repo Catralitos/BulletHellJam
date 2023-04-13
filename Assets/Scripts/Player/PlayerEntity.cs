@@ -11,15 +11,15 @@ namespace Player
     {
 
         /// <summary>
-        /// The movement
+        /// The PlayerMovement
         /// </summary>
         [HideInInspector] public PlayerMovement movement;
         /// <summary>
-        /// The health
+        /// The PlayerHealth
         /// </summary>
         [HideInInspector] public PlayerHealth health;
         /// <summary>
-        /// The shooting
+        /// The PlayerShooting
         /// </summary>
         [HideInInspector] public PlayerShooting shooting;
 
@@ -82,7 +82,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Adds the bullets.
+        /// Adds a bullet powerup
         /// </summary>
         public void AddBullets()
         {
@@ -97,7 +97,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Adds the fire rate.
+        /// Adds a fire rate power up
         /// </summary>
         public void AddFireRate()
         {
